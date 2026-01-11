@@ -14,7 +14,22 @@ var family = new FamilyTree(document.getElementById("tree"), {
             return "";
         }
     }
+    
 });
+function showModal(m) {
+  document.getElementById("modal-body").innerHTML = `
+    <div style="text-align:center;">
+      <img src="${m.avatar}" alt="${m.firstName}" style="width:100px;height:100px;border-radius:50%;border:2px solid #ff2d2d;box-shadow:0 0 10px rgba(255,45,45,0.6);margin-bottom:10px;">
+    </div>
+    <p><strong>Nom :</strong> ${m.firstName} ${m.lastName}</p>
+    <p><strong>Pseudo Discord :</strong> ${m.discord || "N/A"}</p>
+    <p><strong>Birthday :</strong> ${m.birthday || "N/A"}</p>
+    <p><strong>Rôle :</strong> ${m.role || "N/A"}</p>
+    <p><strong>Réseaux :</strong><br>${m.social?.join("<br>") || "N/A"}</p>
+  `;
+  document.getElementById("modal").style.display = "flex";
+};
+
 family.on('render-link', function (sender, args) {
     var cnodeData = family.get(args.cnode.id);
     var nodeData = family.get(args.node.id);
