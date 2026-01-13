@@ -59,7 +59,7 @@ family.load([
     { id: 17, pids:[15], divorced: [15], name: "Darkrise Hamilton", gender: "male", img: "https://media.discordapp.net/attachments/1459988205058265451/1459989137250586854/IMG_20260111_201520.jpg?ex=69654857&is=6963f6d7&hm=4a6e9132c8e5eac45b5357f28c0f335f2872ee120d8ccc2c23d083c47bd9cdfb&=&format=webp"},
     { id: 18, mid: 12, fid: 13, name: "Awwax Hamilton", gender: "male", img: "https://cdn.discordapp.com/avatars/1248946274259042345/65a8188a80344904becd9fcac9185dc6.webp?size=1024"},
     { id: 24, mid: 23, fid: 22, name: "Mazda Hamilton", gender: "male", img: "https://cdn.discordapp.com/avatars/1350479159092187237/afa07f943d07ede09f5334034af8b0db.webp?size=1024"},
-    { id: 27, mid: 25, fid: 26, name: "Rayla Hamilton", gender: "non-binary", img: "https://cdn.discordapp.com/avatars/1168134288294809631/da08323d0c46a2472ca94509d6aaa2bd.webp?size=1024"},
+    { id: 27, mid: 25, fid: 26, name: "Rayla Hamilton",tags: ["yellow" ] , gender: "non-binary", img: "https://cdn.discordapp.com/avatars/1168134288294809631/da08323d0c46a2472ca94509d6aaa2bd.webp?size=1024"},
     { id: 28, mid: 25, fid: 26, name: "Emilie Hamilton", gender: "female", img: "https://cdn.discordapp.com/avatars/313713012408057856/d4eb2dcc9f824738cfd61e042844990c.webp?size=1024"},
     { id: 29, mid: 25, fid: 26, name: "Byoga Hamilton", gender: "female", img: "https://cdn.discordapp.com/avatars/1394111080212594700/cb894eb4c723968980274af2652af706.webp?size=1024"},
     // 4ème Génération
