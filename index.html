@@ -1,32 +1,212 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HMC | Accueil</title>
-<link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HMC | Accueil</title>
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    main {
+      max-width: 1100px;
+      margin: auto;
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    /* HERO */
+    .hero h2 {
+      font-size: 2.6rem;
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      font-size: 1.15rem;
+      opacity: 0.9;
+      max-width: 700px;
+      margin: auto;
+    }
+
+    .hero-actions {
+      margin-top: 30px;
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 12px 26px;
+      border-radius: 30px;
+      font-weight: 600;
+      text-decoration: none;
+      background: #ff3b3b;
+      color: #fff;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .btn.secondary {
+      background: transparent;
+      border: 2px solid #ff3b3b;
+      color: #ff3b3b;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      background: #e62f2f;
+    }
+
+    /* SECTIONS */
+    section {
+      margin-top: 80px;
+    }
+
+    section h3 {
+      font-size: 2rem;
+      margin-bottom: 30px;
+    }
+
+    /* NEWS */
+    .news-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 25px;
+    }
+
+    .news-card {
+      background: #111;
+      border: 1px solid #222;
+      border-radius: 14px;
+      padding: 25px;
+      text-align: left;
+      transition: box-shadow 0.2s ease, transform 0.2s ease;
+    }
+
+    .news-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 15px 40px rgba(255, 59, 59, 0.15);
+    }
+
+    .news-card span {
+      color: #ff3b3b;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    .news-card h4 {
+      margin: 10px 0;
+      font-size: 1.2rem;
+    }
+
+    .news-card p {
+      font-size: 0.95rem;
+      opacity: 0.85;
+    }
+
+    /* VALEURS */
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 30px;
+    }
+
+    .feature {
+      padding: 20px;
+    }
+
+    .feature h4 {
+      color: #ff3b3b;
+      margin-bottom: 10px;
+    }
+  </style>
 </head>
+
 <body>
+<!-- Header -->
+<div id="header"></div>
 
-<header>
-  <h1>VOXTEK │ By HMC</h1>
-  <p>H.M.C Community • BoucleRP</p>
+<main>
 
-  <nav>
-    <a href="index.html">Accueil</a>
-    <a href="lore.html">Lore</a>
-    <a href="reglement.html">Règlement</a>
-    <a href="staff.html">Staff</a>
-    <a href="rejoindre.html">Rejoindre</a>
-    <a href="family-tree.html">Arbre généalogique</a>
-  </nav>
-</header>
+  <!-- HERO -->
+  <section class="hero">
+    <h2>Bienvenue sur la HMC Community</h2>
+    <p>
+      Plongez dans l’univers <strong>Voxtek</strong>, un serveur RP immersif où
+      chaque décision compte. Écrivez votre histoire, laissez votre trace.
+    </p>
 
-<main style="padding:40px; text-align:center;">
-  <h2>Bienvenue sur HMC Community</h2>
-  <p>Découvrez notre univers RP et explorez notre arbre généalogique.</p>
-  <a href="family.html" style="color:#ff3b3b; font-weight:600;">Voir l'Arbre Familial</a>
+    <div class="hero-actions">
+      <a href="rejoindre.html" class="btn">Rejoindre le serveur</a>
+      <a href="lore.html" class="btn secondary">Découvrir le lore</a>
+    </div>
+  </section>
+
+  <!-- NEWS -->
+  <section>
+    <h3>🔥 Dernières grosses news</h3>
+
+    <div class="news-grid">
+      <div class="news-card">
+        <span>ANNONCE MAJEURE</span>
+        <h4>Ouverture officielle de Voxtek</h4>
+        <p>
+          Le serveur est désormais ouvert ! Rejoignez l’aventure et
+          prenez part aux premières grandes intrigues RP.
+        </p>
+      </div>
+
+      <div class="news-card">
+        <span>MISE À JOUR</span>
+        <h4>Nouveau système de familles</h4>
+        <p>
+          L’arbre généalogique HMC évolue : héritages, alliances
+          et rivalités entrent en jeu.
+        </p>
+      </div>
+
+      <div class="news-card">
+        <span>ÉVÉNEMENT RP</span>
+        <h4>Crise interne chez Voxtek</h4>
+        <p>
+          Des tensions émergent… Des décisions importantes
+          vont bouleverser l’équilibre du serveur.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- POURQUOI NOUS -->
+  <section>
+    <h3>Pourquoi rejoindre Voxtek ?</h3>
+
+    <div class="features">
+      <div class="feature">
+        <h4>🎭 RP immersif</h4>
+        <p>Un univers cohérent, vivant et évolutif basé sur vos actions.</p>
+      </div>
+
+      <div class="feature">
+        <h4>👥 Communauté active</h4>
+        <p>Une communauté soudée, encadrée par la HMC.</p>
+      </div>
+
+      <div class="feature">
+        <h4>📜 Lore profond</h4>
+        <p>Des familles, des intrigues, des choix lourds de conséquences.</p>
+      </div>
+
+      <div class="feature">
+        <h4>⚙️ Projet sérieux</h4>
+        <p>Un serveur suivi, mis à jour et pensé sur le long terme.</p>
+      </div>
+    </div>
+  </section>
+
 </main>
+<!-- Footer -->
+<div id="footer"></div>
+<!-- JS for Header/Footer-->
+<script src="js/layout.js"></script>
 
 </body>
 </html>

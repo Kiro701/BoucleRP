@@ -6,11 +6,17 @@
   font-family: 'Segoe UI', Tahoma, sans-serif;
 }
 
-body {
-  background: radial-gradient(circle at top, #1a0000, #050507 60%);
-  color: #f2f2f2;
-  min-height: 100vh;
+html, body {
+  height: 100%;
   overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(to bottom, #1a0000, #050507); /* dégradé du haut vers le bas */
+  color: #f2f2f2;
+}
+
+body {
+  min-height: 100vh;
 }
 
 /* ===== Header ===== */
@@ -23,7 +29,7 @@ header {
 }
 
 header h1 {
-  font-size: clamp(1.8rem, 4vw, 3rem); /* responsive */
+  font-size: clamp(1.8rem, 4vw, 3rem);
   color: #ff2d2d;
   text-shadow: 0 0 10px rgba(255,45,45,0.8);
   letter-spacing: 0.1em;
@@ -37,7 +43,7 @@ header p {
 
 nav {
   display: flex;
-  flex-wrap: wrap; /* permet aux liens de passer à la ligne sur petits écrans */
+  flex-wrap: wrap;
   justify-content: center;
   gap: 15px;
   margin-top: 25px;
@@ -65,12 +71,22 @@ nav a:hover::after {
   width: 100%;
 }
 
+/* ===== Main ===== */
+main {
+  flex: 1; /* pousse le footer en bas si le contenu est court */
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  padding: 40px 20px;
+}
+
 /* ===== Tree Container ===== */
 #tree-container {
   width: 100%;
-  height: calc(100vh - 260px); /* laisse de la place pour header */
+  height: 100%;
+  min-height: 500px;
   border: 1px solid rgba(255,45,45,0.25);
-  overflow: auto; /* permet scroll si arbre trop large */
+  overflow: auto;
 }
 
 #tree {
@@ -80,7 +96,7 @@ nav a:hover::after {
   transform-origin: top left;
 }
 
-/* ===== FamilyTree Nodes ===== */
+/* ===== Nodes ===== */
 .ftree-node {
   background: rgba(15,15,18,0.9);
   border: 1px solid rgba(255,45,45,0.35);
@@ -92,7 +108,6 @@ nav a:hover::after {
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* Nom */
 .ftree-node strong,
 .ftree-node .field_0 {
   display: block;
@@ -101,13 +116,11 @@ nav a:hover::after {
   color: #ffdddd;
 }
 
-/* Texte secondaire */
 .ftree-node .field_1 {
   font-size: 0.85em;
   color: #ffaaaa;
 }
 
-/* Image */
 .ftree-node img {
   width: 80px;
   height: 80px;
@@ -116,24 +129,22 @@ nav a:hover::after {
   margin-bottom: 6px;
   border: 2px solid rgba(255,45,45,0.6);
   box-shadow: 0 0 8px rgba(255,45,45,0.7);
-  max-width: 100%; /* responsive */
-  height: auto;     /* responsive */
+  max-width: 100%;
+  height: auto;
 }
 
-/* Hover */
 .ftree-node:hover {
   transform: scale(1.06);
   box-shadow: 0 0 18px rgba(255,45,45,0.9);
   border-color: #ff2d2d;
 }
 
-/* ===== Liens ===== */
 .ftree-line {
   stroke: #ff2d2d;
   stroke-width: 2px;
 }
 
-/* ===== Scroll sombre ===== */
+/* ===== Scrollbar ===== */
 #tree::-webkit-scrollbar {
   width: 12px;
 }
@@ -145,42 +156,71 @@ nav a:hover::after {
   border-radius: 6px;
 }
 
-/* ===== Responsive Nodes pour tablettes / mobiles ===== */
+/* ===== Responsive Nodes ===== */
 @media screen and (max-width: 1024px) {
-  .ftree-node {
-    width: 120px;
-    height: 140px;
-    padding: 8px;
-    font-size: 0.9em;
-  }
-  .ftree-node img {
-    width: 60px;
-    height: 60px;
-  }
+  .ftree-node { width: 120px; height: 140px; padding: 8px; font-size: 0.9em; }
+  .ftree-node img { width: 60px; height: 60px; }
 }
-
 @media screen and (max-width: 768px) {
-  .ftree-node {
-    width: 100px;
-    height: 120px;
-    padding: 6px;
-    font-size: 0.8em;
-  }
-  .ftree-node img {
-    width: 50px;
-    height: 50px;
-  }
+  .ftree-node { width: 100px; height: 120px; padding: 6px; font-size: 0.8em; }
+  .ftree-node img { width: 50px; height: 50px; }
+}
+@media screen and (max-width: 480px) {
+  .ftree-node { width: 80px; height: 100px; padding: 4px; font-size: 0.7em; }
+  .ftree-node img { width: 40px; height: 40px; }
 }
 
-@media screen and (max-width: 480px) {
-  .ftree-node {
-    width: 80px;
-    height: 100px;
-    padding: 4px;
-    font-size: 0.7em;
-  }
-  .ftree-node img {
-    width: 40px;
-    height: 40px;
-  }
+/* ===== Footer ===== */
+.site-footer {
+  background: #0b0b0b;
+  border-top: 1px solid #1e1e1e;
+  color: #ccc;
+  font-size: 0.95rem;
+  margin-top: auto; /* pousse le footer en bas */
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 60px 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 40px;
+}
+
+.footer-block h4 {
+  color: #ff3b3b;
+  margin-bottom: 15px;
+  font-size: 1.1rem;
+}
+
+.footer-block p {
+  line-height: 1.6;
+  opacity: 0.85;
+}
+
+.footer-block ul {
+  list-style: none;
+}
+
+.footer-block ul li {
+  margin-bottom: 10px;
+}
+
+.footer-block ul li a {
+  color: #ccc;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-block ul li a:hover {
+  color: #ff3b3b;
+}
+
+.footer-bottom {
+  border-top: 1px solid #1e1e1e;
+  text-align: center;
+  padding: 20px;
+  font-size: 0.85rem;
+  opacity: 0.7;
 }

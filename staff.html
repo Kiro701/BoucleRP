@@ -5,27 +5,327 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>HMC | Staff</title>
 <link rel="stylesheet" href="css/style.css">
+
+<style>
+/* ===== Staff Page ===== */
+.staff-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 40px 20px;
+}
+
+.staff-container h2 {
+  text-align: center;
+  font-size: 2rem;
+  color: #ff3b3b;
+  margin-bottom: 30px;
+  text-shadow: 0 0 10px rgba(255,45,45,0.5);
+}
+
+/* Catégorie de rang */
+.staff-category {
+  margin-bottom: 50px;
+}
+
+.staff-category h3 {
+  font-size: 1.5rem;
+  color: #ff2d2d;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #ff3b3b;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+/* Grid des membres */
+.staff-grid {
+  display: flex;
+  flex-wrap: wrap; /* les cartes passent à la ligne si l'espace est plein */
+  justify-content: center; /* centrer horizontalement */
+  gap: 25px; /* espace entre les cartes */
+}
+
+/* Carte membre carrée */
+.staff-card {
+  background: rgba(15,15,18,0.9);
+  border: 1px solid rgba(255,45,45,0.35);
+  border-radius: 16px;
+  width: 200px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.staff-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(255,45,45,0.7);
+}
+
+/* Image membre */
+.staff-card img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 2px solid #ff2d2d;
+  margin-bottom: 10px;
+  object-fit: cover;
+}
+
+/* Nom et rôle */
+.staff-card h4 {
+  font-size: 1rem;
+  color: #fff;
+  margin-bottom: 5px;
+}
+
+.staff-card p {
+  font-size: 0.85rem;
+  color: #ffaaaa;
+}
+
+/* Glow par rôle */
+.staff-card[data-rank="fondateur"] {
+  position: relative;
+}
+.staff-card[data-rank="fondateur"]::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  padding: 2px;
+  background: linear-gradient(135deg, #d4843d, #ffde90,#d4843d);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+  z-index: 0;
+}
+
+.staff-card[data-rank="co-fondateur"] {
+  position: relative;
+}
+.staff-card[data-rank="co-fondateur"]::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  padding: 2px;
+  background: linear-gradient(135deg, #9e6bff, #9fc1ff,#9fc1ff);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+  z-index: 0;
+}
+
+.staff-card[data-rank="pilier"] {
+  box-shadow: 0 0 12px #ef0004;
+}
+.staff-card[data-rank="resp-admin"] {
+  box-shadow: 0 0 12px rgb(168, 67, 0)
+}
+.staff-card[data-rank="resp-whitelist"] {
+  box-shadow: 0 0 12px rgb(255, 255, 255)
+}
+.staff-card[data-rank="admin"] {
+  box-shadow: 0 0 12px rgb(168, 67, 0);
+}
+.staff-card[data-rank="resp-modo"] {
+  box-shadow: 0 0 12px rgb(113, 54, 138);
+}
+.staff-card[data-rank="resp-helper"] {
+  box-shadow: 0 0 12px rgb(96, 125, 139);
+}
+.staff-card[data-rank="modérateur"] {
+  box-shadow: 0 0 12px rgb(113, 54, 138);
+}
+
+.staff-card[data-rank="community"] {
+  box-shadow: 0 0 12px rgb(196, 201, 206);
+}
+.staff-card[data-rank="helper"] {
+  box-shadow: 0 0 12px rgb(153, 170, 181);
+}
+.staff-card[data-rank="animateur"] {
+  box-shadow: 0 0 12px rgb(255, 221, 0);
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .staff-card {
+    width: 150px;
+    height: 150px;
+  }
+  .staff-card img {
+    width: 60px;
+    height: 60px;
+  }
+  .staff-card h4 {
+    font-size: 0.9rem;
+  }
+  .staff-card p {
+    font-size: 0.75rem;
+  }
+}
+</style>
+
 </head>
 <body>
-<header>
-  <h1>VOXTEK │ By HMC</h1>
-  <p>H.M.C Community • BoucleRP</p>
-  <nav>
-    <a href="index.html">Accueil</a>
-    <a href="lore.html">Lore</a>
-    <a href="reglement.html">Règlement</a>
-    <a href="staff.html">Staff</a>
-    <a href="rejoindre.html">Rejoindre</a>
-    <a href="family-tree.html">Arbre généalogique</a>
-  </nav>
-</header>
-<main style="padding:40px;">
-  <h2>Staff HMC</h2>
-  <ul>
-    <li>Vox – Fondateur</li>
-    <li>Loupinette – Modératrice</li>
-    <li>Aka – Community Manager</li>
-  </ul>
+
+<!-- Header -->
+<div id="header"></div>
+
+<main class="staff-container">
+  <h2>Staff H.M.C Community</h2>
+
+  <!-- Catégorie : Fondateurs -->
+  <div class="staff-category">
+    <h3>Fondateurs</h3>
+    <div class="staff-grid">
+      <div class="staff-card" data-rank="fondateur">
+        <img src="https://cdn.discordapp.com/guilds/1025887285461405817/users/599130976806764545/avatars/81af776ced0427c0fcb0614a58af5cd0.webp?size=1024" alt="Mr.Vox Hamilton">
+        <h4>Mr.Vox Hamilton</h4>
+        <p>Fondateur</p>
+      </div>
+      <div class="staff-card" data-rank="co-fondateur">
+        <img src="https://cdn.discordapp.com/guilds/1025887285461405817/users/699723182793424927/avatars/e4d4e1c68507b74e4afd41db51879b91.webp?size=1024" alt="Kokoro Hamilton">
+        <h4>Kokoro Hamilton</h4>
+        <p>Co-Fondateur</p>
+      </div>
+      <div class="staff-card" data-rank="co-fondateur">
+        <img src="https://cdn.discordapp.com/avatars/784766226324127746/63c5b15ddda8b24f2c0c5b1cbd3de629.webp?size=1024" alt="Powder Hamilton">
+        <h4>💖Mme.Powder Hamilton💖</h4>
+        <p>Co-Fondateur</p>
+      </div>
+    </div>
+  </div>
+  <!-- Catégorie : Pilier -->
+  <div class="staff-category">
+    <h3>Pilier</h3>
+    <div class="staff-grid">
+      <div class="staff-card" data-rank="pilier">
+        <img src="https://cdn.discordapp.com/guilds/1025887285461405817/users/451426602287366174/avatars/b000cf29966d6e99b81322af3e62bc00.webp?size=1024" alt="Chara Hamilton">
+        <h4>Chara (Hamilton)</h4>
+        <p>Pilier</p>
+      </div>
+      <div class="staff-card" data-rank="pilier">
+        <img src="https://cdn.discordapp.com/guilds/1025887285461405817/users/736662177481752607/avatars/1a57c719a3162f8f9d9cab50e06b9a33.webp?size=1024" alt="Angel Hamilton">
+        <h4>⋆𝙰𝚗𝚐𝚎𝚕 ( HAMILTON )</h4>
+        <p>Pilier</p>
+      </div>
+    </div>
+  </div>
+  <!-- Catégorie : Responsable -->
+  <div class="staff-category">
+    <h3>Responsable</h3>
+    <div class="staff-grid">
+      <div class="staff-card" data-rank="resp-admin">
+        <img src="https://cdn.discordapp.com/guilds/1025887285461405817/users/1248946274259042345/avatars/8b387d4ce6ce5bd21f30b22b636bf341.webp?size=1024" alt="Awwax_">
+        <h4>Awwax</h4>
+        <p>Resp. Admin</p>
+      </div>
+      <div class="staff-card" data-rank="resp-whitelist">
+        <img src="https://cdn.discordapp.com/guilds/1025887285461405817/users/947833377896149032/avatars/a_08ac97542009d2c0368a9fac245fac26.gif?size=1024&animated=true" alt="Beca Hamilton">
+        <h4>Beca Hamilton</h4>
+        <p>Resp. Whitelists</p>
+      </div>
+      <div class="staff-card" data-rank="resp-modo">
+        <img src="https://cdn.discordapp.com/avatars/902870493550485504/70f002fe5d0c0ce324482d052ef1ad4f.webp?size=1024" alt="Kiro701">
+        <h4>Kiro701</h4>
+        <p>Resp. Modération</p>
+      </div>
+      <div class="staff-card" data-rank="resp-helper">
+        <img src="https://cdn.discordapp.com/guilds/1025887285461405817/users/1124522983294238821/avatars/217d997a54f63d9dbb3ca61c6570d858.webp?size=1024" alt="Joseph">
+        <h4>Joseph WILFORD</h4>
+        <p>Resp. Helper</p>
+      </div>
+    </div>
+  </div>
+  <!-- Catégorie : Admin -->
+  <div class="staff-category">
+    <h3>administrateur</h3>
+    <div class="staff-grid">
+      <div class="staff-card" data-rank="admin">
+        <img src="https://cdn.discordapp.com/avatars/719519699716538389/2d4950f645b46d7c8000ca321fa3f8c5.webp?size=1024" alt="🇵🇸Aka Hamilton🇵🇸">
+        <h4>🇵🇸Aka Hamilton🇵🇸</h4>
+        <p>Administratrice</p>
+      </div>
+    </div>
+  </div>
+  <!-- Catégorie : Modération -->
+  <div class="staff-category">
+    <h3>Modération</h3>
+    <div class="staff-grid">
+      <div class="staff-card" data-rank="modérateur">
+        <img src="https://cdn.discordapp.com/avatars/869648496049913876/a9d78a17bf638010def6f0b568d3b2aa.webp?size=1024" alt="X-02_slayer_fr">
+        <h4>X-02_slayer_fr</h4>
+        <p>Modérateur</p>
+      </div>
+      <div class="staff-card" data-rank="modérateur">
+        <img src="https://cdn.discordapp.com/guilds/1025887285461405817/users/946068504023556186/avatars/130daf5fd8f2a792f51c47245ca2ff3e.webp?size=1024" alt="𝑆𝐴𝑇𝐴𝑁 𝐻𝐴𝑀𝐼𝐿𝑇𝑂𝑁">
+        <h4>𝑆𝐴𝑇𝐴𝑁 𝐻𝐴𝑀𝐼𝐿𝑇𝑂𝑁</h4>
+        <p>Modérateur</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Catégorie : Community Manager -->
+  <div class="staff-category">
+    <h3>Community Manager</h3>
+    <div class="staff-grid">
+      <div class="staff-card" data-rank="community">
+        <img src="https://cdn.discordapp.com/avatars/728622392456249375/4595010d42cc7c5b45ba033928d0e45c.webp?size=1024" alt="Coccinelle天道虫">
+        <h4>Coccinelle天道虫</h4>
+        <p>Community Manager</p>
+      </div>
+    </div>
+  </div>
+  <!-- Catégorie : Helper -->
+  <div class="staff-category">
+    <h3>Helper</h3>
+    <div class="staff-grid">
+      <div class="staff-card" data-rank="helper">
+        <img src="https://cdn.discordapp.com/avatars/868257732795465789/be238829a22d6f2a93c17e33c2815fc0.webp?size=1024" alt="𝒜𝓇𝓁𝑒𝒸𝒸𝒽𝒾𝓃𝑜 Hamilton">
+        <h4>𝒜𝓇𝓁𝑒𝒸𝒸𝒽𝒾𝓃𝑜 Hamilton</h4>
+        <p>Helpeur</p>
+      </div>
+      <div class="staff-card" data-rank="helper">
+        <img src="https://cdn.discordapp.com/avatars/717697612681052281/4f8fe9e5e9e3515d479b9a62c8a660fb.webp?size=1024" alt="Azraël">
+        <h4>Azraël</h4>
+        <p>Helpeur</p>
+      </div>
+      <div class="staff-card" data-rank="helper">
+        <img src="https://cdn.discordapp.com/avatars/1420717311370989650/f72936c18ba165b0a71e053bcd80a0a5.webp?size=1024" alt="Pauline_86">
+        <h4>Pauline_86</h4>
+        <p>Helpeuse</p>
+      </div>
+      <div class="staff-card" data-rank="helper">
+        <img src="https://cdn.discordapp.com/avatars/477440805343330312/4626b02bd0268d7c08e08cbd5f5e2116.webp?size=1024" alt="xeptio86">
+        <h4>xeptio86</h4>
+        <p>Helpeur</p>
+      </div>
+    </div>
+  </div>
+  <!-- Catégorie : Animateur -->
+  <div class="staff-category">
+    <h3>Animateur</h3>
+    <div class="staff-grid">
+      <div class="staff-card" data-rank="animateur">
+        <img src="https://cdn.discordapp.com/avatars/1211403503713394762/b6dab183957848e82e62e566b5be41b0.webp?size=1024" alt="Minki">
+        <h4>✿✧Minki Hamilton✧✿</h4>
+        <p>Animatrice</p>
+      </div>
+    </div>
+  </div>
 </main>
+
+<!-- Footer -->
+<div id="footer"></div>
+
+<!-- JS for Header/Footer -->
+<script src="js/layout.js"></script>
+
 </body>
 </html>

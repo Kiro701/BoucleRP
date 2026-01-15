@@ -1,28 +1,109 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HMC | Rejoindre</title>
-<link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HMC | Rejoindre & Réseaux Voxtek</title>
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    main {
+      padding: 60px 20px;
+      text-align: center;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .intro {
+      margin-bottom: 40px;
+    }
+
+    .intro h2 {
+      font-size: 2.2rem;
+      margin-bottom: 10px;
+    }
+
+    .intro p {
+      font-size: 1.1rem;
+      opacity: 0.9;
+    }
+
+    .socials {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      margin-top: 40px;
+    }
+
+    .social-card {
+      background: #111;
+      border: 1px solid #222;
+      border-radius: 12px;
+      padding: 25px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .social-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(255, 59, 59, 0.15);
+    }
+
+    .social-card h3 {
+      margin-bottom: 10px;
+      color: #ff3b3b;
+    }
+
+    .social-card p {
+      font-size: 0.95rem;
+      margin-bottom: 15px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      border-radius: 30px;
+      background: #ff3b3b;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.2s ease;
+    }
+
+    .btn:hover {
+      background: #e62f2f;
+    }
+  </style>
 </head>
+
 <body>
-<header>
-  <h1>VOXTEK │ By HMC</h1>
-  <p>H.M.C Community • BoucleRP</p>
-  <nav>
-    <a href="index.html">Accueil</a>
-    <a href="lore.html">Lore</a>
-    <a href="reglement.html">Règlement</a>
-    <a href="staff.html">Staff</a>
-    <a href="rejoindre.html">Rejoindre</a>
-    <a href="family-tree.html">Arbre généalogique</a>
-  </nav>
-</header>
-<main style="padding:40px; text-align:center;">
-  <h2>Rejoindre HMC</h2>
-  <p>Pour rejoindre notre serveur Discord :</p>
-  <a href="https://discord.gg/voxtec" target="_blank" style="color:#ff3b3b; font-weight:600;">Rejoindre Discord</a>
+<!-- Header -->
+<div id="header"></div>
+
+<main>
+  <section class="intro">
+    <h2>Rejoindre la communauté</h2>
+    <p>
+      La <strong>H.M.C</strong> soutient et partage les réseaux officiels de <strong>Voxtek</strong>.
+      Rejoignez-nous pour suivre l’actualité, échanger avec la communauté
+      et participer à l’évolution du projet.
+    </p>
+  </section>
+
+  <section class="socials">
+    <div class="social-card">
+      <h3>Discord</h3>
+      <p>Le cœur de la communauté Voxtek & HMC. Annonces, RP, entraide.</p>
+      <a href="https://discord.gg/voxtec" target="_blank" rel="noopener noreferrer" class="btn">
+        Rejoindre le Discord
+      </a>
+    </div>
+  </section>
 </main>
+
+<!-- Footer -->
+<div id="footer"></div>
+<!-- JS for Header/Footer-->
+<script src="js/layout.js"></script>
+
 </body>
 </html>

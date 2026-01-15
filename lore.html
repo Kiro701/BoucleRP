@@ -1,32 +1,86 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HMC | Accueil</title>
-<link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HMC | Accueil</title>
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    #trollBtn {
+      padding: 15px 30px;
+      font-size: 20px;
+      cursor: pointer;
+      background: #ff3b3b;
+      color: white;
+      border: none;
+      border-radius: 8px;
+    }
+
+    #trollOverlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.9);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+
+    #trollOverlay img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain; /* garde les proportions, pas de déformation */
+    }
+
+  </style>
 </head>
+
 <body>
 
-<header>
-  <h1>VOXTEK │ By HMC</h1>
-  <p>H.M.C Community • BoucleRP</p>
-
-  <nav>
-    <a href="index.html">Accueil</a>
-    <a href="lore.html">Lore</a>
-    <a href="reglement.html">Règlement</a>
-    <a href="staff.html">Staff</a>
-    <a href="rejoindre.html">Rejoindre</a>
-    <a href="family-tree.html">Arbre généalogique</a>
-  </nav>
-</header>
+<!-- Header -->
+<div id="header"></div>
 
 <main style="padding:40px; text-align:center;">
-  <h2>Bienvenue sur HMC Community</h2>
-  <p>Découvrez notre univers RP et explorez notre arbre généalogique.</p>
-  <a href="family.html" style="color:#ff3b3b; font-weight:600;">Voir l'Arbre Familial</a>
+  <h2>🚧 En cours de développement 🚧</h2>
+
+  <p>Voici un bouton</p>
+  
+  <button id="trollBtn">1 simple bouton</button>
 </main>
+
+<!-- Overlay -->
+<div id="trollOverlay">
+  <img src="Image/1389384787999064074.webp" alt="Troll image">
+</div>
+
+<!-- Son -->
+<audio id="trollSound" src="Audio/troll.mp3"></audio>
+
+<!-- Footer -->
+<div id="footer"></div>
+
+<script src="js/layout.js"></script>
+<script>
+  const btn = document.getElementById("trollBtn");
+  const overlay = document.getElementById("trollOverlay");
+  const sound = document.getElementById("trollSound");
+
+  btn.addEventListener("click", () => {
+    overlay.style.display = "flex";
+    sound.currentTime = 0;
+    sound.play();
+  });
+
+  overlay.addEventListener("click", () => {
+    overlay.style.display = "none";
+    sound.pause();
+    sound.currentTime = 0;
+  });
+</script>
 
 </body>
 </html>
