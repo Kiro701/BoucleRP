@@ -40,6 +40,10 @@ FamilyTree.templates.kiro.field_1 =
 FamilyTree.templates.kiro.node = '<use x="0" y="0" xlink:href="#circle" />';
 FamilyTree.templates.kiro.img_0 = 
     '<image preserveAspectRatio="xMidYMid slice" clip-path="url(#kiro_img_0)" xlink:href="{val}" x="6" y="6" width="108" height="108"></image>';
+FamilyTree.templates.kiro.img = `
+  <img src="{val}" crossOrigin="anonymous">
+`;
+
 FamilyTree.templates.kiro.ripple = {
     radius: 60,
     color: "#e6e6e6",
@@ -176,10 +180,10 @@ family.load([
     // 3ème Génération
     { id: 1, mid: 12, fid: 13, pids: [2, 8], divorced: [8], name: "Mr Vox Hamilton", gender: "male", img: "https://cdn.discordapp.com/guilds/1025887285461405817/users/599130976806764545/avatars/81af776ced0427c0fcb0614a58af5cd0.webp?size=1024" },
     { id: 2, pids: [1], name: "Kokoro Hamilton", gender: "male", img: "https://cdn.discordapp.com/guilds/1025887285461405817/users/699723182793424927/avatars/e4d4e1c68507b74e4afd41db51879b91.webp?size=1024" },
-    { id: 8, pids: [1], divorced: [1] , name: "Valéria Hamilton", gender: "female", img: "Image/Profil-Neutre.avif"},
+    { id: 8, pids: [1], divorced: [1] , name: "Valéria Hamilton", gender: "female", img: "https://kiro701.github.io/HMC-Site/Image/Profil-Neutre.avif"},
     { id: 14, mid: 12, fid: 13, name: "Aria Hamilton", gender: "female", img: "https://cdn.discordapp.com/guilds/1025887285461405817/users/1093534349896462476/avatars/5b3b852f7114fca17b48a56219213397.webp?size=1024" },
-    { id: 15, pids:[17], mid: 12, fid: 13, name: "Minki Hamilton", gender: "female", img: "Image/PP/Minki.jpg" },
-    { id: 17, pids:[15], name: "Darkrise Hamilton", gender: "male", img: "Image/PP/Darkrise.jpg"},
+    { id: 15, pids:[17], mid: 12, fid: 13, name: "Minki Hamilton", gender: "female", img: "https://kiro701.github.io/HMC-Site/Image/PP/Minki.jpg" },
+    { id: 17, pids:[15], name: "Darkrise Hamilton", gender: "male", img: "https://kiro701.github.io/HMC-Site/Image/PP/Darkrise.jpg"},
     { id: 18, mid: 12, fid: 13, name: "Awwax Hamilton", gender: "male", img: "https://cdn.discordapp.com/avatars/1248946274259042345/65a8188a80344904becd9fcac9185dc6.webp?size=1024"},
     { id: 24, mid: 23, fid: 22, name: "Boopi Hamilton", gender: "male", Discord: "boopi", img: "https://cdn.discordapp.com/avatars/1350479159092187237/afa07f943d07ede09f5334034af8b0db.webp?size=1024"},
     { id: 27, mid: 25, fid: 26, name: "Rayla Hamilton" ,gender: "non-binary", tags: ["nonbinary"] , img: "https://cdn.discordapp.com/avatars/1168134288294809631/da08323d0c46a2472ca94509d6aaa2bd.webp?size=1024"},
@@ -191,7 +195,7 @@ family.load([
     { id: 5, mid: 1, fid: 2, name: "Mimibi Hamilton", gender: "female", img: "https://cdn.discordapp.com/avatars/873570789675397120/70484f7b4399d9104e94080409f2e893.webp" },
     { id: 6, mid: 1, fid: 2, name: "Gaya Hamilton", gender: "female", img: "https://cdn.discordapp.com/avatars/1286974825964769362/e6b77779bc0f50dd3e563ba22c2ee7f1.webp" },
     { id: 7, mid: 1, fid: 2, name: "Louna Hamilton", gender: "male", img: "https://cdn.discordapp.com/guilds/1025887285461405817/users/947833377896149032/avatars/a_08ac97542009d2c0368a9fac245fac26.gif?size=1024&animated=true" },
-    { id: 9, pids: [33],divorced: [33], mid: 8, fid: 1, name: "Powder Hamilton", gender: "female", img: "Image/PP/Powder.jpg"},
+    { id: 9, pids: [33],divorced: [33], mid: 8, fid: 1, name: "Powder Hamilton", gender: "female", img: "https://kiro701.github.io/HMC-Site/Image/PP/Powder.jpg"},
     { id: 10, mid: 8, fid: 1, name: "Agent Nesquik Hamilton", gender: "male", img: "https://cdn.discordapp.com/guilds/1025887285461405817/users/1200313720195264613/avatars/07aaee22ee1a29abc30323e3b326663f.webp?size=1024"},
     { id: 11, mid : 8, fid: 1 , name: "Meg Hamilton", gender: "male", img: "https://cdn.discordapp.com/avatars/1037398509030219868/948820180a7c9e989255e2cbc95dd701.webp?size=1024"},
     { id: 16, pids: [19], mid : 15, fid: 17, name: "Hugo Hamilton", gender: "male", img: "https://cdn.discordapp.com/avatars/995281733232627752/c127b7ac185664c56751e1b54e67b73f.webp?size=1024"},
