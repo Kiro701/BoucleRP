@@ -40,10 +40,6 @@ FamilyTree.templates.kiro.field_1 =
 FamilyTree.templates.kiro.node = '<use x="0" y="0" xlink:href="#circle" />';
 FamilyTree.templates.kiro.img_0 = 
     '<image preserveAspectRatio="xMidYMid slice" clip-path="url(#kiro_img_0)" xlink:href="{val}" x="6" y="6" width="108" height="108"></image>';
-FamilyTree.templates.kiro.img = `
-  <img src="{val}" crossOrigin="anonymous">
-`;
-
 FamilyTree.templates.kiro.ripple = {
     radius: 60,
     color: "#e6e6e6",
@@ -174,7 +170,7 @@ family.load([
     { id: 13, pids: [12], divorced: [12], name: "Joseph Wilford", gender: "male", img: "https://cdn.discordapp.com/guilds/1025887285461405817/users/1124522983294238821/avatars/217d997a54f63d9dbb3ca61c6570d858.webp?size=1024"},
     { id: 21, fid: 20, mid: 32, name: "Xeptio Hamilton", gender: "male", img: "https://cdn.discordapp.com/avatars/477440805343330312/4626b02bd0268d7c08e08cbd5f5e2116.webp?size=1024"},
     { id: 22, pids: [23], fid: 20, mid: 32, name: "Kaz Hamilton", gender: "male", img: "https://cdn.discordapp.com/avatars/946068504023556186/2f20ee53725638548a2b0a19218408aa.webp?size=1024"},
-    { id: 23, pids: [22], name: "Mai Hamilton", gender: "female", img: "Image/PP/Mai.jpg"},
+    { id: 23, pids: [22], name: "Mai Hamilton", gender: "female", img: "https://kiro701.github.io/HMC-Site/Image/PP/Mai.jpg"},
     { id: 25, fid: 20,mid: 32, pids: [26], name: "Angelo Hamilton", gender: "male", img: "https://cdn.discordapp.com/guilds/1025887285461405817/users/736662177481752607/avatars/1a57c719a3162f8f9d9cab50e06b9a33.webp?size=1024"},
     { id: 26, pids: [25], name: "Chara Hamilton", gender: "male", img: "https://cdn.discordapp.com/guilds/1025887285461405817/users/451426602287366174/avatars/b000cf29966d6e99b81322af3e62bc00.webp?size=1024"},
     // 3ème Génération
