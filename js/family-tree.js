@@ -185,13 +185,15 @@ family.load([
     { id: 5, mid: 1, fid: 2, name: "Mimibi Hamilton", gender: "female", img: "https://cdn.discordapp.com/avatars/873570789675397120/70484f7b4399d9104e94080409f2e893.webp" },
     { id: 6, mid: 1, fid: 2, name: "Gaya Hamilton", gender: "female", img: "https://cdn.discordapp.com/avatars/1286974825964769362/e6b77779bc0f50dd3e563ba22c2ee7f1.webp" },
     { id: 7, mid: 1, fid: 2, name: "Louna Hamilton", gender: "male", img: "https://cdn.discordapp.com/guilds/1025887285461405817/users/947833377896149032/avatars/a_08ac97542009d2c0368a9fac245fac26.gif?size=1024&animated=true" },
-    { id: 9, mid: 8, fid: 1, name: "Powder Hamilton", gender: "female", img: "https://cdn.discordapp.com/avatars/784766226324127746/63c5b15ddda8b24f2c0c5b1cbd3de629.webp?size=1024"},
+    { id: 9, pids: [33], mid: 8, fid: 1, name: "Powder Hamilton", gender: "female", img: "Image/PP/Powder.jpg"},
     { id: 10, mid: 8, fid: 1, name: "Agent Nesquik Hamilton", gender: "male", img: "https://cdn.discordapp.com/guilds/1025887285461405817/users/1200313720195264613/avatars/07aaee22ee1a29abc30323e3b326663f.webp?size=1024"},
     { id: 11, mid : 8, fid: 1, name: "Meg Hamilton", gender: "male", img: "https://cdn.discordapp.com/avatars/1037398509030219868/948820180a7c9e989255e2cbc95dd701.webp?size=1024"},
     { id: 16, pids: [19], mid : 15, fid: 17, name: "Hugo Hamilton", gender: "male", img: "https://cdn.discordapp.com/avatars/995281733232627752/c127b7ac185664c56751e1b54e67b73f.webp?size=1024"},
     { id: 19, pids: [16], name: "Browy Hamilton", gender: "female", img: "https://cdn.discordapp.com/avatars/1266443779892842597/d74259db4228df28fcc23b5b52b35423.webp?size=1024"},
     { id: 31, mid: 15,  name: "Artique Hamilton", gender: "female", img: "https://cdn.discordapp.com/avatars/1092869363041828954/450668fd8aab5f8b2eb86cf32355c98d.webp?size=1024"},
+    { id: 33, pids: [9] , name: "Arlecchino", gender: "female", img: "https://cdn.discordapp.com/avatars/868257732795465789/be238829a22d6f2a93c17e33c2815fc0.webp?size=1024"},
     // 5ème Génération
-    { id: 30, mid: 19, fid: 16, name: "Angie Hamilton", gender: "male", img: "https://cdn.discordapp.com/avatars/1009945595559034950/f0dabe08e5ba281b081aa31e5d360920.webp?size=1024"}
+    { id: 30, mid: 19, fid: 16, name: "Angie Hamilton", gender: "male", img: "https://cdn.discordapp.com/avatars/1009945595559034950/f0dabe08e5ba281b081aa31e5d360920.webp?size=1024"},
+    { id: 34, mid: 9, fid: 33, name: "Carla Hamilton", gender: "female", img: "https://cdn.discordapp.com/avatars/1346991196484145223/19b10aa249769f28680ecaf2e662b436.webp?size=1024"},
 
 ])
