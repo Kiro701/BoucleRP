@@ -1,4 +1,22 @@
-/* ===== Reset & Global ===== */
+/* ======================================================
+   VARIABLES
+====================================================== */
+:root {
+  --primary: #6d5dfc;
+  --primary-light: #9b8cff;
+  --primary-glow: rgba(109, 93, 252, 0.8);
+
+  --bg-top: #0b0e1a;
+  --bg-bottom: #050507;
+
+  --text-main: #f2f2f2;
+  --text-muted: #cfcfcf;
+  --border-soft: rgba(109, 93, 252, 0.25);
+}
+
+/* ======================================================
+   RESET & GLOBAL
+====================================================== */
 * {
   margin: 0;
   padding: 0;
@@ -6,51 +24,118 @@
   font-family: 'Segoe UI', Tahoma, sans-serif;
 }
 
-html, body {
+html {
   height: 100%;
-  overflow-x: hidden;
-  display: flex;
-  flex-direction: column;
-  background: linear-gradient(to bottom, #1a0000, #050507); /* dégradé du haut vers le bas */
-  color: #f2f2f2;
 }
 
 body {
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow-x: hidden;
+  color: #f2f2f2;
 }
 
-/* ===== Header ===== */
+/* CALQUE DEGRADÉ UNIQUE */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+
+  background: linear-gradient(
+    180deg,
+    #0b0e1a 0%,
+    #15184a 50%,
+    #050507 100%
+  );
+
+  background-size: 100% 200%;
+  animation: gradientFlow 20s ease-in-out infinite;
+}
+
+
+/* Animation du dégradé */
+@keyframes gradientFlow {
+  0% {
+    background-position: 50% 0%;
+  }
+  50% {
+    background-position: 50% 100%;
+  }
+  100% {
+    background-position: 50% 0%;
+  }
+}
+
+
+
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+
+  background: linear-gradient(
+    to bottom,
+    var(--bg-top),
+    var(--bg-bottom)
+  );
+
+  color: var(--text-main);
+}
+
+/* ======================================================
+   HEADER
+====================================================== */
 header {
   padding: 40px 20px;
   text-align: center;
-  border-bottom: 1px solid rgba(255,60,60,0.2);
-  background: rgba(10,10,12,0.7);
+  background: rgba(10, 12, 20, 0.7);
   backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--border-soft);
 }
 
 header h1 {
-  font-size: clamp(1.8rem, 4vw, 3rem);
-  color: #ff2d2d;
-  text-shadow: 0 0 10px rgba(255,45,45,0.8);
-  letter-spacing: 0.1em;
+  animation: glowPulse 4s ease-in-out infinite;
 }
+
+@keyframes glowPulse {
+  0% {
+    text-shadow: 0 0 10px rgba(109,93,252,0.4);
+  }
+  50% {
+    text-shadow:
+      0 0 18px rgba(109,93,252,0.9),
+      0 0 32px rgba(109,93,252,0.5);
+  }
+  100% {
+    text-shadow: 0 0 10px rgba(109,93,252,0.4);
+  }
+}
+
 
 header p {
   margin-top: 10px;
-  color: #cfcfcf;
   font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+  color: var(--text-muted);
 }
 
+/* ======================================================
+   NAVIGATION
+====================================================== */
 nav {
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
-  gap: 15px;
+  flex-wrap: wrap;
+  gap: 18px;
   margin-top: 25px;
 }
 
 nav a {
-  color: #ff3b3b;
+  color: var(--primary-light);
   font-weight: 600;
   text-decoration: none;
   position: relative;
@@ -60,10 +145,10 @@ nav a::after {
   content: "";
   position: absolute;
   left: 0;
-  bottom: -5px;
+  bottom: -6px;
   width: 0;
   height: 2px;
-  background: #ff2d2d;
+  background: var(--primary);
   transition: width 0.3s ease;
 }
 
@@ -71,112 +156,131 @@ nav a:hover::after {
   width: 100%;
 }
 
-/* ===== Main ===== */
+/* ======================================================
+   MAIN
+====================================================== */
 main {
-  flex: 1; /* pousse le footer en bas si le contenu est court */
+  flex: 1;
   width: 100%;
   max-width: 1200px;
   margin: auto;
   padding: 40px 20px;
 }
 
-/* ===== Tree Container ===== */
+/* ======================================================
+   TREE CONTAINER
+====================================================== */
 #tree-container {
   width: 100%;
-  height: 100%;
   min-height: 500px;
-  border: 1px solid rgba(255,45,45,0.25);
+  border: 1px solid var(--border-soft);
   overflow: auto;
 }
 
 #tree {
   width: 100%;
   min-width: 300px;
-  background: rgba(5,5,7,0.9);
+  background: rgba(5, 7, 12, 0.9);
   transform-origin: top left;
 }
 
-/* ===== Nodes ===== */
+/* ======================================================
+   FAMILY TREE NODES
+====================================================== */
 .ftree-node {
-  background: rgba(15,15,18,0.9);
-  border: 1px solid rgba(255,45,45,0.35);
+  background: rgba(15, 18, 30, 0.9);
+  border: 1px solid var(--border-soft);
   border-radius: 14px;
   padding: 10px;
   text-align: center;
   color: #fff;
-  box-shadow: 0 0 10px rgba(255,45,45,0.15);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  box-shadow: 0 0 12px rgba(109, 93, 252, 0.15);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
+.ftree-node:hover {
+  transform: scale(1.06);
+  box-shadow: 0 0 20px var(--primary-glow);
+  border-color: var(--primary);
+}
+
+/* Nom */
 .ftree-node strong,
 .ftree-node .field_0 {
   display: block;
   font-size: 1.05em;
   font-weight: bold;
-  color: #ffdddd;
+  color: #e6e4ff;
 }
 
+/* Texte secondaire */
 .ftree-node .field_1 {
   font-size: 0.85em;
-  color: #ffaaaa;
+  color: #bdb8ff;
 }
 
+/* Image */
 .ftree-node img {
   width: 80px;
   height: 80px;
   border-radius: 50%;
   object-fit: cover;
   margin-bottom: 6px;
-  border: 2px solid rgba(255,45,45,0.6);
-  box-shadow: 0 0 8px rgba(255,45,45,0.7);
-  max-width: 100%;
-  height: auto;
+
+  border: 2px solid var(--primary);
+  box-shadow: 0 0 10px var(--primary-glow);
 }
 
-.ftree-node:hover {
-  transform: scale(1.06);
-  box-shadow: 0 0 18px rgba(255,45,45,0.9);
-  border-color: #ff2d2d;
-}
-
+/* Liens entre nodes */
 .ftree-line {
-  stroke: #ff2d2d;
+  stroke: var(--primary);
   stroke-width: 2px;
 }
 
-/* ===== Scrollbar ===== */
+/* ======================================================
+   SCROLLBAR
+====================================================== */
 #tree::-webkit-scrollbar {
   width: 12px;
 }
+
 #tree::-webkit-scrollbar-track {
-  background: #120000;
+  background: #0b0e1a;
 }
+
 #tree::-webkit-scrollbar-thumb {
-  background: #ff2d2d;
+  background: var(--primary);
   border-radius: 6px;
 }
 
-/* ===== Responsive Nodes ===== */
-@media screen and (max-width: 1024px) {
-  .ftree-node { width: 120px; height: 140px; padding: 8px; font-size: 0.9em; }
+/* ======================================================
+   RESPONSIVE NODES
+====================================================== */
+@media (max-width: 1024px) {
+  .ftree-node { width: 120px; height: 140px; font-size: 0.9em; }
   .ftree-node img { width: 60px; height: 60px; }
 }
-@media screen and (max-width: 768px) {
-  .ftree-node { width: 100px; height: 120px; padding: 6px; font-size: 0.8em; }
+
+@media (max-width: 768px) {
+  .ftree-node { width: 100px; height: 120px; font-size: 0.8em; }
   .ftree-node img { width: 50px; height: 50px; }
 }
-@media screen and (max-width: 480px) {
-  .ftree-node { width: 80px; height: 100px; padding: 4px; font-size: 0.7em; }
+
+@media (max-width: 480px) {
+  .ftree-node { width: 80px; height: 100px; font-size: 0.7em; }
   .ftree-node img { width: 40px; height: 40px; }
 }
 
-/* ===== Footer ===== */
+/* ======================================================
+   FOOTER
+====================================================== */
 .site-footer {
-  background: #0b0b0b;
-  border-top: 1px solid #1e1e1e;
+  margin-top: auto;
+  background: #0b0e1a;
+  border-top: 1px solid var(--border-soft);
   color: #ccc;
   font-size: 0.95rem;
-  margin-top: auto; /* pousse le footer en bas */
 }
 
 .footer-container {
@@ -189,9 +293,8 @@ main {
 }
 
 .footer-block h4 {
-  color: #ff3b3b;
+  color: var(--primary);
   margin-bottom: 15px;
-  font-size: 1.1rem;
 }
 
 .footer-block p {
@@ -214,11 +317,11 @@ main {
 }
 
 .footer-block ul li a:hover {
-  color: #ff3b3b;
+  color: var(--primary-light);
 }
 
 .footer-bottom {
-  border-top: 1px solid #1e1e1e;
+  border-top: 1px solid var(--border-soft);
   text-align: center;
   padding: 20px;
   font-size: 0.85rem;

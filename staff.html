@@ -8,6 +8,15 @@
 <link rel="icon" href="Image/logo-bouclerp.webp">
 
 <style>
+  :root {
+  --accent-main: #7a7cff;      /* violet bleuté principal */
+  --accent-soft: #9fa8ff;      /* violet clair */
+  --accent-glow: rgba(122,124,255,0.6);
+  --accent-border: rgba(122,124,255,0.35);
+
+  --text-main: #ffffff;
+  --text-soft: #cfd3ff;
+}
 /* ===== Staff Page ===== */
 .staff-container {
   max-width: 1200px;
@@ -15,161 +24,164 @@
   padding: 40px 20px;
 }
 
+/* Titre principal */
 .staff-container h2 {
   text-align: center;
   font-size: 2rem;
-  color: #ff3b3b;
-  margin-bottom: 30px;
-  text-shadow: 0 0 10px rgba(255,45,45,0.5);
+  color: var(--accent-main);
+  margin-bottom: 40px;
+  text-shadow: 0 0 15px var(--accent-glow);
 }
 
 /* Catégorie de rang */
 .staff-category {
-  margin-bottom: 50px;
+  margin-bottom: 60px;
 }
 
 .staff-category h3 {
   font-size: 1.5rem;
-  color: #ff2d2d;
-  margin-bottom: 20px;
-  border-bottom: 2px solid #ff3b3b;
+  color: var(--accent-soft);
+  margin-bottom: 25px;
+  border-bottom: 2px solid var(--accent-main);
   display: inline-block;
-  padding-bottom: 5px;
+  padding-bottom: 6px;
 }
 
-/* Grid des membres */
+/* Grid */
 .staff-grid {
   display: flex;
-  flex-wrap: wrap; /* les cartes passent à la ligne si l'espace est plein */
-  justify-content: center; /* centrer horizontalement */
-  gap: 25px; /* espace entre les cartes */
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
 }
 
-/* Carte membre carrée */
+/* Carte */
 .staff-card {
-  background: rgba(15,15,18,0.9);
-  border: 1px solid rgba(255,45,45,0.35);
-  border-radius: 16px;
+  background: rgba(15,15,22,0.92);
+  border: 1px solid var(--accent-border);
+  border-radius: 18px;
   width: 200px;
   height: 200px;
+
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 20px;
+
+  padding: 18px;
+  position: relative;
+
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .staff-card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 20px rgba(255,45,45,0.7);
+  transform: translateY(-6px) scale(1.05);
+  box-shadow: 0 0 25px var(--accent-glow);
 }
 
-/* Image membre */
+/* Image */
 .staff-card img {
   width: 80px;
   height: 80px;
   border-radius: 50%;
-  border: 2px solid #ff2d2d;
+  border: 2px solid var(--accent-main);
   margin-bottom: 10px;
   object-fit: cover;
+  box-shadow: 0 0 12px var(--accent-glow);
 }
 
-/* Nom et rôle */
+/* Nom / rôle */
 .staff-card h4 {
   font-size: 1rem;
-  color: #fff;
+  color: var(--text-main);
   margin-bottom: 5px;
 }
 
 .staff-card p {
   font-size: 0.85rem;
-  color: #ffaaaa;
+  color: var(--text-soft);
 }
-
-/* Glow par rôle */
 .staff-card[data-rank="fondateur"] {
-  position: relative;
+  position: relative; 
 }
-.staff-card[data-rank="fondateur"]::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 16px;
-  padding: 2px;
+.staff-card[data-rank="fondateur"]::before { 
+  content: ""; 
+  position: absolute; 
+  inset: 0; 
+  border-radius: 16px; 
+  padding: 2px; 
   background: linear-gradient(135deg, #d4843d, #ffde90,#d4843d);
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); 
   -webkit-mask-composite: destination-out;
-  mask-composite: exclude;
-  z-index: 0;
-}
-
-.staff-card[data-rank="co-fondateur"] {
+  mask-composite: exclude; 
+  z-index: 0; 
+} 
+.staff-card[data-rank="co-fondateur"] { 
   position: relative;
+ } 
+ .staff-card[data-rank="co-fondateur"]::before { 
+  content: ""; 
+  position: absolute; 
+  inset: 0; border-radius: 16px; 
+  padding: 2px; 
+  background: linear-gradient(135deg, #9e6bff, #9fc1ff,#9fc1ff); 
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); 
+  -webkit-mask-composite: destination-out; 
+  mask-composite: exclude; 
+  z-index: 0; 
 }
-.staff-card[data-rank="co-fondateur"]::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 16px;
-  padding: 2px;
-  background: linear-gradient(135deg, #9e6bff, #9fc1ff,#9fc1ff);
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: destination-out;
-  mask-composite: exclude;
-  z-index: 0;
-}
+  .staff-card[data-rank="pilier"] { 
+    box-shadow: 0 0 12px #ef0004; 
+  } 
+  .staff-card[data-rank="resp-admin"] { 
+    box-shadow: 0 0 12px rgb(168, 67, 0) 
+  } 
+  .staff-card[data-rank="resp-whitelist"] { 
+    box-shadow: 0 0 12px rgb(255, 255, 255) 
+  } 
+  .staff-card[data-rank="admin"] { 
+    box-shadow: 0 0 12px rgb(168, 67, 0); 
+  } .staff-card[data-rank="resp-modo"] { 
+    box-shadow: 0 0 12px rgb(113, 54, 138); 
+  } 
+  .staff-card[data-rank="resp-helper"] { 
+    box-shadow: 0 0 12px rgb(96, 125, 139); 
+  } 
+  .staff-card[data-rank="modérateur"] { 
+    box-shadow: 0 0 12px rgb(113, 54, 138); 
+  } 
+  .staff-card[data-rank="community"] { 
+    box-shadow: 0 0 12px rgb(196, 201, 206); 
+  } 
+  .staff-card[data-rank="helper"] { 
+    box-shadow: 0 0 12px rgb(153, 170, 181); 
+  } 
+  .staff-card[data-rank="animateur"] { 
+    box-shadow: 0 0 12px rgb(255, 221, 0); 
+  }
 
-.staff-card[data-rank="pilier"] {
-  box-shadow: 0 0 12px #ef0004;
-}
-.staff-card[data-rank="resp-admin"] {
-  box-shadow: 0 0 12px rgb(168, 67, 0)
-}
-.staff-card[data-rank="resp-whitelist"] {
-  box-shadow: 0 0 12px rgb(255, 255, 255)
-}
-.staff-card[data-rank="admin"] {
-  box-shadow: 0 0 12px rgb(168, 67, 0);
-}
-.staff-card[data-rank="resp-modo"] {
-  box-shadow: 0 0 12px rgb(113, 54, 138);
-}
-.staff-card[data-rank="resp-helper"] {
-  box-shadow: 0 0 12px rgb(96, 125, 139);
-}
-.staff-card[data-rank="modérateur"] {
-  box-shadow: 0 0 12px rgb(113, 54, 138);
-}
-
-.staff-card[data-rank="community"] {
-  box-shadow: 0 0 12px rgb(196, 201, 206);
-}
-.staff-card[data-rank="helper"] {
-  box-shadow: 0 0 12px rgb(153, 170, 181);
-}
-.staff-card[data-rank="animateur"] {
-  box-shadow: 0 0 12px rgb(255, 221, 0);
-}
-
-/* Responsive */
+/* ===== Responsive ===== */
 @media screen and (max-width: 768px) {
   .staff-card {
     width: 150px;
     height: 150px;
   }
+
   .staff-card img {
     width: 60px;
     height: 60px;
   }
+
   .staff-card h4 {
     font-size: 0.9rem;
   }
+
   .staff-card p {
     font-size: 0.75rem;
   }
 }
+
 </style>
 
 </head>
