@@ -2,17 +2,19 @@
    VARIABLES
 ====================================================== */
 :root {
-  --primary: #6d5dfc;
-  --primary-light: #9b8cff;
-  --primary-glow: rgba(109, 93, 252, 0.8);
+  /* Couleurs principales BoucleRP */
+  --primary: #A6038B;        /* Couleur violette vibrante pour boutons, survols, glow */
+  --primary-light: #35278C;  /* Pour hover ou accents secondaires */
+  --primary-glow: rgba(166,3,139,0.8); /* Glow des éléments interactifs */
 
-  --bg-top: #0b0e1a;
-  --bg-bottom: #050507;
+  --bg-top: #194294;         /* Dégradé du haut pour le body */
+  --bg-bottom: #011526;      /* Dégradé du bas pour le body */
 
-  --text-main: #f2f2f2;
-  --text-muted: #cfcfcf;
-  --border-soft: rgba(109, 93, 252, 0.25);
+  --text-main: #F2F1DC;      /* Texte principal, clair */
+  --text-muted: #35278C;     /* Texte secondaire ou info */
+  --border-soft: rgba(166,3,139,0.25); /* Bordures douces pour cartes et nodes */
 }
+
 
 /* ======================================================
    RESET & GLOBAL
