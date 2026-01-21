@@ -74,7 +74,7 @@ FamilyTree.templates.kiro.nodeMenuButton = `<use ${FamilyTree.attr.control_node_
 //JavaScript
 var family = new FamilyTree(document.getElementById("tree"), {
     template: "kiro",
-    mouseScrool: FamilyTree.action.zoom,
+    mouseScroll: FamilyTree.action.zoom,
     mode: "dark",
     editForm: {readOnly: true},
     menu: {
@@ -122,26 +122,37 @@ const T = i18n[LANG];
 /* ================================
    POPUP
 ================================ */
-function showModal(node) {
-    document.getElementById("modal-body").innerHTML = `
-        <div style="text-align:center;">
-            <img src="${node.img || 'Image/Profil-Neutre.avif'}"
-                 style="width:100px;height:100px;border-radius:50%;
-                        border:3px solid ${genderColor(node.gender)};
-                        box-shadow:0 0 12px ${genderColor(node.gender)};
-                        margin-bottom:10px;"
-                 onerror="this.src='Image/Profil-Neutre.avif'">
-        </div>
+function showModal(member) {
 
-        <p><strong>${T.name} :</strong> ${node.name}</p>
-        <p><strong>${T.gender} :</strong> ${T[node.gender] || T.notAvailable}</p>
-        <p><strong>${T.discord} :</strong> ${node.discord || T.notAvailable}</p>
-        <p><strong>${T.birthday} :</strong> ${node.birthday || T.notAvailable}</p>
-        <p><strong>${T.role} :</strong> ${node.role || T.notAvailable}</p>
-        <p><strong>${T.socials} :</strong><br>${node.socials?.join("<br>") || T.notAvailable}</p>
-    `;
+  const genderLabel =
+    member.gender === "male" ? T.male :
+    member.gender === "female" ? T.female :
+    member.gender === "non-binary" ? T["non-binary"] :
+    T.notAvailable;
 
-    document.getElementById("modal").style.display = "flex";
+  let divorcedNames = T.notAvailable;
+  if (member.divorced?.length) {
+    divorcedNames = member.divorced.map(id => {
+      const ex = family.get(id);
+      return ex ? ex.name : "Unknown";
+    }).join("<br>");
+  }
+
+  document.getElementById("modal-body").innerHTML = `
+    <div style="text-align:center;">
+      <img src="${member.img}" style="width:110px;height:110px;border-radius:50%;border:3px solid #ff2d2d;margin-bottom:12px;">
+    </div>
+
+    <p><strong>${T.name} :</strong> ${member.name}</p>
+    <p><strong>${T.discord} :</strong> ${member.discord || T.notAvailable}</p>
+    <p><strong>${T.birthday} :</strong> ${member.birthday || T.notAvailable}</p>
+    <p><strong>${T.role} :</strong> ${member.role || T.notAvailable}</p>
+    <p><strong>${T.gender} :</strong> ${genderLabel}</p>
+    <p><strong>${T.socials} :</strong><br>${member.social?.join("<br>") || T.notAvailable}</p>
+    <p><strong>Ex :</strong><br>${divorcedNames}</p>
+  `;
+
+  document.getElementById("modal").style.display = "flex";
 }
 
 
@@ -172,7 +183,7 @@ family.load([
     { id: 22, pids: [23], fid: 20, mid: 32, name: "Kaz Hamilton", gender: "male", img: "https://cdn.discordapp.com/avatars/946068504023556186/2f20ee53725638548a2b0a19218408aa.webp?size=1024"},
     { id: 23, pids: [22], name: "Mai Hamilton", gender: "female", img: "https://kiro701.github.io/HMC-Site/Image/PP/Mai.jpg"},
     { id: 25, fid: 20,mid: 32, pids: [26], name: "Angelo Hamilton", gender: "male", img: "https://cdn.discordapp.com/guilds/1025887285461405817/users/736662177481752607/avatars/1a57c719a3162f8f9d9cab50e06b9a33.webp?size=1024"},
-    { id: 26, pids: [25], name: "Chara Hamilton", gender: "male", img: "https://cdn.discordapp.com/guilds/1025887285461405817/users/451426602287366174/avatars/b000cf29966d6e99b81322af3e62bc00.webp?size=1024"},
+    { id: 26, pids: [25], name: "Chara Hamilton", gender: "non-binary",tags: ["nonbinary"], img: "https://cdn.discordapp.com/guilds/1025887285461405817/users/451426602287366174/avatars/b000cf29966d6e99b81322af3e62bc00.webp?size=1024"},
     // 3ème Génération
     { id: 1, mid: 12, fid: 13, pids: [2, 8], divorced: [8], name: "Mr Vox Hamilton", gender: "male", img: "https://cdn.discordapp.com/guilds/1025887285461405817/users/599130976806764545/avatars/81af776ced0427c0fcb0614a58af5cd0.webp?size=1024" },
     { id: 2, pids: [1], name: "Kokoro Hamilton", gender: "male", img: "https://cdn.discordapp.com/guilds/1025887285461405817/users/699723182793424927/avatars/e4d4e1c68507b74e4afd41db51879b91.webp?size=1024" },
@@ -181,12 +192,12 @@ family.load([
     { id: 15, pids:[17], mid: 12, fid: 13, name: "Minki Hamilton", gender: "female", img: "https://kiro701.github.io/HMC-Site/Image/PP/Minki.jpg" },
     { id: 17, pids:[15], name: "Darkrise Hamilton", gender: "male", img: "https://kiro701.github.io/HMC-Site/Image/PP/Darkrise.jpg"},
     { id: 18, mid: 12, fid: 13, name: "Awwax Hamilton", gender: "male", img: "https://cdn.discordapp.com/avatars/1248946274259042345/65a8188a80344904becd9fcac9185dc6.webp?size=1024"},
-    { id: 24, mid: 23, fid: 22, name: "Boopi Hamilton", gender: "male", Discord: "boopi", img: "https://cdn.discordapp.com/avatars/1350479159092187237/afa07f943d07ede09f5334034af8b0db.webp?size=1024"},
+    { id: 24, mid: 23, fid: 22, name: "Boopi Hamilton", gender: "male", discord: "boopi", img: "https://cdn.discordapp.com/avatars/1350479159092187237/afa07f943d07ede09f5334034af8b0db.webp?size=1024"},
     { id: 27, mid: 25, fid: 26, name: "Rayla Hamilton" ,gender: "non-binary", tags: ["nonbinary"] , img: "https://cdn.discordapp.com/avatars/1168134288294809631/da08323d0c46a2472ca94509d6aaa2bd.webp?size=1024"},
     { id: 28, mid: 25, fid: 26, name: "Emilie Hamilton", gender: "female", img: "https://cdn.discordapp.com/avatars/313713012408057856/d4eb2dcc9f824738cfd61e042844990c.webp?size=1024"},
     { id: 29, mid: 25, fid: 26, name: "Byoga Hamilton", gender: "female", img: "https://cdn.discordapp.com/avatars/1394111080212594700/cb894eb4c723968980274af2652af706.webp?size=1024"},
     // 4ème Génération
-    { id: 3, mid: 1, fid: 2, name: "Kiro Hamilton", gender: "male", Discord: "Kiro701 (ptitleo2009)", img: "https://cdn.discordapp.com/avatars/902870493550485504/70f002fe5d0c0ce324482d052ef1ad4f.webp" },
+    { id: 3, mid: 1, fid: 2, name: "Kiro Hamilton", gender: "male", discord: "Kiro701 (ptitleo2009)", img: "https://cdn.discordapp.com/avatars/902870493550485504/70f002fe5d0c0ce324482d052ef1ad4f.webp" },
     { id: 4, mid: 1, fid: 2, name: "Velvette Hamilton", gender: "female", img: "https://cdn.discordapp.com/avatars/1254016482409582602/e4065c760b3c4d7b2c045b021c6face6.webp" },
     { id: 5, mid: 1, fid: 2, name: "Mimibi Hamilton", gender: "female", img: "https://cdn.discordapp.com/avatars/873570789675397120/70484f7b4399d9104e94080409f2e893.webp" },
     { id: 6, mid: 1, fid: 2, name: "Gaya Hamilton", gender: "female", img: "https://cdn.discordapp.com/avatars/1286974825964769362/e6b77779bc0f50dd3e563ba22c2ee7f1.webp" },
