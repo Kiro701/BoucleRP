@@ -183,6 +183,60 @@
       justify-content: center;
       flex-wrap: wrap;
     }
+    /* ===== MINI GALERIE INDEX ===== */
+    .home-gallery {
+      margin-top: 80px;
+      text-align: center;
+    }
+
+    .home-gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 16px;
+      margin-top: 30px;
+    }
+
+    .home-gallery-card {
+      background: rgba(15, 18, 30, 0.9);
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid var(--border-soft);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .home-gallery-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 0 18px var(--primary-glow);
+    }
+
+    /* 🔥 LA PARTIE CLÉ */
+    .home-gallery-card img {
+      width: 100%;
+      height: 120px;        /* taille fixe */
+      object-fit: cover;   /* crop propre */
+      display: block;
+    }
+
+    .home-gallery-more {
+      display: inline-block;
+      margin-top: 25px;
+      color: var(--primary-light);
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .home-gallery-more:hover {
+      text-decoration: underline;
+    }
+
+    /* Responsive */
+    @media (max-width: 480px) {
+      .home-gallery-card img {
+        height: 100px;
+      }
+    }
+
+
   </style>
 </head>
 
@@ -205,6 +259,47 @@
     </div>
   </div>
 </section>
+
+
+<!-- POPUP SOUTIEN -->
+ <!--
+<div id="support-popup" class="support-popup"> 
+  <div class="support-box">
+    <h2>💜 Soutenir le projet</h2>
+    <p>
+      BoucleRP est un projet communautaire ambitieux.
+      Si tu apprécies le travail réalisé et veux aider le projet à évoluer,
+      tu peux nous soutenir 💫
+    </p>
+
+    <div class="support-actions">
+      <a href="https://www.patreon.com/TON_PSEUDO" target="_blank" class="btn">
+        Soutenir sur Patreon
+      </a>
+      
+      /*<a href="soutenir.html" class="btn">Page de soutien</a>*/
+    </div>
+
+    <button class="support-close">Fermer</button>
+  </div>
+</div>
+-->
+<script>
+  const popup = document.getElementById("support-popup");
+  const closeBtn = document.querySelector(".support-close");
+
+  // Affiche seulement si pas déjà fermé
+  if (localStorage.getItem("supportPopupClosed")) {
+    popup.style.display = "none";
+  }
+
+  closeBtn.addEventListener("click", () => {
+    popup.style.display = "none";
+    localStorage.setItem("supportPopupClosed", "true");
+  });
+</script>
+
+
 
 <main>
 
@@ -273,12 +368,44 @@
       </div>
     </div>
   </section>
+  <!-- GALLERY -->
+  <section class="home-gallery">
+  <h3>📸 Aperçu de la galerie</h3>
+
+  <div class="home-gallery-grid">
+    <!-- Images injectées en JS -->
+  </div>
+
+  <a href="galerie.html" class="home-gallery-more">
+    Voir toute la galerie →
+  </a>
+</section>
+
+
 
 </main>
 <!-- Footer -->
 <div id="footer"></div>
 <!-- JS for Header/Footer-->
 <script src="js/layout.js"></script>
+<!-- JS for Gallery Preview -->
+<script src="js/gallery-data.js"></script>
+<script>
+  const homeGrid = document.querySelector(".home-gallery-grid");
+
+  galleryData.slice(0, 6).forEach(item => {
+    const card = document.createElement("div");
+    card.className = "home-gallery-card";
+
+    card.innerHTML = `
+      <img src="${item.image}" alt="${item.title}">
+    `;
+
+    homeGrid.appendChild(card);
+  });
+</script>
+
+
 
 </body>
 </html>
