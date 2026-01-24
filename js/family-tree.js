@@ -202,7 +202,7 @@ family.load([
     { id: 5, mid: 1, fid: 2, name: "Mimibi Hamilton", gender: "female", img: "https://cdn.discordapp.com/avatars/873570789675397120/70484f7b4399d9104e94080409f2e893.webp" },
     { id: 6, mid: 1, fid: 2, name: "Gaya Hamilton", gender: "female", img: "https://cdn.discordapp.com/avatars/1286974825964769362/e6b77779bc0f50dd3e563ba22c2ee7f1.webp" },
     { id: 7, mid: 1, fid: 2, name: "Louna Hamilton", gender: "male", img: "https://cdn.discordapp.com/guilds/1025887285461405817/users/947833377896149032/avatars/a_08ac97542009d2c0368a9fac245fac26.gif?size=1024&animated=true" },
-    { id: 9, pids: [33],divorced: [33], mid: 8, fid: 1, name: "Powder Hamilton", gender: "female", img: "https://kiro701.github.io/HMC-Site/Image/PP/Powder.jpg"},
+    { id: 9, pids: [33],divorced: [33], mid: 8, fid: 1, name: "Powder Hamilton", gender: "female", img: "https://kiro701.github.io/HMC-Site/Image/PP/Powder.png"},
     { id: 10, mid: 8, fid: 1, name: "Agent Nesquik Hamilton", gender: "male", img: "https://cdn.discordapp.com/guilds/1025887285461405817/users/1200313720195264613/avatars/07aaee22ee1a29abc30323e3b326663f.webp?size=1024"},
     { id: 11, mid : 8, fid: 1 , name: "Meg Hamilton", gender: "male", img: "https://cdn.discordapp.com/avatars/1037398509030219868/948820180a7c9e989255e2cbc95dd701.webp?size=1024"},
     { id: 16, pids: [19], mid : 15, fid: 17, name: "Hugo Hamilton", gender: "male", img: "https://cdn.discordapp.com/avatars/995281733232627752/c127b7ac185664c56751e1b54e67b73f.webp?size=1024"},

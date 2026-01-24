@@ -14,10 +14,24 @@ const galleryData = [
     category: "Famille"
   },
   {
-    title: "Bannière VOXTEK",
+    title: "Repas de Noël",
+    date: "21 Décembre 2025",
+    image: "Image/galerie/VRChat_2025-12-21_22-54-22.403_3840x2160.png",
+    description: "Photo du repas de Noël 2025.",
+    category: "Événement"
+  },
+  {
+    title: "Bannière VOXTEK Noël",
     date: "21 Décembre 2025",
     image: "Image/galerie/preview.png",
     description: "Nouvelle bannière de la VOXTEK spécial Noël.",
+    category: "Bannière"
+  },
+  {
+    title: "Bannière VOXTEK Hazbin Hotel",
+    date: "23 Octobre 2025",
+    image: "Image/galerie/Sans_titre_903_20251023145956-4.png",
+    description: "Nouvelle bannière de la VOXTEK spécial Saison 2 Hazbin Hotel.",
     category: "Bannière"
   }
 ];
