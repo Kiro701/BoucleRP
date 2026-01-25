@@ -228,6 +228,17 @@
     .home-gallery-more:hover {
       text-decoration: underline;
     }
+    .home-gallery-author {
+      position: absolute;
+      bottom: 6px;
+      right: 8px;
+      font-size: 0.65rem;
+      background: rgba(0,0,0,0.6);
+      padding: 4px 8px;
+      border-radius: 12px;
+      color: #fff;
+      opacity: 0.8;
+    }
 
     /* Responsive */
     @media (max-width: 480px) {
@@ -315,28 +326,16 @@
     <div class="news-grid">
       <div class="news-card">
         <span>ANNONCE MAJEURE</span>
-        <h4>Ouverture officielle de Voxtek</h4>
+        <h4>Ouverture officielle de la Bêta du site BoucleRP</h4>
         <p>
-          Le serveur est désormais ouvert ! Rejoignez l’aventure et
-          prenez part aux premières grandes intrigues RP.
+          Ouverture officielle de la version Bêta du boucleRP au grand public.
         </p>
       </div>
-
       <div class="news-card">
-        <span>MISE À JOUR</span>
-        <h4>Nouveau système de familles</h4>
+        <span>Test</span>
+        <h4>Test annonce NEW</h4>
         <p>
-          L’arbre généalogique HMC évolue : héritages, alliances
-          et rivalités entrent en jeu.
-        </p>
-      </div>
-
-      <div class="news-card">
-        <span>ÉVÉNEMENT RP</span>
-        <h4>Crise interne chez Voxtek</h4>
-        <p>
-          Des tensions émergent… Des décisions importantes
-          vont bouleverser l’équilibre du serveur.
+          Le système de news est en développement et n'est pas finalisé.
         </p>
       </div>
     </div>
@@ -399,7 +398,11 @@
 
     card.innerHTML = `
       <img src="${item.image}" alt="${item.title}">
+      <div class="home-gallery-author">
+        📷 ${item.author}
+      </div>
     `;
+
 
     homeGrid.appendChild(card);
   });

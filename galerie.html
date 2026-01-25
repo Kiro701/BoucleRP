@@ -87,8 +87,10 @@
     }
 
     .gallery-modal p {
-      opacity: 0.85;
+      margin-top: 8px;
+      opacity: 0.8;
     }
+
     .gallery-filters {
         display: flex;
         gap: 12px;
@@ -112,6 +114,14 @@
         background: var(--primary-light);
         color: #000;
     }
+    .gallery-author {
+      font-size: 0.75rem;
+      opacity: 0.7;
+      color: var(--text-muted);
+      display: block;
+      margin-bottom: 6px;
+    }
+
 
   </style>
 </head>
@@ -125,6 +135,7 @@
         <button class="filter-btn" data-filter="Bannière">Bannière</button>
         <button class="filter-btn" data-filter="Événement">Événement</button>
         <button class="filter-btn" data-filter="Jeux">Jeux</button>
+        <button class="filter-btn" data-filter="Communauté">Communauté</button>
     </div>
 
     <main>
@@ -142,6 +153,7 @@
             <img id="modalImg">
             <h3 id="modalTitle"></h3>
             <p id="modalDesc"></p>
+            <p id="modalAuthor"></p>
         </div>
     </div>
 
@@ -156,6 +168,7 @@
         const modalImg = document.getElementById("modalImg");
         const modalTitle = document.getElementById("modalTitle");
         const modalDesc = document.getElementById("modalDesc");
+        const modalAuthor = document.getElementById("modalAuthor");
         const filterButtons = document.querySelectorAll(".filter-btn");
 
         function renderGallery(filter = "all") {
@@ -168,19 +181,22 @@
                 card.className = "gallery-card";
 
                 card.innerHTML = `
-                <img src="${item.image}" alt="${item.title}">
-                <div class="gallery-info">
+                  <img src="${item.image}" alt="${item.title}">
+                  <div class="gallery-info">
                     <h4>${item.title}</h4>
-                    <span>📅 ${item.date} • ${item.category}</span>
+                    <span>📅 ${item.date}</span>
+                    <span class="gallery-author">📷 ${item.author}</span>
                     <p>${item.description}</p>
-                </div>
+                  </div>
                 `;
+
 
                 card.addEventListener("click", () => {
                 modal.style.display = "flex";
                 modalImg.src = item.image;
                 modalTitle.textContent = item.title;
                 modalDesc.textContent = item.description;
+                modalAuthor.textContent = "📷 Image par " + item.author;
                 });
 
                 grid.appendChild(card);
