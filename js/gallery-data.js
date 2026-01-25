@@ -1,5 +1,12 @@
 const galleryData = [
   {
+    title: "Photo du village MC",
+    date: "25 Janvier 2026",
+    image: "Image/galerie/47fb11a3-5a8a-4746-b837-5c2fc08fedab.jpeg",
+    description: "Photo du village Minecraft avec la HMC.",
+    category: "Jeux"
+  },
+  {
     title: "Photo en famille",
     date: "11 Janvier 2026",
     image: "Image/galerie/7f1a2863eb744809ac8e87ec1c9f5d65.jpg",
