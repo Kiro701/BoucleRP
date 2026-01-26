@@ -34,10 +34,10 @@ const galleryData = [
   {
     title: "Repas de Noël",
     date: "21 Décembre 2025",
-    image: "Image/galerie/VRChat_2025-12-21_22-54-22.403_3840x2160.png",
+    image: "Image/galerie/VRChat_2025-12-21_22-54-24.901_3840x2160.png",
     description: "Photo du repas de Noël 2025.",
     category: "Événement",
-    author: "yandkokoro"
+    author: "Skybord"
   },
   {
     title: "Bannière VOXTEK Noël",
@@ -46,6 +46,14 @@ const galleryData = [
     description: "Nouvelle bannière de la VOXTEK spécial Noël.",
     category: "Bannière",
     author: "yandkokoro"
+  },
+  {
+    title: "Photo de famille",
+    date: "13 Novembre 2025",
+    image: "Image/galerie/132e4bae629b4fd09bbd78cea418bbc3.jpg",
+    description: "Photo de famille sur VRChat sur la map Prison Escape.",
+    category: "Famille",
+    author: "Vaasbey"
   },
   {
     title: "Bannière VOXTEK Hazbin Hotel",
