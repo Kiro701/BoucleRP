@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HMC | Patch Notes</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="icon" href="Image/logo-bouclerp.webp">
+<style>
+  .patch-container { max-width: 1000px; margin:auto; padding:40px 20px; }
+  .patch-card { background: rgba(15,18,30,0.9); border-radius:16px; padding:25px; margin-bottom:30px; border:1px solid var(--border-soft); box-shadow:0 0 20px rgba(0,0,0,0.3);}
+  .patch-header { display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; margin-bottom:15px;}
+  .patch-version { font-size:1.3rem; font-weight:bold; color: var(--primary-light); }
+  .patch-date { font-size:0.85rem; opacity:0.7; }
+  .patch-section { margin-top:15px; }
+  .patch-section h4 { margin-bottom:8px; font-size:1rem; }
+  .add { color:#4ade80; }
+  .improve { color:#60a5fa; }
+  .fix { color:#f87171; }
+  .patch-section ul { padding-left:20px; margin:0; }
+  .patch-section li { margin-bottom:6px; font-size:0.9rem; opacity:0.9; }
+  @media (max-width:600px){ .patch-header{ flex-direction:column; align-items:flex-start; } }
+</style>
+</head>
+<body>
+<div id="header"></div>
+
+<main class="patch-container">
+  <h2>🛠 Patch Notes</h2>
+  <p style="opacity:0.8; margin-bottom:40px;">Historique des mises à jour du projet HMC Community – BoucleRP</p>
+
+  <div id="patchContainer"></div>
+</main>
+
+<div id="footer"></div>
+
+<script src="js/layout.js"></script>
+<script src="js/patchnotes-data.js"></script>
+<script>
+  const container = document.getElementById("patchContainer");
+
+  patchNotesData.forEach(patch => {
+    const card = document.createElement("div");
+    card.className = "patch-card";
+
+    card.innerHTML = `
+      <div class="patch-header">
+        <div class="patch-version">Version ${patch.version}</div>
+        <div class="patch-date">📅 ${patch.date}</div>
+      </div>
+
+      ${patch.add.length > 0 ? `
+        <div class="patch-section"><h4 class="add">➕ Ajouts</h4>
+        <ul>${patch.add.map(a => `<li>${a}</li>`).join("")}</ul></div>` : ""}
+
+      ${patch.improve.length > 0 ? `
+        <div class="patch-section"><h4 class="improve">✨ Améliorations</h4>
+        <ul>${patch.improve.map(i => `<li>${i}</li>`).join("")}</ul></div>` : ""}
+
+      ${patch.fix.length > 0 ? `
+        <div class="patch-section"><h4 class="fix">🐛 Corrections</h4>
+        <ul>${patch.fix.map(f => `<li>${f}</li>`).join("")}</ul></div>` : ""}
+    `;
+
+    container.appendChild(card);
+  });
+</script>
+</body>
+</html>
