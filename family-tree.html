@@ -11,20 +11,96 @@
 
   <!-- Style principal -->
   <link rel="stylesheet" href="css/style.css">
+  <style>
+    .fullscreen-btn {
+      display: none;
+      margin: 10px auto 15px;
+      padding: 10px 18px;
+      border-radius: 30px;
+      border: 1px solid var(--primary);
+      background: rgba(15,18,30,0.85);
+      color: var(--primary-light);
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .exit-fullscreen-btn {
+      position: fixed;
+      top: 15px;
+      right: 15px;
+      z-index: 10000;
 
+      padding: 8px 14px;
+      border-radius: 30px;
+      border: none;
+      background: rgba(0,0,0,0.75);
+      color: #fff;
+      font-weight: 600;
+      cursor: pointer;
+
+      display: none;
+    }
+
+    /* visible uniquement en plein écran */
+    :fullscreen .exit-fullscreen-btn {
+      display: block;
+    }
+
+
+    /* visible uniquement sur petits écrans */
+    @media (max-width: 900px) {
+      .fullscreen-btn {
+        display: block;
+      }
+    }
+    #tree-container:fullscreen {
+      height: 100vh;
+      max-height: none;
+      border-radius: 0;
+      border: none;
+    }
+
+  </style>
 </head>
 
 <body>
 
 <div id="header"></div>
+<button id="fullscreenBtn" class="fullscreen-btn">
+  ⛶ Plein écran
+</button>
 
 <section id="tree-container">
+  <button id="exitFullscreen" class="exit-fullscreen-btn">
+    ✖ Quitter
+  </button>
+
   <div id="tree"></div>
 </section>
 
 <!-- Scripts -->
 <script src="lib/familytree.min.js"></script>
 <script src="js/family-tree.js"></script>
+<script>
+  const btn = document.getElementById("fullscreenBtn");
+  const container = document.getElementById("tree-container");
+
+  btn.addEventListener("click", () => {
+    if (!document.fullscreenElement) {
+      container.requestFullscreen();
+    } else {
+      document.exitFullscreen();
+    }
+  });
+</script>
+<script>
+  const exitBtn = document.getElementById("exitFullscreen");
+
+  exitBtn.addEventListener("click", () => {
+    document.exitFullscreen();
+  });
+</script>
+
+
 
 <!-- Footer -->
 <div id="footer"></div>
