@@ -1,6 +1,14 @@
 const galleryData = [
   {
     title: "Photo de famille",
+    date: "28 Janvier 2026",
+    image: "Image/galerie/28.01.2026.png",
+    description: "Photo en famille sur VRChat sur la map xxx ( pas le nom ).",
+    category: "Famille",
+    author: "owe_tv"
+  },
+  {
+    title: "Photo de famille",
     date: "25 Janvier 2026",
     image: "Image/galerie/VRChat_2026-01-25_21-16-51.992_1920x1080.png",
     description: "Photo en famille sur VRChat sur la map Prison Escape.",
