@@ -3,7 +3,7 @@ const galleryData = [
     title: "Photo de famille",
     date: "28 Janvier 2026",
     image: "Image/galerie/28.01.2026.png",
-    description: "Photo en famille sur VRChat sur la map xxx ( pas le nom ).",
+    description: "Photo en famille sur VRChat sur la map sovrens snooze train.",
     category: "Famille",
     author: "owe_tv"
   },
