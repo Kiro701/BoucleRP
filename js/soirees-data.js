@@ -1,5 +1,22 @@
 const soireesData = [
   {
+    date: "2026-01-29",
+    special: false,
+    tags: ["Visite", "VRChat"],
+    sessions: [
+      {
+        title: "Visite préparation RP",
+        major: false,
+        description: "Visite de la map Ventura city Redux pour préparer le RP du 30/01/2026.",
+        images: [
+          { src: "Image/galerie/VRChat_2026-01-29_22-25-58.408_1920x1080.png", author: "owe_tv" },
+          { src: "Image/calendar/2026/Janvier/29/9b7d4ca77219f229d902c090817cd886.png", author: "Vaasbey" },
+          { src: "Image/calendar/2026/Janvier/29/44ea9dc66cbdf2689043997428e9e4d9.png", author: "Vaasbey" }
+        ]
+      }
+    ]
+  },
+  {
     date: "2026-01-27",
     special: false,
     tags: ["RP", "VRChat"],
