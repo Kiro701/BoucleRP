@@ -1,6 +1,14 @@
 const galleryData = [
   {
     title: "Photo de famille",
+    date: "30 Janvier 2026",
+    image: "Image/galerie/30.01.2026.png",
+    description: "Photo en famille sur VRChat sur la map Ventura city Redux.",
+    category: "Famille",
+    author: "Kiro701"
+  },
+  {
+    title: "Photo de famille",
     date: "29 Janvier 2026",
     image: "Image/galerie/VRChat_2026-01-29_22-25-58.408_1920x1080.png",
     description: "Photo en famille sur VRChat sur la map Ventura city Redux.",

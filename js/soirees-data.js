@@ -1,5 +1,21 @@
 const soireesData = [
   {
+    date: "2026-01-30",
+    special: true,
+    tags: ["RP", "VRChat","Chill","Fun"],
+    sessions: [
+      {
+        title: "RP Cyberpunk + Soirée Jeux Chill",
+        major: false,
+        description: "RP Cyberpunk sur la map Ventura city Redux. Soirée chill et jeux après le RP.",
+        images: [
+          { src: "Image/galerie/30.01.2026.png", author: "Kiro701" },
+          { src: "Image/calendar/2026/Janvier/30/VRChat_2026-01-30_21-34-27.908_1920x1080.png", author: "Kiro701" }
+        ]
+      }
+    ]
+  },
+  {
     date: "2026-01-29",
     special: false,
     tags: ["Visite", "VRChat"],
