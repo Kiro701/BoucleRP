@@ -1,6 +1,14 @@
 const galleryData = [
   {
     title: "Photo de famille",
+    date: "1 Février 2026",
+    image: "Image/galerie/VRChat_2026-02-01_21-15-34.255_1920x1080.png",
+    description: "Photo en famille sur VRChat sur la map Prison Escape.",
+    category: "Famille",
+    author: "owe_tv"
+  },
+  {
+    title: "Photo de famille",
     date: "30 Janvier 2026",
     image: "Image/galerie/30.01.2026.png",
     description: "Photo en famille sur VRChat sur la map Ventura city Redux.",

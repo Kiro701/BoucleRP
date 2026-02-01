@@ -1,5 +1,23 @@
 const soireesData = [
   {
+    date: "2026-02-01",
+    special: false,
+    tags: ["VRChat","Chill","Fun"],
+    sessions: [
+      {
+        title: "Soirée Jeux Chill",
+        major: false,
+        description: "Soirée tranquille sur VRChat où on joue à des minis jeux. Puis on finit par du chill en publique.",
+        images: [
+          { src: "Image/galerie/VRChat_2026-02-01_21-15-34.255_1920x1080.png", author: "owe_tv" },
+          { src: "Image/calendar/2026/Février/01/VRChat_2026-02-01_21-15-49.149_1920x1080.png", author: "owe_tv" },
+          { src: "Image/calendar/2026/Février/01/VRChat_2026-02-01_21-15-39.985_1920x1080.png", author: "Kiro701" },
+          { src: "Image/calendar/2026/Février/01/VRChat_2026-02-01_23-32-08.254_1920x1080.png", author: "Kiro701" }
+        ]
+      }
+    ]
+  },
+  {
     date: "2026-01-30",
     special: true,
     tags: ["RP", "VRChat","Chill","Fun"],
@@ -10,6 +28,7 @@ const soireesData = [
         description: "RP Cyberpunk sur la map Ventura city Redux. Soirée chill et jeux après le RP.",
         images: [
           { src: "Image/galerie/30.01.2026.png", author: "Kiro701" },
+          { src: "Image/calendar/2026/Février/01/VRChat_2026-02-01_21-15-49.149_1920x1080.png", author: "owe_tv" },
           { src: "Image/calendar/2026/Janvier/30/VRChat_2026-01-30_21-34-27.908_1920x1080.png", author: "Kiro701" }
         ]
       }
