@@ -14,9 +14,8 @@ const soireesData = [
           { src: "Image/calendar/2026/Février/02/image2.png", author: "owe_tv" },
           { src: "Image/calendar/2026/Février/02/image3.png", author: "owe_tv" },
           { src: "Image/calendar/2026/Février/02/VRChat_2026-02-02_21-28-11.364_1920x1080.png", author: "owe_tv" },
-          { src: "Image/calendar/2026/Février/02/VRChat_2026-02-02_21-28-43.361_1920x1080.png", author: "owe_tv" },
           { src: "Image/calendar/2026/Février/02/VRChat_2026-02-02_21-30-05.480_1920x1080.png", author: "owe_tv" },
-          { src: "Image/calendar/2026/Février/02/VRChat_2026-02-02_21-47-37.136_1920x1080.png", author: "owe_tv" },
+          { src: "Image/calendar/2026/Février/02/VRChat_2026-02-02_21-47-37.136_1920x1080.png", author: "owe_tv" }
         ]
       }
     ]
