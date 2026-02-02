@@ -1,5 +1,21 @@
 const galleryData = [
   {
+    title: "Nouvelle bannière HMC Community",
+    date: "1 Février 2026",
+    image: "Image/BoucleRP.png",
+    description: "Nouvelle bannière de la HMC Community.",
+    category: "Bannière",
+    author: "Agent Nesquik"
+  },
+  {
+    title: "Logo de la Hamilton Family",
+    date: "1 Février 2026",
+    image: "Image/logo-hamilton.png",
+    description: "Nouveau logo de la Hamilton Family.",
+    category: "Bannière",
+    author: "Minki"
+  },
+  {
     title: "Photo de famille",
     date: "1 Février 2026",
     image: "Image/galerie/VRChat_2026-02-01_21-15-34.255_1920x1080.png",

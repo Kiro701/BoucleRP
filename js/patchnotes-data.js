@@ -1,7 +1,19 @@
 const patchNotesData = [
   {
+    version: "0.2.11.06",
+    date: "02 février 2026",
+    add: [
+    ],
+    improve: [
+      "Mise à jour bannière",
+      "Ajout d'images dans la galerie",
+    ],
+    fix: [
+    ]
+  },
+  {
     version: "0.2.11.04",
-    date: "02 février2026",
+    date: "02 février 2026",
     add: [
     ],
     improve: [
