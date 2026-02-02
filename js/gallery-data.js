@@ -1,5 +1,13 @@
 const galleryData = [
   {
+    title: "Photo de famille",
+    date: "2 Février 2026",
+    image: "Image/galerie/VRChat_2026-02-02_21-26-51.804_1920x1080.png",
+    description: "Photo de famille dans la cammionette de la map French Vibe.",
+    category: "Famille",
+    author: "owe_tv"
+  },
+  {
     title: "Nouvelle bannière HMC Community",
     date: "1 Février 2026",
     image: "Image/BoucleRP.png",

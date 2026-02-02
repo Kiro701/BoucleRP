@@ -2,6 +2,28 @@ const soireesData = [
   {
     date: "2026-02-01",
     special: false,
+    tags: ["VRChat","Chill"],
+    sessions: [
+      {
+        title: "Soirée Chill",
+        major: false,
+        description: "Soirée tranquille sur VRChat où on est sur French Vibes. Puis on finit sur un Prismic Avatar.",
+        images: [
+          { src: "Image/galerie/VRChat_2026-02-02_21-26-51.804_1920x1080.png", author: "owe_tv" },
+          { src: "Image/calendar/2026/Février/02/image1.png", author: "owe_tv" },
+          { src: "Image/calendar/2026/Février/02/image2.png", author: "owe_tv" },
+          { src: "Image/calendar/2026/Février/02/image3.png", author: "owe_tv" },
+          { src: "Image/calendar/2026/Février/02/VRChat_2026-02-02_21-28-11.364_1920x1080.png", author: "owe_tv" },
+          { src: "Image/calendar/2026/Février/02/VRChat_2026-02-02_21-28-43.361_1920x1080.png", author: "owe_tv" },
+          { src: "Image/calendar/2026/Février/02/VRChat_2026-02-02_21-30-05.480_1920x1080.png", author: "owe_tv" },
+          { src: "Image/calendar/2026/Février/02/VRChat_2026-02-02_21-47-37.136_1920x1080.png", author: "owe_tv" },
+        ]
+      }
+    ]
+  },
+  {
+    date: "2026-02-01",
+    special: false,
     tags: ["VRChat","Chill","Fun"],
     sessions: [
       {
