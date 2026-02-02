@@ -5,7 +5,7 @@ const soireesData = [
     tags: ["VRChat","Chill"],
     sessions: [
       {
-        title: "Soirée Chill",
+        title: "Soirée Chill tranquille",
         major: false,
         description: "Soirée tranquille sur VRChat où on est sur French Vibes. Puis on finit sur un Prismic Avatar.",
         images: [
