@@ -1,6 +1,6 @@
 const soireesData = [
   {
-    date: "2026-02-01",
+    date: "2026-02-02",
     special: false,
     tags: ["VRChat","Chill"],
     sessions: [
