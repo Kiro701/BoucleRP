@@ -3,8 +3,10 @@ const patchNotesData = [
     version: "0.2.11.08",
     date: "08 février 2026",
     add: [
+      
     ],
     improve: [
+      "Mise à jour du staff"
     ],
     fix: [
       "Correction des images plus valide",
