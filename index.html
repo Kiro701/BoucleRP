@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Serveur RP immersif Voxtek – BoucleRP par la HMC Community">
+  <meta name="keywords" content="VRChat RP, BoucleRP, Voxtek, Roleplay, Serveur RP">
+
   <title>HMC | Accueil</title>
   <link rel="stylesheet" href="css/style.css">
   <link rel="icon" href="Image/logo-bouclerp.webp">
@@ -197,12 +200,14 @@
     }
 
     .home-gallery-card {
+      position: relative; /* AJOUT */
       background: rgba(15, 18, 30, 0.9);
       border-radius: 14px;
       overflow: hidden;
       border: 1px solid var(--border-soft);
       transition: transform 0.25s ease, box-shadow 0.25s ease;
     }
+
 
     .home-gallery-card:hover {
       transform: translateY(-4px);
@@ -229,16 +234,14 @@
       text-decoration: underline;
     }
     .home-gallery-author {
-      position: absolute;
-      bottom: 6px;
-      right: 8px;
-      font-size: 0.65rem;
-      background: rgba(0,0,0,0.6);
-      padding: 4px 8px;
-      border-radius: 12px;
-      color: #fff;
-      opacity: 0.8;
+      opacity: 0;
+      transition: opacity 0.2s ease;
     }
+
+    .home-gallery-card:hover .home-gallery-author {
+      opacity: 1;
+    }
+
 
     /* Responsive */
     @media (max-width: 480px) {
@@ -296,10 +299,11 @@
 </div>
 -->
 <script>
-  const popup = document.getElementById("support-popup");
-  const closeBtn = document.querySelector(".support-close");
+const popup = document.getElementById("support-popup");
+const closeBtn = document.querySelector(".support-close");
 
-  // Affiche seulement si pas déjà fermé
+if (popup && closeBtn) {
+
   if (localStorage.getItem("supportPopupClosed")) {
     popup.style.display = "none";
   }
@@ -308,7 +312,10 @@
     popup.style.display = "none";
     localStorage.setItem("supportPopupClosed", "true");
   });
+
+}
 </script>
+
 
 
 
@@ -400,23 +407,26 @@
 <!-- JS for Gallery Preview -->
 <script src="js/gallery-data.js"></script>
 <script>
-  const homeGrid = document.querySelector(".home-gallery-grid");
+const homeGrid = document.querySelector(".home-gallery-grid");
 
+if (typeof galleryData !== "undefined") {
   galleryData.slice(0, 6).forEach(item => {
+
     const card = document.createElement("div");
     card.className = "home-gallery-card";
 
     card.innerHTML = `
       <img src="${item.image}" alt="${item.title}">
       <div class="home-gallery-author">
-        📷 ${item.author}
+        📷 ${item.author || "Inconnu"}
       </div>
     `;
 
-
     homeGrid.appendChild(card);
   });
+}
 </script>
+
 
 
 

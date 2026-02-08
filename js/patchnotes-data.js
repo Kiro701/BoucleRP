@@ -1,5 +1,17 @@
 const patchNotesData = [
   {
+    version: "0.2.11.08",
+    date: "08 février 2026",
+    add: [
+    ],
+    improve: [
+    ],
+    fix: [
+      "Correction des images plus valide",
+      "Correction des auteurs dans l'acceuil qui était bug"
+    ]
+  },
+  {
     version: "0.2.11.06",
     date: "02 février 2026",
     add: [
