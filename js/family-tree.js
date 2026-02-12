@@ -182,8 +182,8 @@ family.load([
     { id: 21, fid: 20, mid: 32, name: "Xeptio Hamilton", gender: "male", img: "https://cdn.discordapp.com/avatars/477440805343330312/4626b02bd0268d7c08e08cbd5f5e2116.webp?size=1024"},
     { id: 22, pids: [23], divorced:[23], fid: 20, mid: 32, name: "Kaz Hamilton", gender: "male", img: "https://cdn.discordapp.com/avatars/946068504023556186/a_fb693814a641c2123ed4d2e9eb0dcd67.gif?size=1024&animated=true"},
     { id: 23, pids: [22], divorced: [22], name: "Mai Hamilton", gender: "female", img: "https://kiro701.github.io/BoucleRP/Image/PP/Mai.jpg"},
-    { id: 25, fid: 20,mid: 32, pids: [26], name: "Angelo Hamilton", gender: "male", img: "https://cdn.discordapp.com/guilds/1025887285461405817/users/736662177481752607/avatars/45bdc5202d6988379544b411dd87f53a.webp?size=1024"},
-    { id: 26, pids: [25], name: "Chara Hamilton", gender: "non-binary",tags: ["nonbinary"], img: "https://cdn.discordapp.com/guilds/1025887285461405817/users/451426602287366174/avatars/b4845e0b1d0f941ae0720ba13fe86268.webp?size=1024"},
+    { id: 25, fid: 20,mid: 32, pids: [26], name: "Angelo Hamilton", gender: "male", img: "https://cdn.discordapp.com/guilds/1025887285461405817/users/736662177481752607/avatars/c0f3b5846b86aa4963db8c387c053433.webp?size=1024"},
+    { id: 26, pids: [25], name: "Chara Hamilton", gender: "non-binary",tags: ["nonbinary"], img: "https://cdn.discordapp.com/guilds/1025887285461405817/users/451426602287366174/avatars/a74bda63f315e575a2b780365c3dedd2.webp?size=1024"},
     // 3ème Génération
     { id: 1, mid: 12, fid: 13, pids: [2, 8], divorced: [8], name: "Mr Vox Hamilton", gender: "male", img: "https://cdn.discordapp.com/guilds/1025887285461405817/users/599130976806764545/avatars/81af776ced0427c0fcb0614a58af5cd0.webp?size=1024" },
     { id: 2, pids: [1], name: "Kokoro Hamilton", gender: "male", img: "https://cdn.discordapp.com/guilds/1025887285461405817/users/699723182793424927/avatars/a58815416d5d777e8f2f2c1b6de4c80d.webp?size=1024" },
@@ -198,19 +198,19 @@ family.load([
     { id: 29, mid: 25, fid: 26, name: "Byoga Hamilton", gender: "female", img: "https://cdn.discordapp.com/avatars/1394111080212594700/cb894eb4c723968980274af2652af706.webp?size=1024"},
     // 4ème Génération
     { id: 3, mid: 1, fid: 2, name: "Kiro Hamilton", gender: "male", discord: "Kiro701 (ptitleo2009)", img: "https://cdn.discordapp.com/avatars/902870493550485504/70f002fe5d0c0ce324482d052ef1ad4f.webp" },
-    { id: 4, mid: 1, fid: 2, name: "Velvette Hamilton", gender: "female", img: "https://cdn.discordapp.com/avatars/1254016482409582602/e4065c760b3c4d7b2c045b021c6face6.webp" },
+    { id: 4, mid: 1, fid: 2, name: "Velvette Hamilton", gender: "female", img: "https://cdn.discordapp.com/avatars/1254016482409582602/c5db01843c3ab92645bbd0c1401e7f0d.webp?size=1024"},
     { id: 5, mid: 1, fid: 2, name: "Mimibi Hamilton", gender: "female", img: "https://cdn.discordapp.com/avatars/873570789675397120/70484f7b4399d9104e94080409f2e893.webp" },
     { id: 6, mid: 1, fid: 2, name: "Gaya Hamilton", gender: "female", img: "https://cdn.discordapp.com/avatars/1286974825964769362/e6b77779bc0f50dd3e563ba22c2ee7f1.webp" },
     { id: 7, mid: 1, fid: 2, name: "Louna Hamilton", gender: "male", img: "https://cdn.discordapp.com/guilds/1025887285461405817/users/947833377896149032/avatars/a_08ac97542009d2c0368a9fac245fac26.gif?size=1024&animated=true" },
     { id: 9, pids: [33],divorced: [33], mid: 8, fid: 1, name: "Powder Hamilton", gender: "female", img: "https://kiro701.github.io/BoucleRP/Image/PP/Powder.png"},
     { id: 10, mid: 8, fid: 1, name: "Agent Nesquik Hamilton", gender: "male", img: "https://cdn.discordapp.com/guilds/1025887285461405817/users/1200313720195264613/avatars/07aaee22ee1a29abc30323e3b326663f.webp?size=1024"},
-    { id: 11, mid : 8, fid: 1 , name: "Meg Hamilton", gender: "male", img: "https://cdn.discordapp.com/avatars/1037398509030219868/948820180a7c9e989255e2cbc95dd701.webp?size=1024"},
+    { id: 11, mid : 8, fid: 1 , name: "Meg Hamilton", gender: "male", img: "https://cdn.discordapp.com/avatars/1037398509030219868/dd70afe7156c28715d740309e679fd11.webp?size=1024"},
     { id: 16, divorced: [19], pids: [19], mid : 15, fid: 17, name: "Hugo Hamilton", gender: "male", img: "https://cdn.discordapp.com/avatars/995281733232627752/c127b7ac185664c56751e1b54e67b73f.webp?size=1024"},
     { id: 19, divorced: [16], pids: [16], name: "Browy Hamilton", gender: "female", img: "https://cdn.discordapp.com/avatars/1266443779892842597/d74259db4228df28fcc23b5b52b35423.webp?size=1024"},
     { id: 31, mid: 15,  name: "Artique Hamilton", gender: "female", img: "https://cdn.discordapp.com/avatars/1092869363041828954/471944657e00dc634534e5328eee5f18.webp?size=1024"},
     { id: 33, pids: [9], divorced: [9], name: "Makina Hamilton", gender: "female", img: "https://kiro701.github.io/BoucleRP/Image/PP/Makina.jpg"},
     // 5ème Génération
-    { id: 30, mid: 19, fid: 16, name: "Angie Hamilton", gender: "male", img: "https://cdn.discordapp.com/avatars/1009945595559034950/f0dabe08e5ba281b081aa31e5d360920.webp?size=1024"},
+    { id: 30, mid: 19, fid: 16, name: "Angie Hamilton", gender: "male", img: "https://cdn.discordapp.com/avatars/1191435327966019597/5a592d93931a9ae1f27eaf3b30047e91.webp?size=1024"},
     { id: 34, mid: 9, fid: 33, name: "Carla Hamilton", gender: "female", img: "https://cdn.discordapp.com/avatars/1346991196484145223/19b10aa249769f28680ecaf2e662b436.webp?size=1024"},
 
 ])

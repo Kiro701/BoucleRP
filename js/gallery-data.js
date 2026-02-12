@@ -1,6 +1,30 @@
 const galleryData = [
   {
     title: "Photo de famille",
+    date: "10 Février 2026",
+    image: "Image/galerie/2026/VRChat_2026-02-09_23-17-38.401_1920x1080.png",
+    description: "Photo de famille.",
+    category: "Famille",
+    author: "owe_tv"
+  },
+  {
+    title: "Photo de marriage",
+    date: "8 Février 2026",
+    image: "Image/galerie/2026/VRChat_2026-02-07_23-24-48.477_1920x1080.png",
+    description: "Photo de marriage en famille et invités.",
+    category: "Famille",
+    author: "Kiro701"
+  },
+  {
+    title: "Photo de famille",
+    date: "4 Février 2026",
+    image: "Image/galerie/2026/VRChat_2026-02-04_21-06-28.035_1920x1080.png",
+    description: "Photo de famille dans la map French Vibe.",
+    category: "Famille",
+    author: "owe_tv"
+  },
+  {
+    title: "Photo de famille",
     date: "2 Février 2026",
     image: "Image/galerie/VRChat_2026-02-02_21-26-51.804_1920x1080.png",
     description: "Photo de famille dans la cammionette de la map French Vibe.",

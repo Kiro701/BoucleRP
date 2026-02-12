@@ -1,5 +1,84 @@
 const soireesData = [
   {
+    date: "2026-02-10",
+    special: false,
+    tags: ["VRChat","Chill"],
+    sessions: [
+      {
+        title: "Soirée chill tranquille",
+        major: false,
+        description: "Soirée tranquille sur VRChat où on est sur French Vibes.",
+        images: [
+          { src: "Image/calendar/2026/Février/10/VRChat_2026-02-09_23-17-36.236_1920x1080.png", author: "owe_tv" },
+          { src: "Image/calendar/2026/Février/10/VRChat_2026-02-09_23-17-42.829_1920x1080.png", author: "Kiro701" },
+          { src: "Image/calendar/2026/Février/10/VRChat_2026-02-09_23-17-46.696_1920x1080.png", author: "Kiro701" }
+        ]
+      }
+    ]
+  },
+  {
+    date: "2026-02-08",
+    special: false,
+    tags: ["VRChat","Chill"],
+    sessions: [
+      {
+        title: "Mariage de Vaasbey et Kokoro",
+        major: false,
+        description: "Soirée mariage de Vaasbey et Kokoro organisé par Minki et Powder.",
+        images: [
+          { src: "Image/galerie/2026/VRChat_2026-02-07_23-24-48.477_1920x1080.png", author: "Kiro701" },
+          { src: "Image/calendar/2026/Février/08/VRChat_2026-02-07_23-07-50.119_1920x1080.png", author: "Kiro701" },
+          { src: "Image/calendar/2026/Février/08/VRChat_2026-02-07_23-08-21.362_1920x1080.png", author: "Kiro701" },
+          { src: "Image/calendar/2026/Février/08/VRChat_2026-02-07_23-09-21.677_1920x1080.png", author: "Kiro701" },
+          { src: "Image/calendar/2026/Février/08/VRChat_2026-02-07_23-09-40.446_1920x1080.png", author: "Kiro701" },
+          { src: "Image/calendar/2026/Février/08/VRChat_2026-02-07_23-10-56.136_1920x1080.png", author: "Kiro701" },
+          { src: "Image/calendar/2026/Février/08/VRChat_2026-02-07_23-11-49.160_1920x1080.png", author: "Kiro701" },
+          { src: "Image/calendar/2026/Février/08/VRChat_2026-02-07_23-12-59.907_1920x1080.png", author: "Kiro701" },
+          { src: "Image/calendar/2026/Février/08/VRChat_2026-02-07_23-17-01.823_1920x1080.png", author: "Kiro701" },
+          { src: "Image/calendar/2026/Février/08/VRChat_2026-02-07_23-17-08.585_1920x1080.png", author: "Kiro701" },
+          { src: "Image/calendar/2026/Février/08/VRChat_2026-02-07_23-18-01.589_1920x1080.png", author: "Kiro701" },
+          { src: "Image/calendar/2026/Février/08/VRChat_2026-02-07_23-19-40.308_1920x1080.png", author: "Kiro701" },
+          { src: "Image/calendar/2026/Février/08/VRChat_2026-02-07_23-26-30.121_1920x1080.png", author: "Kiro701" }
+        ]
+      }
+    ]
+  },
+  {
+    date: "2026-02-04",
+    special: false,
+    tags: ["VRChat","Chill"],
+    sessions: [
+      {
+        title: "Soirée Chill tranquille",
+        major: false,
+        description: "Soirée tranquille sur VRChat où on est sur French Vibes.",
+        images: [
+          { src: "Image/galerie/2026/VRChat_2026-02-04_21-06-28.035_1920x1080.png", author: "owe_tv" },
+          { src: "Image/calendar/2026/Février/04/VRChat_2026-02-04_21-01-25.163_1920x1080.png", author: "owe_tv" },
+          { src: "Image/calendar/2026/Février/04/VRChat_2026-02-04_21-06-57.317_1920x1080.png", author: "owe_tv" }
+        ]
+      }
+    ]
+  },
+  {
+    date: "2026-02-03",
+    special: false,
+    tags: ["VRChat","Chill"],
+    sessions: [
+      {
+        title: "Soirée Chill tranquille",
+        major: false,
+        description: "Soirée tranquille sur VRChat où on est sur French Vibes.",
+        images: [
+          { src: "Image/calendar/2026/Février/03/VRChat_2026-02-03_23-19-14.586_1920x1080.png", author: "owe_tv" },
+          { src: "Image/calendar/2026/Février/03/VRChat_2026-02-03_23-25-00.963_1920x1080.png", author: "owe_tv" },
+          { src: "Image/calendar/2026/Février/03/VRChat_2026-02-03_23-26-09.171_1920x1080.png", author: "owe_tv" },
+          { src: "Image/calendar/2026/Février/03/VRChat_2026-02-03_23-26-32.729_1920x1080.png", author: "owe_tv" }
+        ]
+      }
+    ]
+  },
+  {
     date: "2026-02-02",
     special: false,
     tags: ["VRChat","Chill"],
