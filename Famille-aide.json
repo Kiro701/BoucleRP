@@ -1,0 +1,63 @@
+[
+  {
+    "name": "Noax Hamilton", 
+    "id": 0,
+    "genre": "male",
+    "enfant": false,
+    "couple_fictif": true,
+    "discord_user": true
+  },
+  {
+    "name": "Mazda Hamilton",
+    "id": 24,
+    "genre": "male",
+    "enfant": true,
+        "number_of_enfants_max": 1,
+    "couple_fictif": false,
+    "discord_user": true
+  },
+  {
+    "name": "Kiro Hamilton",
+    "id": 3,
+    "genre": "male",
+    "enfant": false,
+    "couple_fictif": false,
+    "discord_user": true
+  },
+  {
+    "name": "Coccinelle Hamilton",
+    "id": 32,
+    "genre": "female",
+    "enfant": true,
+        "number_of_enfants_max": null,
+    "couple_fictif": true,
+    "discord_user": null
+  },
+  {
+    "name": "Vaasbey Hamilton",
+    "id": 1,
+    "genre": "male",
+    "enfant": null,
+        "number_of_enfants_max": null,
+    "couple_fictif": "En couple",
+    "discord_user": null
+  },
+  {
+    "name": "Kokoro Hamilton",
+    "id": 2,
+    "genre": "female",
+    "enfant": null,
+        "number_of_enfants_max": null,
+    "couple_fictif": "En couple",
+    "discord_user": null
+  },
+  {
+    "name": "Mimibi Hamilton",
+    "id": 5,
+    "genre": "female",
+    "enfant": true,
+        "number_of_enfants_max": 2.4,
+    "couple_fictif": true,
+    "discord_user": true
+  }
+]
