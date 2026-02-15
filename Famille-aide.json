@@ -1,7 +1,7 @@
 [
   {
     "name": "Noax Hamilton", 
-    "id": 0,
+    "id": 35,
     "genre": "male",
     "enfant": false,
     "couple_fictif": true,
@@ -58,6 +58,59 @@
     "enfant": true,
         "number_of_enfants_max": 2.4,
     "couple_fictif": true,
+    "discord_user": true
+  },
+  {
+    "name": "Loona Hamilton",
+    "id": null,
+    "genre": "female",
+    "enfant": 3.4,
+    "couple_fictif": false,
+    "discord_user": true
+  },
+  {
+    "name": "Powder Hamilton",
+    "id": 9,
+    "genre": "female",
+    "enfant": true,
+        "number_of_enfants_max": 2.4,
+    "couple_fictif": true,
+    "discord_user": true
+  },
+  {
+    "name": "Aka Hamilton",
+    "id": 12,
+    "genre": "female",
+    "enfant": false,
+        "number_of_enfants_max": 4,
+    "couple_fictif": true,
+    "discord_user": null
+  },
+  {
+    "name": "Awwax_ Hamilton",
+    "id": 18,
+    "genre": "male",
+    "enfant": false,
+        "number_of_enfants_max": null,
+    "couple_fictif": true,
+    "discord_user": true
+  },
+  {
+    "name": "Aria Hamilton",
+    "id": 14,
+    "genre": "female",
+    "enfant": true,
+        "number_of_enfants_max": 3,
+    "couple_fictif": true,
+    "discord_user": true
+  },
+  {
+    "name": "Kaz Hamilton",
+    "id": 22,
+    "genre": "male",
+    "enfant": true,
+        "number_of_enfants_max": 3,
+    "couple_fictif": false,
     "discord_user": true
   }
 ]

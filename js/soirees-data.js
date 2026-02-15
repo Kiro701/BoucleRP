@@ -1,5 +1,23 @@
 const soireesData = [
   {
+    date: "2026-02-12",
+    special: false,
+    tags: ["VRChat","Fun"],
+    sessions: [
+      {
+        title: "Soirée Jeux",
+        major: false,
+        description: "Soirée Jeux sur VRChat.",
+        images: [
+          { src: "Image/galerie/2026/5313b20312ebb2bf8f330910e1176851.png", author: "Vaasbey" },
+          { src: "Image/calendar/2026/Février/12/e662a9f923aadf1840b627acb03c6bd6.png", author: "Vaasbey" },
+          { src: "Image/calendar/2026/Février/12/VRChat_2026-02-12_20-56-58.550_2560x1440.png", author: "yanderekokoro" },
+          { src: "Image/calendar/2026/Février/12/VRChat_2026-02-12_20-57-06.819_2560x1440.png", author: "yanderekokoro" },
+        ]
+      }
+    ]
+  },
+  {
     date: "2026-02-10",
     special: false,
     tags: ["VRChat","Chill"],

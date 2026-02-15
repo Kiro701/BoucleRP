@@ -1,6 +1,22 @@
 const galleryData = [
   {
     title: "Photo de famille",
+    date: "14 Février 2026",
+    image: "Image/galerie/2026/VRChat_2026-02-13_21-45-32.610_1920x1080.png",
+    description: "Photo de famille.",
+    category: "Famille",
+    author: "Kiro701"
+  },
+  {
+    title: "Photo de famille",
+    date: "12 Février 2026",
+    image: "Image/galerie/2026/5313b20312ebb2bf8f330910e1176851.png",
+    description: "Photo de famille.",
+    category: "Famille",
+    author: "Vaasbey"
+  },
+  {
+    title: "Photo de famille",
     date: "10 Février 2026",
     image: "Image/galerie/2026/VRChat_2026-02-09_23-17-38.401_1920x1080.png",
     description: "Photo de famille.",
