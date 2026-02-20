@@ -8,49 +8,20 @@
     <link rel="icon" href="Image/logo-bouclerp.webp">
     <style>
     :root {
-      --accent-main: #7a7cff;      /* violet bleuté principal */
-      --accent-soft: #9fa8ff;      /* violet clair */
+      --accent-main: #7a7cff;
+      --accent-soft: #9fa8ff;
       --accent-glow: rgba(122,124,255,0.6);
       --accent-border: rgba(122,124,255,0.35);
       --text-main: #ffffff;
       --text-soft: #cfd3ff;
     }
 
-    /* ===== Container Principal ===== */
-    .staff-container {
-      max-width: 1200px;
-      margin: auto;
-      padding: 40px 20px;
-    }
+    .staff-container { max-width: 1200px; margin: auto; padding: 40px 20px; }
+    .staff-container h2 { text-align: center; font-size: 2rem; color: var(--accent-main); margin-bottom: 40px; text-shadow: 0 0 15px var(--accent-glow); }
+    .staff-category { margin-bottom: 60px; }
+    .staff-category h3 { font-size: 1.5rem; color: var(--accent-soft); margin-bottom: 25px; border-bottom: 2px solid var(--accent-main); display: inline-block; padding-bottom: 6px; }
 
-    .staff-container h2 {
-      text-align: center;
-      font-size: 2rem;
-      color: var(--accent-main);
-      margin-bottom: 40px;
-      text-shadow: 0 0 15px var(--accent-glow);
-    }
-
-    .staff-category {
-      margin-bottom: 60px;
-    }
-
-    .staff-category h3 {
-      font-size: 1.5rem;
-      color: var(--accent-soft);
-      margin-bottom: 25px;
-      border-bottom: 2px solid var(--accent-main);
-      display: inline-block;
-      padding-bottom: 6px;
-    }
-
-    /* ===== Grid & Cartes ===== */
-    .staff-grid {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 25px;
-    }
+    .staff-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 25px; }
 
     .staff-card {
       background: rgba(15,15,22,0.92);
@@ -66,210 +37,80 @@
       padding: 18px;
       position: relative;
       transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-      overflow: hidden; /* Pour que les effets ne débordent pas salement */
+      overflow: hidden;
     }
 
-    /* ===== Définition des couleurs de lueur par rang ===== */
+    /* Couleurs de lueur par rang */
     .staff-card[data-rank="fondateur"]      { --rank-glow: #ffde90; }
     .staff-card[data-rank="co-fondateur"]   { --rank-glow: #9e6bff; }
     .staff-card[data-rank="pilier"]         { --rank-glow: #ef0004; }
-    .staff-card[data-rank="resp-admin"],
-    .staff-card[data-rank="admin"]          { --rank-glow: rgb(168, 67, 0); }
+    .staff-card[data-rank="resp-admin"], .staff-card[data-rank="admin"] { --rank-glow: rgb(168, 67, 0); }
     .staff-card[data-rank="resp-whitelist"] { --rank-glow: rgb(255, 255, 255); }
     .staff-card[data-rank="resp-rp"]        { --rank-glow: rgb(153, 170, 181); }
-    .staff-card[data-rank="resp-modo"],
-    .staff-card[data-rank="modérateur"]     { --rank-glow: rgb(113, 54, 138); }
+    .staff-card[data-rank="resp-modo"], .staff-card[data-rank="modérateur"] { --rank-glow: rgb(113, 54, 138); }
     .staff-card[data-rank="resp-helper"]    { --rank-glow: rgb(96, 125, 139); }
     .staff-card[data-rank="community"]      { --rank-glow: rgb(196, 201, 206); }
     .staff-card[data-rank="helper"]         { --rank-glow: rgb(153, 170, 181); }
     .staff-card[data-rank="animateur"]      { --rank-glow: rgb(255, 221, 0); }
 
-    /* Application de la lueur de base selon le rang */
-    .staff-card {
-      box-shadow: 0 0 12px var(--rank-glow, var(--accent-glow));
-    }
+    .staff-card { box-shadow: 0 0 12px var(--rank-glow, var(--accent-glow)); }
 
-    /* ===== Effet Hover (Lueur intense) ===== */
     .staff-card:hover {
       transform: translateY(-6px) scale(1.05);
       box-shadow: 0 0 25px var(--rank-glow, var(--accent-glow));
       border-color: var(--rank-glow, var(--accent-main));
     }
 
-    /* ===== Éléments internes ===== */
     .staff-card img {
       width: 80px;
       height: 80px;
       border-radius: 50%;
-      border: 2px solid var(--accent-main);
+      border: 2px solid var(--accent-border);
       margin-bottom: 10px;
       object-fit: cover;
-      box-shadow: 0 0 10px rgba(0,0,0,0.5);
       z-index: 2;
-      transition: border-color 0.3s ease;
+      
+      /* État pendant le chargement */
+      transition: opacity 0.4s ease, transform 0.3s ease, border-color 0.3s ease;
+      background-color: #1a1a24;
+      animation: pulse-load 1.5s infinite ease-in-out;
+      opacity: 0.3; /* On le laisse un peu visible pour voir le rond */
     }
 
-    .staff-card:hover img {
-      border-color: var(--rank-glow, var(--accent-main));
-    }
+    .staff-card:hover img { border-color: var(--rank-glow, var(--accent-main)); }
+    .staff-card h4 { font-size: 1rem; color: var(--text-main); margin-bottom: 5px; z-index: 2; }
+    .staff-card p { font-size: 0.85rem; color: var(--text-soft); z-index: 2; }
 
-    .staff-card h4 {
-      font-size: 1rem;
-      color: var(--text-main);
-      margin-bottom: 5px;
-      z-index: 2;
-    }
-
-    .staff-card p {
-      font-size: 0.85rem;
-      color: var(--text-soft);
-      z-index: 2;
-    }
-
-    /* ===== Bordures Spéciales Fondateurs (Gradients) ===== */
+    /* Bordures Spéciales Fondateurs */
     .staff-card[data-rank="fondateur"]::before, 
     .staff-card[data-rank="co-fondateur"]::before { 
-      content: ""; 
-      position: absolute; 
-      inset: 0; 
-      border-radius: 16px; 
-      padding: 2px; 
+      content: ""; position: absolute; inset: 0; border-radius: 16px; padding: 2px; 
       -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); 
-      -webkit-mask-composite: destination-out;
-      mask-composite: exclude; 
-      z-index: 1; 
+      -webkit-mask-composite: destination-out; mask-composite: exclude; z-index: 1; 
     }
+    .staff-card[data-rank="fondateur"]::before { background: linear-gradient(135deg, #d4843d, #ffde90, #d4843d); }
+    .staff-card[data-rank="co-fondateur"]::before { background: linear-gradient(135deg, #9e6bff, #9fc1ff, #9fc1ff); }
 
-    .staff-card[data-rank="fondateur"]::before { 
-      background: linear-gradient(135deg, #d4843d, #ffde90, #d4843d);
-    }
-
-    .staff-card[data-rank="co-fondateur"]::before { 
-      background: linear-gradient(135deg, #9e6bff, #9fc1ff, #9fc1ff); 
-    }
-
-    /* ===== Responsive ===== */
     @media screen and (max-width: 768px) {
-      .staff-card {
-        width: 150px;
-        height: 150px;
-      }
-      .staff-card img {
-        width: 60px;
-        height: 60px;
-      }
-      .staff-card h4 { font-size: 0.9rem; }
-      .staff-card p { font-size: 0.75rem; }
+      .staff-card { width: 150px; height: 150px; }
+      .staff-card img { width: 60px; height: 60px; }
+    }
+    /* Animation de chargement (Skeleton) */
+    /* Animation de pulsation pour le chargement */
+    @keyframes pulse-load {
+      0% { background-color: rgba(255, 255, 255, 0.05); box-shadow: 0 0 10px rgba(122,124,255,0.1); }
+      50% { background-color: rgba(255, 255, 255, 0.15); box-shadow: 0 0 20px rgba(122,124,255,0.3); }
+      100% { background-color: rgba(255, 255, 255, 0.05); box-shadow: 0 0 10px rgba(122,124,255,0.1); }
+    }
+
+    /* État quand l'image est chargée */
+    .staff-card img.loaded {
+      opacity: 1;
+      animation: none;
+      background-color: transparent;
+      border-color: var(--accent-main);
     }
   </style>
-
-    <style>
-        :root {
-            --accent-main: #7a7cff;
-            --accent-soft: #9fa8ff;
-            --accent-glow: rgba(122,124,255,0.6);
-            --accent-border: rgba(122,124,255,0.35);
-            --text-main: #ffffff;
-            --text-soft: #cfd3ff;
-        }
-
-        .staff-container {
-            max-width: 1200px;
-            margin: auto;
-            padding: 40px 20px;
-        }
-
-        .staff-container h2 {
-            text-align: center;
-            font-size: 2rem;
-            color: var(--accent-main);
-            margin-bottom: 40px;
-            text-shadow: 0 0 15px var(--accent-glow);
-        }
-
-        .staff-category { margin-bottom: 60px; }
-
-        .staff-category h3 {
-            font-size: 1.5rem;
-            color: var(--accent-soft);
-            margin-bottom: 25px;
-            border-bottom: 2px solid var(--accent-main);
-            display: inline-block;
-            padding-bottom: 6px;
-        }
-
-        .staff-grid {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 25px;
-        }
-
-        /* --- LA CARTE --- */
-        .staff-card {
-            background: rgba(15,15,22,0.92);
-            border: 1px solid var(--accent-border);
-            border-radius: 18px;
-            width: 200px;
-            height: 200px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 18px;
-            position: relative;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .staff-card:hover {
-            transform: translateY(-6px) scale(1.05);
-        }
-
-        .staff-card img {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            border: 2px solid var(--accent-main);
-            margin-bottom: 10px;
-            object-fit: cover;
-            z-index: 2;
-        }
-
-        .staff-card h4 { font-size: 1rem; color: var(--text-main); margin-bottom: 5px; z-index: 2; }
-        .staff-card p { font-size: 0.85rem; color: var(--text-soft); z-index: 2; }
-
-        /* --- COULEURS ET LUEURS PAR RANG --- */
-        .staff-card[data-rank="pilier"] { box-shadow: 0 0 12px #ef0004; }
-        .staff-card[data-rank="resp-admin"], .staff-card[data-rank="admin"] { box-shadow: 0 0 12px rgb(168, 67, 0); }
-        .staff-card[data-rank="resp-whitelist"] { box-shadow: 0 0 12px rgb(255, 255, 255); }
-        .staff-card[data-rank="resp-rp"] { box-shadow: 0 0 12px rgb(153, 170, 181); }
-        .staff-card[data-rank="resp-modo"], .staff-card[data-rank="modérateur"] { box-shadow: 0 0 12px rgb(113, 54, 138); }
-        .staff-card[data-rank="resp-helper"] { box-shadow: 0 0 12px rgb(96, 125, 139); }
-        .staff-card[data-rank="community"] { box-shadow: 0 0 12px rgb(196, 201, 206); }
-        .staff-card[data-rank="helper"] { box-shadow: 0 0 12px rgb(153, 170, 181); }
-        .staff-card[data-rank="animateur"] { box-shadow: 0 0 12px rgb(255, 221, 0); }
-
-        /* --- EFFETS SPECIAUX FONDATEURS --- */
-        .staff-card[data-rank="fondateur"]::before, 
-        .staff-card[data-rank="co-fondateur"]::before { 
-            content: ""; position: absolute; inset: 0; border-radius: 16px; padding: 2px; 
-            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); 
-            -webkit-mask-composite: destination-out; mask-composite: exclude; z-index: 1; 
-        }
-
-        .staff-card[data-rank="fondateur"]::before { 
-            background: linear-gradient(135deg, #d4843d, #ffde90,#d4843d); 
-        }
-        .staff-card[data-rank="co-fondateur"]::before { 
-            background: linear-gradient(135deg, #9e6bff, #9fc1ff,#9fc1ff); 
-        }
-
-        @media screen and (max-width: 768px) {
-            .staff-card { width: 150px; height: 150px; }
-            .staff-card img { width: 60px; height: 60px; }
-        }
-    </style>
 </head>
 <body>
 
@@ -284,41 +125,26 @@
 
 <script>
 const staffData = [
-    // FONDATEURS
     { cat: "fondators", rank: "fondateur", id: "599130976806764545", name: "Mr.Vox Hamilton", role: "staff_role_fondator" },
     { cat: "fondators", rank: "co-fondateur", id: "699723182793424927", name: "Kokoro Hamilton", role: "staff_role_co_fondator" },
     { cat: "fondators", rank: "co-fondateur", id: "https://kiro701.github.io/BoucleRP/Image/PP/Powder.png", name: "💖Mme.Powder Hamilton💖", role: "staff_role_co_fondator", isStatic: true },
-
-    // PILIERS
     { cat: "pillars", rank: "pilier", id: "451426602287366174", name: "Chara (Hamilton)", role: "staff_role_pillar" },
     { cat: "pillars", rank: "pilier", id: "736662177481752607", name: "⋆𝙰𝚗𝚐𝚎𝚕 ( HAMILTON )", role: "staff_role_pillar" },
-
-    // RESPONSABLES
     { cat: "responsibles", rank: "resp-admin", id: "1248946274259042345", name: "Awwax", role: "staff_role_resp_admin" },
     { cat: "responsibles", rank: "resp-whitelist", id: "1457964782102773896", name: "Beca Hamilton", role: "staff_role_resp_whitelist" },
     { cat: "responsibles", rank: "resp-admin", id: "902870493550485504", name: "Kiro701", role: "staff_role_resp_admin" },
     { cat: "responsibles", rank: "resp-helper", id: "1124522983294238821", name: "Joseph WILFORD", role: "staff_role_resp_helper" },
-    { cat: "responsibles", rank: "resp-rp", id: "1037398509030219868", name: "𝖬𝜩𝖦𝖠𝖱𝖠𝖯𝖳Ø𝖱", role: "staff_role_resp_roleplay" },
-
-    // ADMINS
+    { cat: "responsibles", rank: "resp-rp", id: "https://kiro701.github.io/BoucleRP/Image/PP/Meg.jpg", name: "𝖬𝜩𝖦𝖠𝖱𝖠𝖯𝖳Ø𝖱", role: "staff_role_resp_roleplay", isStatic: true },
     { cat: "admins", rank: "admin", id: "719519699716538389", name: "🇵🇸Aka Hamilton🇵🇸", role: "staff_role_admin_female" },
-
-    // MODERATION
     { cat: "moderators", rank: "modérateur", id: "869648496049913876", name: "X-02_slayer_fr", role: "staff_role_moderator_male" },
     { cat: "moderators", rank: "modérateur", id: "946068504023556186", name: "EXO 𝐻𝐴𝑀𝐼𝐿𝑇𝑂𝑁", role: "staff_role_moderator_male" },
     { cat: "moderators", rank: "modérateur", id: "1093534349896462476", name: "チャチャ", role: "staff_role_moderator_female" },
-
-    // CM
     { cat: "community_managers", rank: "community", id: "728622392456249375", name: "Coccinelle天道虫", role: "staff_role_community_manager_female" },
-
-    // HELPERS
     { cat: "helpers", rank: "helper", id: "868257732795465789", name: "Arlecchino Hamilton", role: "staff_role_helper_female" },
     { cat: "helpers", rank: "helper", id: "717697612681052281", name: "Aidan", role: "staff_role_helper_male" },
     { cat: "helpers", rank: "helper", id: "1212045357291147297", name: "Domniscian Hamilton", role: "staff_role_helper_male" },
     { cat: "helpers", rank: "helper", id: "1302267137934491648", name: "Mason", role: "staff_role_helper_male" },
     { cat: "helpers", rank: "helper", id: "1312064985559597166", name: "Nakushibo Hamilton", role: "staff_role_helper_male" },
-
-    // ANIMATEURS
     { cat: "animators", rank: "animateur", id: "1211403503713394762", name: "✿✧Minki Hamilton✧✿", role: "staff_role_animator_female" },
     { cat: "animators", rank: "animateur", id: "1285707049967288331", name: "Puro RobCo", role: "staff_role_animator_male" },
     { cat: "animators", rank: "animateur", id: "1027818724432031824", name: "zyrita", role: "staff_role_animator_male" }
@@ -335,32 +161,71 @@ const categories = {
     animators: "Animateurs"
 };
 
-const GUILD_ID = "1025887285461405817";
-const WORKER_URL = "https://odd-morning-1200.ptitleo2009.workers.dev/";
-const staffListContainer = document.getElementById('staff-list');
+async function loadStaff() {
+    // ON UTILISE L'URL DE TON WORKER QUI MARCHE (Celui de l'arbre)
+    const WORKER_URL = "https://divine-moon-e24f.ptitleo2009.workers.dev/"; 
+    const GUILD_ID = "1025887285461405817";
+    const NEUTRAL_IMG = "https://kiro701.github.io/BoucleRP/Image/Profil-Neutre.avif";
+    const container = document.getElementById('staff-list');
 
-Object.entries(categories).forEach(([key, title]) => {
-    const members = staffData.filter(m => m.cat === key);
-    if (members.length === 0) return;
+    // 1. Génération du HTML (toujours pareil)
+    Object.entries(categories).forEach(([key, title]) => {
+        const members = staffData.filter(m => m.cat === key);
+        if (members.length === 0) return;
 
-    let sectionHtml = `
-        <div class="staff-category">
-            <h3 data-i18n="staff_subtitles_${key}">${title}</h3>
-            <div class="staff-grid">`;
-
-    members.forEach(m => {
-        const imgSrc = m.isStatic ? m.id : `${WORKER_URL}?id=${m.id}&guild=${GUILD_ID}`;
-        sectionHtml += `
-            <div class="staff-card" data-rank="${m.rank}">
-                <img src="${imgSrc}" alt="${m.name}">
-                <h4>${m.name}</h4>
-                <p data-i18n="${m.role}">${m.role}</p>
-            </div>`;
+        let sectionHtml = `<div class="staff-category"><h3 data-i18n="staff_subtitles_${key}">${title}</h3><div class="staff-grid">`;
+        members.forEach(m => {
+            const safeId = m.id.replace(/[^a-zA-Z0-9]/g, '');
+            const initialSrc = m.isStatic ? m.id : NEUTRAL_IMG;
+            
+            sectionHtml += `
+                <div class="staff-card" data-rank="${m.rank}">
+                    <img id="img-${safeId}" src="${initialSrc}" alt="${m.name}" class="${m.isStatic ? 'loaded' : ''}">
+                    <h4>${m.name}</h4>
+                    <p data-i18n="${m.role}">${m.role}</p>
+                </div>`;
+        });
+        sectionHtml += `</div></div>`;
+        container.innerHTML += sectionHtml;
     });
 
-    sectionHtml += `</div></div>`;
-    staffListContainer.innerHTML += sectionHtml;
-});
+    // 2. Appel au Worker
+    const discordIds = staffData.filter(m => !m.isStatic).map(m => m.id);
+    
+    try {
+        // On envoie la même requête que l'arbre
+        const res = await fetch(`${WORKER_URL}?guild=${GUILD_ID}&ids=${discordIds.join(',')}`);
+        const avatarMap = await res.json();
+
+        // 3. Application des PP
+        discordIds.forEach(id => {
+            const safeId = id.replace(/[^a-zA-Z0-9]/g, '');
+            const imgElement = document.getElementById(`img-${safeId}`);
+            
+            if (imgElement) {
+                const url = avatarMap[id];
+                if (url) {
+                    // Si l'URL existe, on l'affiche avec un fondu
+                    const temp = new Image();
+                    temp.src = url;
+                    temp.onload = () => {
+                        imgElement.src = url;
+                        imgElement.classList.add('loaded');
+                    };
+                } else {
+                    // Sinon, on enlève juste le flou sur l'image neutre
+                    imgElement.classList.add('loaded');
+                }
+            }
+        });
+    } catch (err) {
+        console.error("Erreur de chargement des PP:", err);
+        // En cas d'erreur, on affiche tout en neutre pour ne pas laisser les ronds de chargement
+        document.querySelectorAll('.staff-card img').forEach(img => img.classList.add('loaded'));
+    }
+}
+
+loadStaff();
 </script>
 
 <script src="js/layout.js"></script>

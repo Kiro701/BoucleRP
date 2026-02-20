@@ -4,5 +4,14 @@
     "vscord.status.buttons.button1.active.label": "Voir le site",
     "vscord.status.buttons.button1.active.url": "https://kiro701.github.io/BoucleRP/",
     "vscord.status.buttons.button1.git.active.enabled": false,
-    "vscord.app.name": "Visual Studio Code"
+    "vscord.app.name": "Visual Studio Code",
+    "vscord.status.buttons.button1.idle.enabled": true,
+    "vscord.status.buttons.button1.idle.label": "Voir le site",
+    "vscord.status.buttons.button1.idle.url": "https://kiro701.github.io/BoucleRP/",
+    "vscord.status.buttons.button1.inactive.enabled": true,
+    "vscord.status.buttons.button1.inactive.label": "Voir le site",
+    "vscord.status.buttons.button1.inactive.url": "https://kiro701.github.io/BoucleRP/",
+    "vscord.app.id": "1474432355480375642",
+    "vscord.app.privacyMode.enable": false,
+    "vscord.status.image.large.editing.key": "https://raw.githubusercontent.com/LeonardSSH/vscord/main/assets/icons/{lang}.png"
 }

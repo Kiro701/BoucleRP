@@ -1,5 +1,17 @@
 const patchNotesData = [
   {
+    version: "0.3.1.1",
+    date: "20 février 2026",
+    add: [
+      "Ajout d'un bouton partage sur Galerie et PatchNote"
+    ],
+    improve: [
+    ],
+    fix: [
+      "Correction des images de profil non chargé",
+    ]
+  },
+  {
     version: "0.3.1.0",
     date: "20 février 2026",
     add: [
