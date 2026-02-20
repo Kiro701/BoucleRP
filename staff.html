@@ -1,367 +1,369 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HMC | Staff</title>
-<link rel="stylesheet" href="css/style.css">
-<link rel="icon" href="Image/logo-bouclerp.webp">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HMC | Staff</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="Image/logo-bouclerp.webp">
+    <style>
+    :root {
+      --accent-main: #7a7cff;      /* violet bleuté principal */
+      --accent-soft: #9fa8ff;      /* violet clair */
+      --accent-glow: rgba(122,124,255,0.6);
+      --accent-border: rgba(122,124,255,0.35);
+      --text-main: #ffffff;
+      --text-soft: #cfd3ff;
+    }
 
-<style>
-  :root {
-  --accent-main: #7a7cff;      /* violet bleuté principal */
-  --accent-soft: #9fa8ff;      /* violet clair */
-  --accent-glow: rgba(122,124,255,0.6);
-  --accent-border: rgba(122,124,255,0.35);
+    /* ===== Container Principal ===== */
+    .staff-container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 40px 20px;
+    }
 
-  --text-main: #ffffff;
-  --text-soft: #cfd3ff;
-}
-/* ===== Staff Page ===== */
-.staff-container {
-  max-width: 1200px;
-  margin: auto;
-  padding: 40px 20px;
-}
+    .staff-container h2 {
+      text-align: center;
+      font-size: 2rem;
+      color: var(--accent-main);
+      margin-bottom: 40px;
+      text-shadow: 0 0 15px var(--accent-glow);
+    }
 
-/* Titre principal */
-.staff-container h2 {
-  text-align: center;
-  font-size: 2rem;
-  color: var(--accent-main);
-  margin-bottom: 40px;
-  text-shadow: 0 0 15px var(--accent-glow);
-}
+    .staff-category {
+      margin-bottom: 60px;
+    }
 
-/* Catégorie de rang */
-.staff-category {
-  margin-bottom: 60px;
-}
+    .staff-category h3 {
+      font-size: 1.5rem;
+      color: var(--accent-soft);
+      margin-bottom: 25px;
+      border-bottom: 2px solid var(--accent-main);
+      display: inline-block;
+      padding-bottom: 6px;
+    }
 
-.staff-category h3 {
-  font-size: 1.5rem;
-  color: var(--accent-soft);
-  margin-bottom: 25px;
-  border-bottom: 2px solid var(--accent-main);
-  display: inline-block;
-  padding-bottom: 6px;
-}
+    /* ===== Grid & Cartes ===== */
+    .staff-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 25px;
+    }
 
-/* Grid */
-.staff-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 25px;
-}
+    .staff-card {
+      background: rgba(15,15,22,0.92);
+      border: 1px solid var(--accent-border);
+      border-radius: 18px;
+      width: 200px;
+      height: 200px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 18px;
+      position: relative;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+      overflow: hidden; /* Pour que les effets ne débordent pas salement */
+    }
 
-/* Carte */
-.staff-card {
-  background: rgba(15,15,22,0.92);
-  border: 1px solid var(--accent-border);
-  border-radius: 18px;
-  width: 200px;
-  height: 200px;
+    /* ===== Définition des couleurs de lueur par rang ===== */
+    .staff-card[data-rank="fondateur"]      { --rank-glow: #ffde90; }
+    .staff-card[data-rank="co-fondateur"]   { --rank-glow: #9e6bff; }
+    .staff-card[data-rank="pilier"]         { --rank-glow: #ef0004; }
+    .staff-card[data-rank="resp-admin"],
+    .staff-card[data-rank="admin"]          { --rank-glow: rgb(168, 67, 0); }
+    .staff-card[data-rank="resp-whitelist"] { --rank-glow: rgb(255, 255, 255); }
+    .staff-card[data-rank="resp-rp"]        { --rank-glow: rgb(153, 170, 181); }
+    .staff-card[data-rank="resp-modo"],
+    .staff-card[data-rank="modérateur"]     { --rank-glow: rgb(113, 54, 138); }
+    .staff-card[data-rank="resp-helper"]    { --rank-glow: rgb(96, 125, 139); }
+    .staff-card[data-rank="community"]      { --rank-glow: rgb(196, 201, 206); }
+    .staff-card[data-rank="helper"]         { --rank-glow: rgb(153, 170, 181); }
+    .staff-card[data-rank="animateur"]      { --rank-glow: rgb(255, 221, 0); }
 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
+    /* Application de la lueur de base selon le rang */
+    .staff-card {
+      box-shadow: 0 0 12px var(--rank-glow, var(--accent-glow));
+    }
 
-  padding: 18px;
-  position: relative;
+    /* ===== Effet Hover (Lueur intense) ===== */
+    .staff-card:hover {
+      transform: translateY(-6px) scale(1.05);
+      box-shadow: 0 0 25px var(--rank-glow, var(--accent-glow));
+      border-color: var(--rank-glow, var(--accent-main));
+    }
 
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
+    /* ===== Éléments internes ===== */
+    .staff-card img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      border: 2px solid var(--accent-main);
+      margin-bottom: 10px;
+      object-fit: cover;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+      z-index: 2;
+      transition: border-color 0.3s ease;
+    }
 
-.staff-card:hover {
-  transform: translateY(-6px) scale(1.05);
-  box-shadow: 0 0 25px var(--accent-glow);
-}
+    .staff-card:hover img {
+      border-color: var(--rank-glow, var(--accent-main));
+    }
 
-/* Image */
-.staff-card img {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  border: 2px solid var(--accent-main);
-  margin-bottom: 10px;
-  object-fit: cover;
-  box-shadow: 0 0 12px var(--accent-glow);
-}
+    .staff-card h4 {
+      font-size: 1rem;
+      color: var(--text-main);
+      margin-bottom: 5px;
+      z-index: 2;
+    }
 
-/* Nom / rôle */
-.staff-card h4 {
-  font-size: 1rem;
-  color: var(--text-main);
-  margin-bottom: 5px;
-}
+    .staff-card p {
+      font-size: 0.85rem;
+      color: var(--text-soft);
+      z-index: 2;
+    }
 
-.staff-card p {
-  font-size: 0.85rem;
-  color: var(--text-soft);
-}
-.staff-card[data-rank="fondateur"] {
-  position: relative; 
-}
-.staff-card[data-rank="fondateur"]::before { 
-  content: ""; 
-  position: absolute; 
-  inset: 0; 
-  border-radius: 16px; 
-  padding: 2px; 
-  background: linear-gradient(135deg, #d4843d, #ffde90,#d4843d);
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); 
-  -webkit-mask-composite: destination-out;
-  mask-composite: exclude; 
-  z-index: 0; 
-} 
-.staff-card[data-rank="co-fondateur"] { 
-  position: relative;
- } 
- .staff-card[data-rank="co-fondateur"]::before { 
-  content: ""; 
-  position: absolute; 
-  inset: 0; border-radius: 16px; 
-  padding: 2px; 
-  background: linear-gradient(135deg, #9e6bff, #9fc1ff,#9fc1ff); 
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); 
-  -webkit-mask-composite: destination-out; 
-  mask-composite: exclude; 
-  z-index: 0; 
-}
-  .staff-card[data-rank="pilier"] { 
-    box-shadow: 0 0 12px #ef0004; 
-  } 
-  .staff-card[data-rank="resp-admin"] { 
-    box-shadow: 0 0 12px rgb(168, 67, 0) 
-  } 
-  .staff-card[data-rank="resp-whitelist"] { 
-    box-shadow: 0 0 12px rgb(255, 255, 255) 
-  } 
-  .staff-card[data-rank="resp-rp"] {
-    box-shadow: 0 0 12px rgb(153, 170, 181)
-  }
-  .staff-card[data-rank="admin"] { 
-    box-shadow: 0 0 12px rgb(168, 67, 0); 
-  } .staff-card[data-rank="resp-modo"] { 
-    box-shadow: 0 0 12px rgb(113, 54, 138); 
-  } 
-  .staff-card[data-rank="resp-helper"] { 
-    box-shadow: 0 0 12px rgb(96, 125, 139); 
-  } 
-  .staff-card[data-rank="modérateur"] { 
-    box-shadow: 0 0 12px rgb(113, 54, 138); 
-  } 
-  .staff-card[data-rank="community"] { 
-    box-shadow: 0 0 12px rgb(196, 201, 206); 
-  } 
-  .staff-card[data-rank="helper"] { 
-    box-shadow: 0 0 12px rgb(153, 170, 181); 
-  } 
-  .staff-card[data-rank="animateur"] { 
-    box-shadow: 0 0 12px rgb(255, 221, 0); 
-  }
+    /* ===== Bordures Spéciales Fondateurs (Gradients) ===== */
+    .staff-card[data-rank="fondateur"]::before, 
+    .staff-card[data-rank="co-fondateur"]::before { 
+      content: ""; 
+      position: absolute; 
+      inset: 0; 
+      border-radius: 16px; 
+      padding: 2px; 
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); 
+      -webkit-mask-composite: destination-out;
+      mask-composite: exclude; 
+      z-index: 1; 
+    }
 
-/* ===== Responsive ===== */
-@media screen and (max-width: 768px) {
-  .staff-card {
-    width: 150px;
-    height: 150px;
-  }
+    .staff-card[data-rank="fondateur"]::before { 
+      background: linear-gradient(135deg, #d4843d, #ffde90, #d4843d);
+    }
 
-  .staff-card img {
-    width: 60px;
-    height: 60px;
-  }
+    .staff-card[data-rank="co-fondateur"]::before { 
+      background: linear-gradient(135deg, #9e6bff, #9fc1ff, #9fc1ff); 
+    }
 
-  .staff-card h4 {
-    font-size: 0.9rem;
-  }
+    /* ===== Responsive ===== */
+    @media screen and (max-width: 768px) {
+      .staff-card {
+        width: 150px;
+        height: 150px;
+      }
+      .staff-card img {
+        width: 60px;
+        height: 60px;
+      }
+      .staff-card h4 { font-size: 0.9rem; }
+      .staff-card p { font-size: 0.75rem; }
+    }
+  </style>
 
-  .staff-card p {
-    font-size: 0.75rem;
-  }
-}
+    <style>
+        :root {
+            --accent-main: #7a7cff;
+            --accent-soft: #9fa8ff;
+            --accent-glow: rgba(122,124,255,0.6);
+            --accent-border: rgba(122,124,255,0.35);
+            --text-main: #ffffff;
+            --text-soft: #cfd3ff;
+        }
 
-</style>
+        .staff-container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 40px 20px;
+        }
 
+        .staff-container h2 {
+            text-align: center;
+            font-size: 2rem;
+            color: var(--accent-main);
+            margin-bottom: 40px;
+            text-shadow: 0 0 15px var(--accent-glow);
+        }
+
+        .staff-category { margin-bottom: 60px; }
+
+        .staff-category h3 {
+            font-size: 1.5rem;
+            color: var(--accent-soft);
+            margin-bottom: 25px;
+            border-bottom: 2px solid var(--accent-main);
+            display: inline-block;
+            padding-bottom: 6px;
+        }
+
+        .staff-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+        }
+
+        /* --- LA CARTE --- */
+        .staff-card {
+            background: rgba(15,15,22,0.92);
+            border: 1px solid var(--accent-border);
+            border-radius: 18px;
+            width: 200px;
+            height: 200px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 18px;
+            position: relative;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .staff-card:hover {
+            transform: translateY(-6px) scale(1.05);
+        }
+
+        .staff-card img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            border: 2px solid var(--accent-main);
+            margin-bottom: 10px;
+            object-fit: cover;
+            z-index: 2;
+        }
+
+        .staff-card h4 { font-size: 1rem; color: var(--text-main); margin-bottom: 5px; z-index: 2; }
+        .staff-card p { font-size: 0.85rem; color: var(--text-soft); z-index: 2; }
+
+        /* --- COULEURS ET LUEURS PAR RANG --- */
+        .staff-card[data-rank="pilier"] { box-shadow: 0 0 12px #ef0004; }
+        .staff-card[data-rank="resp-admin"], .staff-card[data-rank="admin"] { box-shadow: 0 0 12px rgb(168, 67, 0); }
+        .staff-card[data-rank="resp-whitelist"] { box-shadow: 0 0 12px rgb(255, 255, 255); }
+        .staff-card[data-rank="resp-rp"] { box-shadow: 0 0 12px rgb(153, 170, 181); }
+        .staff-card[data-rank="resp-modo"], .staff-card[data-rank="modérateur"] { box-shadow: 0 0 12px rgb(113, 54, 138); }
+        .staff-card[data-rank="resp-helper"] { box-shadow: 0 0 12px rgb(96, 125, 139); }
+        .staff-card[data-rank="community"] { box-shadow: 0 0 12px rgb(196, 201, 206); }
+        .staff-card[data-rank="helper"] { box-shadow: 0 0 12px rgb(153, 170, 181); }
+        .staff-card[data-rank="animateur"] { box-shadow: 0 0 12px rgb(255, 221, 0); }
+
+        /* --- EFFETS SPECIAUX FONDATEURS --- */
+        .staff-card[data-rank="fondateur"]::before, 
+        .staff-card[data-rank="co-fondateur"]::before { 
+            content: ""; position: absolute; inset: 0; border-radius: 16px; padding: 2px; 
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); 
+            -webkit-mask-composite: destination-out; mask-composite: exclude; z-index: 1; 
+        }
+
+        .staff-card[data-rank="fondateur"]::before { 
+            background: linear-gradient(135deg, #d4843d, #ffde90,#d4843d); 
+        }
+        .staff-card[data-rank="co-fondateur"]::before { 
+            background: linear-gradient(135deg, #9e6bff, #9fc1ff,#9fc1ff); 
+        }
+
+        @media screen and (max-width: 768px) {
+            .staff-card { width: 150px; height: 150px; }
+            .staff-card img { width: 60px; height: 60px; }
+        }
+    </style>
 </head>
 <body>
 
-<!-- Header -->
 <div id="header"></div>
 
 <main class="staff-container">
-  <h2 data-i18n="staff_title">Staff H.M.C Community</h2>
-
-  <!-- Catégorie : Fondateurs -->
-  <div class="staff-category">
-    <h3 data-i18n="staff_subtitles_fondators">Fondateurs</h3>
-    <div class="staff-grid">
-      <div class="staff-card" data-rank="fondateur">
-        <img src="https://odd-morning-1200.ptitleo2009.workers.dev/?id=599130976806764545&guild=1025887285461405817" alt="Mr.Vox Hamilton">
-        <h4>Mr.Vox Hamilton</h4>
-        <p data-i18n="staff_role_fondator">Fondateur</p>
-      </div>
-      <div class="staff-card" data-rank="co-fondateur">
-        <img src="https://odd-morning-1200.ptitleo2009.workers.dev/?id=699723182793424927&guild=1025887285461405817" alt="Kokoro Hamilton">
-        <h4>Kokoro Hamilton</h4>
-        <p data-i18n="staff_role_co_fondator">Co-Fondateur</p>
-      </div>
-      <div class="staff-card" data-rank="co-fondateur">
-        <img src="https://kiro701.github.io/BoucleRP/Image/PP/Powder.png" alt="Powder Hamilton">
-        <h4>💖Mme.Powder Hamilton💖</h4>
-        <p data-i18n="staff_role_co_fondator">Co-Fondateur</p>
-      </div>
-    </div>
-  </div>
-  <!-- Catégorie : Pilier -->
-  <div class="staff-category">
-    <h3 data-i18n="staff_subtitles_pillars">Piliers</h3>
-    <div class="staff-grid">
-      <div class="staff-card" data-rank="pilier">
-        <img src="https://odd-morning-1200.ptitleo2009.workers.dev/?id=451426602287366174&guild=1025887285461405817" alt="Chara Hamilton">
-        <h4>Chara (Hamilton)</h4>
-        <p data-i18n="staff_role_pillar">Pilier</p>
-      </div>
-      <div class="staff-card" data-rank="pilier">
-        <img src="https://odd-morning-1200.ptitleo2009.workers.dev/?id=736662177481752607&guild=1025887285461405817" alt="Angel Hamilton">
-        <h4>⋆𝙰𝚗𝚐𝚎𝚕 ( HAMILTON )</h4>
-        <p data-i18n="staff_role_pillar">Pilier</p>
-      </div>
-    </div>
-  </div>
-  <!-- Catégorie : Responsable -->
-  <div class="staff-category">
-    <h3 data-i18n="staff_subtitles_responsibles">Responsables</h3>
-    <div class="staff-grid">
-      <div class="staff-card" data-rank="resp-admin">
-        <img src="https://odd-morning-1200.ptitleo2009.workers.dev/?id=1248946274259042345&guild=1025887285461405817" alt="Awwax_">
-        <h4>Awwax</h4>
-        <p data-i18n="staff_role_resp_admin">Resp. Admin</p>
-      </div>
-      <div class="staff-card" data-rank="resp-whitelist">
-        <img src="https://odd-morning-1200.ptitleo2009.workers.dev/?id=1457964782102773896&guild=1025887285461405817" alt="Beca Hamilton">
-        <h4>Beca Hamilton</h4>
-        <p data-i18n="staff_role_resp_whitelist">Resp. Whitelist</p>
-      </div>
-      <div class="staff-card" data-rank="resp-admin">
-        <img src="https://odd-morning-1200.ptitleo2009.workers.dev/?id=902870493550485504&guild=1025887285461405817" alt="Kiro701">
-        <h4>Kiro701</h4>
-        <p data-i18n="staff_role_resp_admin">Resp. Admin</p>
-      </div>
-      <div class="staff-card" data-rank="resp-helper">
-        <img src="https://odd-morning-1200.ptitleo2009.workers.dev/?id=1124522983294238821&guild=1025887285461405817" alt="Joseph">
-        <h4>Joseph WILFORD</h4>
-        <p data-i18n="staff_role_resp_helper">Resp. Helper</p>
-      </div>
-      <div class="staff-card" data-rank="resp-rp">
-        <img src="https://odd-morning-1200.ptitleo2009.workers.dev/?id=1037398509030219868&guild=1025887285461405817" alt="meg_raptor">
-        <h4>𝖬𝜩𝖦𝖠𝖱𝖠𝖯𝖳Ø𝖱</h4>
-        <p data-i18n="staff_role_resp_roleplay">Manageur Roleplay</p>
-      </div>
-  </div>
-  <!-- Catégorie : Admin -->
-  <div class="staff-category">
-    <h3 data-i18n="staff_subtitles_admins">Adminastrations</h3>
-    <div class="staff-grid">
-      <div class="staff-card" data-rank="admin">
-        <img src="https://odd-morning-1200.ptitleo2009.workers.dev/?id=719519699716538389&guild=1025887285461405817" alt="🇵🇸Aka Hamilton🇵🇸">
-        <h4>🇵🇸Aka Hamilton🇵🇸</h4>
-        <p data-i18n="staff_role_admin_female">Adminastratrice</p>
-      </div>
-    </div>
-  </div>
-  <!-- Catégorie : Modération -->
-  <div class="staff-category">
-    <h3 data-i18n="staff_subtitles_moderators">Modérations</h3>
-    <div class="staff-grid">
-      <div class="staff-card" data-rank="modérateur">
-        <img src="https://odd-morning-1200.ptitleo2009.workers.dev/?id=869648496049913876&guild=1025887285461405817" alt="X-02_slayer_fr">
-        <h4>X-02_slayer_fr</h4>
-        <p data-i18n="staff_role_moderator_male">Modérateur</p>
-      </div>
-      <div class="staff-card" data-rank="modérateur">
-        <img src="https://odd-morning-1200.ptitleo2009.workers.dev/?id=946068504023556186&guild=1025887285461405817" alt=".1all_might1.">
-        <h4>EXO 𝐻𝐴𝑀𝐼𝐿𝑇𝑂𝑁</h4>
-        <p data-i18n="staff_role_moderator_male">Modérateur</p>
-      </div>
-      <div class="staff-card" data-rank="modérateur">
-        <img src="https://odd-morning-1200.ptitleo2009.workers.dev/?id=1093534349896462476&guild=1025887285461405817" alt="aria">
-        <h4>チャチャ</h4>
-        <p data-i18n="staff_role_moderator_female">Modératrice</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- Catégorie : Community Manager -->
-  <div class="staff-category">
-    <h3 data-i18n="staff_subtitles_community_managers">Communité Manageurs</h3>
-    <div class="staff-grid">
-      <div class="staff-card" data-rank="community">
-        <img src="https://odd-morning-1200.ptitleo2009.workers.dev/?id=728622392456249375&guild=1025887285461405817" alt="Coccinelle天道虫">
-        <h4>Coccinelle天道虫</h4>
-        <p data-i18n="staff_role_community_manager_female">Communauté Manageuse</p>
-      </div>
-    </div>
-  </div>
-  <!-- Catégorie : Helper -->
-  <div class="staff-category">
-    <h3 data-i18n="staff_subtitles_helpers">Helpers</h3>
-    <div class="staff-grid">
-      <div class="staff-card" data-rank="helper">
-        <img src="https://odd-morning-1200.ptitleo2009.workers.dev/?id=868257732795465789&guild=1025887285461405817" alt="Makina Hamilton">
-        <h4>Arlecchino Hamilton</h4>
-        <p data-i18n="staff_role_helper_female">Helpeuse</p>
-      </div>
-      <div class="staff-card" data-rank="helper">
-        <img src="https://odd-morning-1200.ptitleo2009.workers.dev/?id=717697612681052281&guild=1025887285461405817" alt="angel_dust134">
-        <h4>Aidan</h4>
-        <p data-i18n="staff_role_helper_male">Helpeur</p>
-      </div>
-      <div class="staff-card" data-rank="helper">
-        <img src="https://odd-morning-1200.ptitleo2009.workers.dev/?id=1212045357291147297&guild=1025887285461405817" alt="domniscian_2.0">
-        <h4>Domniscian Hamilton</h4>
-        <p data-i18n="staff_role_helper_male">Helpeur</p>
-      </div>
-      <div class="staff-card" data-rank="helper">
-        <img src="https://odd-morning-1200.ptitleo2009.workers.dev/?id=1302267137934491648&guild=1025887285461405817" alt="theplaytimebutcher">
-        <h4>Mason</h4>
-        <p data-i18n="staff_role_helper_male">Helpeur</p>
-      </div>
-      <div class="staff-card" data-rank="helper">
-        <img src="https://odd-morning-1200.ptitleo2009.workers.dev/?id=1312064985559597166&guild=1025887285461405817" alt="kokushibo_uppermon1">
-        <h4>Nakushibo Hamilton</h4>
-        <p data-i18n="staff_role_helper_male">Helpeur</p>
-      </div>
-      
-  </div>
-  <!-- Catégorie : Animateur -->
-  <div class="staff-category">
-    <h3 data-i18n="staff_subtitles_animators">Animateurs</h3>
-    <div class="staff-grid">
-      <div class="staff-card" data-rank="animateur">
-        <img src="https://odd-morning-1200.ptitleo2009.workers.dev/?id=1211403503713394762&guild=1025887285461405817" alt="Minki">
-        <h4>✿✧Minki Hamilton✧✿</h4>
-        <p data-i18n="staff_role_animator_female">Animatrice</p>
-      </div>
-      <div class="staff-card" data-rank="animateur">
-        <img src="https://odd-morning-1200.ptitleo2009.workers.dev/?id=1285707049967288331&guild=1025887285461405817" alt="bulle_de_narine">
-        <h4>Puro RobCo</h4>
-        <p data-i18n="staff_role_animator_male">Animateur</p>
-      </div>
-    </div>
-  </div>
+    <h2 data-i18n="staff_title">Staff H.M.C Community</h2>
+    <div id="staff-list"></div>
 </main>
 
-<!-- Footer -->
 <div id="footer"></div>
 
-<!-- JS for Header/Footer -->
+<script>
+const staffData = [
+    // FONDATEURS
+    { cat: "fondators", rank: "fondateur", id: "599130976806764545", name: "Mr.Vox Hamilton", role: "staff_role_fondator" },
+    { cat: "fondators", rank: "co-fondateur", id: "699723182793424927", name: "Kokoro Hamilton", role: "staff_role_co_fondator" },
+    { cat: "fondators", rank: "co-fondateur", id: "https://kiro701.github.io/BoucleRP/Image/PP/Powder.png", name: "💖Mme.Powder Hamilton💖", role: "staff_role_co_fondator", isStatic: true },
+
+    // PILIERS
+    { cat: "pillars", rank: "pilier", id: "451426602287366174", name: "Chara (Hamilton)", role: "staff_role_pillar" },
+    { cat: "pillars", rank: "pilier", id: "736662177481752607", name: "⋆𝙰𝚗𝚐𝚎𝚕 ( HAMILTON )", role: "staff_role_pillar" },
+
+    // RESPONSABLES
+    { cat: "responsibles", rank: "resp-admin", id: "1248946274259042345", name: "Awwax", role: "staff_role_resp_admin" },
+    { cat: "responsibles", rank: "resp-whitelist", id: "1457964782102773896", name: "Beca Hamilton", role: "staff_role_resp_whitelist" },
+    { cat: "responsibles", rank: "resp-admin", id: "902870493550485504", name: "Kiro701", role: "staff_role_resp_admin" },
+    { cat: "responsibles", rank: "resp-helper", id: "1124522983294238821", name: "Joseph WILFORD", role: "staff_role_resp_helper" },
+    { cat: "responsibles", rank: "resp-rp", id: "1037398509030219868", name: "𝖬𝜩𝖦𝖠𝖱𝖠𝖯𝖳Ø𝖱", role: "staff_role_resp_roleplay" },
+
+    // ADMINS
+    { cat: "admins", rank: "admin", id: "719519699716538389", name: "🇵🇸Aka Hamilton🇵🇸", role: "staff_role_admin_female" },
+
+    // MODERATION
+    { cat: "moderators", rank: "modérateur", id: "869648496049913876", name: "X-02_slayer_fr", role: "staff_role_moderator_male" },
+    { cat: "moderators", rank: "modérateur", id: "946068504023556186", name: "EXO 𝐻𝐴𝑀𝐼𝐿𝑇𝑂𝑁", role: "staff_role_moderator_male" },
+    { cat: "moderators", rank: "modérateur", id: "1093534349896462476", name: "チャチャ", role: "staff_role_moderator_female" },
+
+    // CM
+    { cat: "community_managers", rank: "community", id: "728622392456249375", name: "Coccinelle天道虫", role: "staff_role_community_manager_female" },
+
+    // HELPERS
+    { cat: "helpers", rank: "helper", id: "868257732795465789", name: "Arlecchino Hamilton", role: "staff_role_helper_female" },
+    { cat: "helpers", rank: "helper", id: "717697612681052281", name: "Aidan", role: "staff_role_helper_male" },
+    { cat: "helpers", rank: "helper", id: "1212045357291147297", name: "Domniscian Hamilton", role: "staff_role_helper_male" },
+    { cat: "helpers", rank: "helper", id: "1302267137934491648", name: "Mason", role: "staff_role_helper_male" },
+    { cat: "helpers", rank: "helper", id: "1312064985559597166", name: "Nakushibo Hamilton", role: "staff_role_helper_male" },
+
+    // ANIMATEURS
+    { cat: "animators", rank: "animateur", id: "1211403503713394762", name: "✿✧Minki Hamilton✧✿", role: "staff_role_animator_female" },
+    { cat: "animators", rank: "animateur", id: "1285707049967288331", name: "Puro RobCo", role: "staff_role_animator_male" },
+    { cat: "animators", rank: "animateur", id: "1027818724432031824", name: "zyrita", role: "staff_role_animator_male" }
+];
+
+const categories = {
+    fondators: "Fondateurs",
+    pillars: "Piliers",
+    responsibles: "Responsables",
+    admins: "Administrations",
+    moderators: "Modérations",
+    community_managers: "Community Managers",
+    helpers: "Helpers",
+    animators: "Animateurs"
+};
+
+const GUILD_ID = "1025887285461405817";
+const WORKER_URL = "https://odd-morning-1200.ptitleo2009.workers.dev/";
+const staffListContainer = document.getElementById('staff-list');
+
+Object.entries(categories).forEach(([key, title]) => {
+    const members = staffData.filter(m => m.cat === key);
+    if (members.length === 0) return;
+
+    let sectionHtml = `
+        <div class="staff-category">
+            <h3 data-i18n="staff_subtitles_${key}">${title}</h3>
+            <div class="staff-grid">`;
+
+    members.forEach(m => {
+        const imgSrc = m.isStatic ? m.id : `${WORKER_URL}?id=${m.id}&guild=${GUILD_ID}`;
+        sectionHtml += `
+            <div class="staff-card" data-rank="${m.rank}">
+                <img src="${imgSrc}" alt="${m.name}">
+                <h4>${m.name}</h4>
+                <p data-i18n="${m.role}">${m.role}</p>
+            </div>`;
+    });
+
+    sectionHtml += `</div></div>`;
+    staffListContainer.innerHTML += sectionHtml;
+});
+</script>
+
 <script src="js/layout.js"></script>
-<!-- Traduction -->
 <script src="data/translations.js"></script>
 <script src="js/main-i18n.js"></script>
 </body>

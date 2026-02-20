@@ -318,11 +318,13 @@
     "fid": 1,
     "name": "Meg Hamilton",
     "gender": "male",
-    "img": "https://kiro701.github.io/BoucleRP/Image/Profil-Neutre.avif",
-    "discordId": "1037398509030219868"
+    "img": "https://kiro701.github.io/BoucleRP/Image/PP/Meg.jpg"
   },
   {
     "id": 16,
+    "pids": [
+      19
+    ],
     "divorced": [
       19
     ],
@@ -335,6 +337,9 @@
   },
   {
     "id": 19,
+    "pids": [
+      16
+    ],
     "divorced": [
       16
     ],

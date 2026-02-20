@@ -1,5 +1,17 @@
 const patchNotesData = [
   {
+    version: "0.3.1.0",
+    date: "20 février 2026",
+    add: [
+    ],
+    improve: [
+    ],
+    fix: [
+      "Optimisation des photos de profils",
+      "Correction des membres buggés dans l'arbre généalogique",
+    ]
+  },
+  {
     version: "0.3.0.0",
     date: "20 février 2026",
     add: [

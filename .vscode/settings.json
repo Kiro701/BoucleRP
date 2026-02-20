@@ -1,3 +1,8 @@
 {
-    "liveServer.settings.port": 5501
+    "liveServer.settings.port": 5501,
+    "vscord.status.buttons.button1.active.enabled": true,
+    "vscord.status.buttons.button1.active.label": "Voir le site",
+    "vscord.status.buttons.button1.active.url": "https://kiro701.github.io/BoucleRP/",
+    "vscord.status.buttons.button1.git.active.enabled": false,
+    "vscord.app.name": "Visual Studio Code"
 }

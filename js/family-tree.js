@@ -175,29 +175,58 @@ family.on('render-link', function (sender, args) {
 fetch("member-family.json")
   .then(res => res.json())
   .then(async members => {
-    // Si tu utilises Discord avatars via discordId
-    await resolveAvatars(members);
+    // 1. On attend que TOUTES les PP soient récupérées du Worker
+    // On affiche un loader ou on baisse l'opacité pour faire "Pro"
+    document.getElementById("tree").style.opacity = "0.3";
+    
+    await resolveAvatars(members); // Cette fonction modifie l'objet members en mémoire
 
-    // Charger les membres dans FamilyTree
+    // 2. Une fois que 'members' contient les vrais liens Discord, on charge l'arbre
     family.load(members);
+    
+    // 3. On remet l'opacité normale
+    document.getElementById("tree").style.opacity = "1";
   })
-  .catch(err => console.error("Erreur en chargeant members:", err));
-
+  .catch(err => console.error("Erreur globale:", err));
 
 
 async function resolveAvatars(nodes) {
-  for (let node of nodes) {
-    if (!node.discordId) continue; // seulement ceux avec discordId
+    const GUILD_ID = "1025887285461405817";
+    const WORKER_URL = "https://divine-moon-e24f.ptitleo2009.workers.dev/";
+    const NEUTRAL_IMG = "https://kiro701.github.io/BoucleRP/Image/Profil-Neutre.avif";
+
+    // 1. On prépare la liste des IDs à envoyer au worker
+    const discordIds = nodes
+        .filter(n => n.discordId)
+        .map(n => n.discordId);
+
+    if (discordIds.length === 0) {
+        // Si aucun ID Discord, on s'assure juste que tout le monde a au moins une image
+        nodes.forEach(n => { if (!n.img) n.img = NEUTRAL_IMG; });
+        return;
+    }
 
     try {
-      const res = await fetch(
-        `https://divine-moon-e24f.ptitleo2009.workers.dev/?id=${node.discordId}&guild=1025887285461405817`
-      );
-      const data = await res.json();
-      node.img = data.avatar;
-    } catch {
-      node.img = "https://kiro701.github.io/BoucleRP/Image/Profil-Neutre.avif";
-    }
-  }
-}
+        // 2. Appel au worker
+        const res = await fetch(`${WORKER_URL}?guild=${GUILD_ID}&ids=${discordIds.join(',')}&t=${Date.now()}`);
+        const avatarMap = await res.json();
 
+        // 3. Attribution intelligente
+        nodes.forEach(node => {
+            const discordAvatar = node.discordId ? avatarMap[node.discordId] : null;
+
+            // SI Discord a renvoyé une vraie image (pas l'image neutre du worker)
+            if (discordAvatar && !discordAvatar.includes("Profil-Neutre.avif")) {
+                node.img = discordAvatar;
+            } 
+            // SINON, si node.img n'existe pas déjà dans le JSON, on met le neutre
+            else if (!node.img) {
+                node.img = NEUTRAL_IMG;
+            }
+            // Si node.img existe déjà dans le JSON, on ne touche à rien (image de secours perso)
+        });
+    } catch (err) {
+        console.error("Erreur avatars:", err);
+        nodes.forEach(n => { if (!n.img) n.img = NEUTRAL_IMG; });
+    }
+}

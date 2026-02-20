@@ -148,7 +148,7 @@ const translations = {
     home_news_update: "Update",
     home_news_patch_title: "Adding a Patch Notes page",
     home_news_patch_desc: "Added a page dedicated to the updates notes of the site and the server.",
-    home_see_patch: "See patchnotes  ",
+    home_see_patch: "See patchnotes →",
     home_annonce_major: "MAJOR ANNOUNCEMENT",
     home_annonce_major_title: "Official opening of the BoucleRP Beta site",
     home_annonce_major_desc: "Official opening of the Beta version of the RP loop to the general public.",
@@ -162,7 +162,7 @@ const translations = {
     home_serious_project_title: "⚙️ Serious project",
     home_serious_project_desc: "A server monitored, updated, and thought out for the long term.",
     home_gallery_title: "📸 Gallery overview",
-    home_gallery_more: "See all gallery  ",
+    home_gallery_more: "See all gallery →",
     // Lore
     lore_dev_title: "🚧 Under development 🚧",
     lore_dev_button_title: "Here's a button",
