@@ -1,6 +1,6 @@
 [
   {
-    "name": "Noax Hamilton", 
+    "name": "Noax Hamilton",
     "id": 35,
     "genre": "male",
     "enfant": false,
@@ -12,7 +12,7 @@
     "id": 24,
     "genre": "male",
     "enfant": true,
-        "number_of_enfants_max": 1,
+    "number_of_enfants_max": 1,
     "couple_fictif": false,
     "discord_user": true
   },
@@ -29,7 +29,7 @@
     "id": 32,
     "genre": "female",
     "enfant": true,
-        "number_of_enfants_max": null,
+    "number_of_enfants_max": null,
     "couple_fictif": true,
     "discord_user": null
   },
@@ -38,7 +38,7 @@
     "id": 1,
     "genre": "male",
     "enfant": null,
-        "number_of_enfants_max": null,
+    "number_of_enfants_max": null,
     "couple_fictif": "En couple",
     "discord_user": null
   },
@@ -47,7 +47,7 @@
     "id": 2,
     "genre": "female",
     "enfant": null,
-        "number_of_enfants_max": null,
+    "number_of_enfants_max": null,
     "couple_fictif": "En couple",
     "discord_user": null
   },
@@ -56,7 +56,7 @@
     "id": 5,
     "genre": "female",
     "enfant": true,
-        "number_of_enfants_max": 2.4,
+    "number_of_enfants_max": 2.4,
     "couple_fictif": true,
     "discord_user": true
   },
@@ -73,7 +73,7 @@
     "id": 9,
     "genre": "female",
     "enfant": true,
-        "number_of_enfants_max": 2.4,
+    "number_of_enfants_max": 2.4,
     "couple_fictif": true,
     "discord_user": true
   },
@@ -82,7 +82,7 @@
     "id": 12,
     "genre": "female",
     "enfant": false,
-        "number_of_enfants_max": 4,
+    "number_of_enfants_max": 4,
     "couple_fictif": true,
     "discord_user": null
   },
@@ -91,7 +91,7 @@
     "id": 18,
     "genre": "male",
     "enfant": false,
-        "number_of_enfants_max": null,
+    "number_of_enfants_max": null,
     "couple_fictif": true,
     "discord_user": true
   },
@@ -100,7 +100,7 @@
     "id": 14,
     "genre": "female",
     "enfant": true,
-        "number_of_enfants_max": 3,
+    "number_of_enfants_max": 3,
     "couple_fictif": true,
     "discord_user": true
   },
@@ -109,8 +109,35 @@
     "id": 22,
     "genre": "male",
     "enfant": true,
-        "number_of_enfants_max": 3,
+    "number_of_enfants_max": 3,
     "couple_fictif": false,
+    "discord_user": true
+  },
+  {
+    "name": "",
+    "id": 36,
+    "genre": "male",
+    "enfant": false,
+    "number_of_enfants_max": null,
+    "couple_fictif": "false",
+    "discord_user": true
+  },
+  {
+    "name": "",
+    "id": 37,
+    "genre": "male",
+    "enfant": false,
+    "number_of_enfants_max": null,
+    "couple_fictif": "false",
+    "discord_user": true
+  },
+  {
+    "name": "Puro Hamilton",
+    "id": 36,
+    "genre": "male",
+    "enfant": true,
+    "number_of_enfants_max": 6,
+    "couple_fictif": true,
     "discord_user": true
   }
 ]

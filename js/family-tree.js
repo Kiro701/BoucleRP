@@ -145,7 +145,6 @@ function showModal(member) {
 
     <p><strong>${T.name} :</strong> ${member.name}</p>
     <p><strong>${T.discord} :</strong> ${member.discord || T.notAvailable}</p>
-    <p><strong>${T.birthday} :</strong> ${member.birthday || T.notAvailable}</p>
     <p><strong>${T.role} :</strong> ${member.role || T.notAvailable}</p>
     <p><strong>${T.gender} :</strong> ${genderLabel}</p>
     <p><strong>${T.socials} :</strong><br>${member.social?.join("<br>") || T.notAvailable}</p>
@@ -172,46 +171,33 @@ family.on('render-link', function (sender, args) {
    Loading Data
 ================================ */
 
-family.load([
-    // 1ème Génération
-    { id: 20, pids:[32], divorced: [32], name: "Zestial Hamilton", gender: "male", img: "https://cdn.discordapp.com/guilds/1025887285461405817/users/135511703990304768/avatars/4117bcdedc094c755b25992bbecef662.webp?size=1024"},
-    { id: 32, pids:[20], divorced: [20], name: "Coccinelle Hamilton", gender: "female", img: "https://cdn.discordapp.com/avatars/728622392456249375/d1bfaec8f483a18eb4945611e3e99610.webp?size=1024"},
-    // 2ème Génération
-    { id: 12,fid: 20, mid: 32, pids: [13], divorced: [13], name: "Aka Hamilton", gender: "female", img: "https://cdn.discordapp.com/avatars/719519699716538389/2d4950f645b46d7c8000ca321fa3f8c5.webp?size=1024"},
-    { id: 13, pids: [12], divorced: [12], name: "Joseph Wilford", gender: "male", img: "https://cdn.discordapp.com/guilds/1025887285461405817/users/1124522983294238821/avatars/217d997a54f63d9dbb3ca61c6570d858.webp?size=1024"},
-    { id: 21, fid: 20, mid: 32, name: "Xeptio Hamilton", gender: "male", img: "https://cdn.discordapp.com/avatars/477440805343330312/4626b02bd0268d7c08e08cbd5f5e2116.webp?size=1024"},
-    { id: 22, pids: [23], divorced:[23], fid: 20, mid: 32, name: "Kaz Hamilton", gender: "male", discord:".1all_might1.", img: "https://cdn.discordapp.com/avatars/946068504023556186/a_fb693814a641c2123ed4d2e9eb0dcd67.gif?size=1024&animated=true"},
-    { id: 23, pids: [22], divorced: [22], name: "Mai Hamilton", gender: "female", img: "https://kiro701.github.io/BoucleRP/Image/PP/Mai.jpg"},
-    { id: 25, fid: 20,mid: 32, pids: [26], name: "Angelo Hamilton", gender: "male", img: "https://cdn.discordapp.com/guilds/1025887285461405817/users/736662177481752607/avatars/c0f3b5846b86aa4963db8c387c053433.webp?size=1024"},
-    { id: 26, pids: [25], name: "Chara Hamilton", gender: "non-binary",tags: ["nonbinary"], img: "https://cdn.discordapp.com/guilds/1025887285461405817/users/451426602287366174/avatars/a74bda63f315e575a2b780365c3dedd2.webp?size=1024"},
-    // 3ème Génération
-    { id: 1, mid: 12, fid: 13, pids: [2, 8], divorced: [8], name: "Mr Vox Hamilton", discord : "vaasbey", gender: "male", img: "https://cdn.discordapp.com/guilds/1025887285461405817/users/599130976806764545/avatars/81af776ced0427c0fcb0614a58af5cd0.webp?size=1024" },
-    { id: 2, pids: [1], name: "Kokoro Hamilton", gender: "male", discord: "yanderekokoro666", img: "https://cdn.discordapp.com/guilds/1025887285461405817/users/699723182793424927/avatars/daa2de1a74f17e817f2afb4e4b1f3069.webp?size=1024"},
-    { id: 8, pids: [1], divorced: [1] , name: "Valéria Hamilton", gender: "female", img: "https://kiro701.github.io/BoucleRP/Image/Profil-Neutre.avif"},
-    { id: 14, mid: 12, fid: 13, name: "Aria Hamilton", gender: "female", discord: "bestie.x.k", img: "https://cdn.discordapp.com/guilds/1025887285461405817/users/1093534349896462476/avatars/5b3b852f7114fca17b48a56219213397.webp?size=1024" },
-    { id: 15, pids:[17], divorced: [17], mid: 12, fid: 13, name: "Minki Hamilton", gender: "female", img: "https://kiro701.github.io/BoucleRP/Image/PP/Minki.jpg" },
-    { id: 17, pids:[15], divorced: [15], name: "Darkrise Hamilton", gender: "male", img: "https://kiro701.github.io/BoucleRP/Image/PP/Darkrise.jpg"},
-    { id: 18, mid: 12, fid: 13, name: "Awwax Hamilton", gender: "male", discord: "Awwax_", img: "https://cdn.discordapp.com/guilds/1025887285461405817/users/1248946274259042345/avatars/894ab7ab19ae278d58159ba6cdef2f81.webp?size=1024"},
-    { id: 24, mid: 23, fid: 22, name: "Boopi Hamilton", gender: "male", discord: "boopi", img: "https://cdn.discordapp.com/avatars/1350479159092187237/afa07f943d07ede09f5334034af8b0db.webp?size=1024"},
-    { id: 27, mid: 25, fid: 26, name: "Rayla Hamilton" ,gender: "non-binary", tags: ["nonbinary"] , img: "https://cdn.discordapp.com/avatars/1168134288294809631/da08323d0c46a2472ca94509d6aaa2bd.webp?size=1024"},
-    { id: 28, mid: 25, fid: 26, name: "Emilie Hamilton", gender: "female", img: "https://cdn.discordapp.com/avatars/313713012408057856/d4eb2dcc9f824738cfd61e042844990c.webp?size=1024"},
-    { id: 29, mid: 25, fid: 26, name: "Byoga Hamilton", gender: "female", img: "https://cdn.discordapp.com/avatars/1394111080212594700/cb894eb4c723968980274af2652af706.webp?size=1024"},
-    // 4ème Génération
-    { id: 3, mid: 1, fid: 2, name: "Kiro Hamilton", gender: "male", discord: "Kiro701 (ptitleo2009)", img: "https://cdn.discordapp.com/avatars/902870493550485504/70f002fe5d0c0ce324482d052ef1ad4f.webp" },
-    { id: 4, mid: 1, fid: 2, name: "Velvette Hamilton", gender: "female", img: "https://cdn.discordapp.com/avatars/1254016482409582602/c5db01843c3ab92645bbd0c1401e7f0d.webp?size=1024"},
-    { id: 5, mid: 1, fid: 2, name: "Mimibi Hamilton", discord: "mimibi_", gender: "female", img: "https://cdn.discordapp.com/avatars/873570789675397120/70484f7b4399d9104e94080409f2e893.webp" },
-    { id: 6, mid: 1, fid: 2, name: "Gaya Hamilton", gender: "female", img: "https://cdn.discordapp.com/avatars/1286974825964769362/e6b77779bc0f50dd3e563ba22c2ee7f1.webp" },
-    { id: 7, mid: 1, fid: 2, name: "Louna Hamilton", gender: "male", img: "https://cdn.discordapp.com/guilds/1025887285461405817/users/947833377896149032/avatars/a_08ac97542009d2c0368a9fac245fac26.gif?size=1024&animated=true" },
-    { id: 9, pids: [33],divorced: [33], mid: 8, fid: 1, name: "Powder Hamilton", gender: "female", img: "https://kiro701.github.io/BoucleRP/Image/PP/Powder.png"},
-    { id: 10, mid: 8, fid: 1, name: "Agent Nesquik Hamilton", gender: "male", img: "https://cdn.discordapp.com/guilds/1025887285461405817/users/1200313720195264613/avatars/07aaee22ee1a29abc30323e3b326663f.webp?size=1024"},
-    { id: 11, mid : 8, fid: 1 , name: "Meg Hamilton", gender: "male", img: "https://cdn.discordapp.com/avatars/1037398509030219868/dd70afe7156c28715d740309e679fd11.webp?size=1024"},
-    { id: 16, divorced: [19], pids: [19], mid : 15, fid: 17, name: "Hugo Hamilton", gender: "male", img: "https://cdn.discordapp.com/avatars/995281733232627752/c127b7ac185664c56751e1b54e67b73f.webp?size=1024"},
-    { id: 19, divorced: [16], pids: [16], name: "Browy Hamilton", gender: "female", img: "https://cdn.discordapp.com/avatars/1266443779892842597/d74259db4228df28fcc23b5b52b35423.webp?size=1024"},
-    { id: 31, mid: 15,  name: "Artique Hamilton", gender: "female", img: "https://cdn.discordapp.com/avatars/1092869363041828954/471944657e00dc634534e5328eee5f18.webp?size=1024"},
-    { id: 33, pids: [9], divorced: [9], name: "Arlecchino Hamilton", gender: "female", img: "https://kiro701.github.io/BoucleRP/Image/PP/Makina.jpg"},
-    { id: 35, fid: 24, name: "Noax Hamilton", discord: "noax239", gender: "male", img: "https://cdn.discordapp.com/avatars/1268237951301845143/a_d3cb15a4dd386c65ca13bbd838c14136.gif?size=1024&animated=true" },
-    // 5ème Génération
-    { id: 30, mid: 19, fid: 16, name: "Angie Hamilton", gender: "male", img: "https://cdn.discordapp.com/avatars/1191435327966019597/5a592d93931a9ae1f27eaf3b30047e91.webp?size=1024"},
-    { id: 34, mid: 9, fid: 33, name: "Carla Hamilton", gender: "female", img: "https://cdn.discordapp.com/avatars/1346991196484145223/19b10aa249769f28680ecaf2e662b436.webp?size=1024"},
+// Charger le JSON externe
+fetch("member-family.json")
+  .then(res => res.json())
+  .then(async members => {
+    // Si tu utilises Discord avatars via discordId
+    await resolveAvatars(members);
 
-])
+    // Charger les membres dans FamilyTree
+    family.load(members);
+  })
+  .catch(err => console.error("Erreur en chargeant members:", err));
+
+
+
+async function resolveAvatars(nodes) {
+  for (let node of nodes) {
+    if (!node.discordId) continue; // seulement ceux avec discordId
+
+    try {
+      const res = await fetch(
+        `https://divine-moon-e24f.ptitleo2009.workers.dev/?id=${node.discordId}&guild=1025887285461405817`
+      );
+      const data = await res.json();
+      node.img = data.avatar;
+    } catch {
+      node.img = "https://kiro701.github.io/BoucleRP/Image/Profil-Neutre.avif";
+    }
+  }
+}
+

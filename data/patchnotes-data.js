@@ -1,5 +1,22 @@
 const patchNotesData = [
   {
+    version: "0.3.0.0",
+    date: "20 février 2026",
+    add: [
+      "Traduction au site en anglais [partielle]",
+    ],
+    improve: [
+      "Amélioration du header [ Bêta ]",
+      "Mise à jour automatique des photos de profils",
+      "Amélioration du système d'arbre généalogique",
+      "Mise à jour du staff et de la famille"
+    ],
+    fix: [
+      "Correction des bugs mineurs",
+      "Optimisation de des dossiers donnés"
+    ]
+  },
+  {
     version: "0.2.11.08",
     date: "08 février 2026",
     add: [

@@ -263,13 +263,13 @@
   <img src="Image/BoucleRP.png" alt="Bannière Voxtek">
 
   <div class="hero-overlay">
-    <h2>Bienvenue sur la HMC Community</h2>
-    <p>
+    <h2 data-i18n="home_hero_title">Bienvenue sur la HMC Community</h2>
+    <p data-i18n="home_hero_desc">
       Plongez dans l’univers <strong>Voxtek</strong>, un serveur RP immersif où chaque décision compte.
     </p>
     <div class="hero-actions">
-      <a href="rejoindre.html" class="btn">Rejoindre le serveur</a>
-      <a href="lore.html" class="btn secondary">Découvrir le lore</a>
+      <a data-i18n="home_btn_join" href="rejoindre.html" class="btn">Rejoindre le serveur</a>
+      <a data-i18n="home_btn_lore" href="lore.html" class="btn secondary">Découvrir le lore</a>
     </div>
   </div>
 </section>
@@ -328,23 +328,23 @@ if (popup && closeBtn) {
 
   <!-- NEWS -->
   <section>
-    <h3>🔥 Dernières grosses news</h3>
+    <h3 data-i18n="home_news_title">🔥 Dernières grosses news</h3>
 
     <div class="news-grid">
       <div class="news-card">
-        <span>Mise à jour</span>
-        <h4>Ajout d'une page Patch Notes</h4>
-        <p>
+        <span data-i18n="home_news_update">Mise à jour</span>
+        <h4 data-i18n="home_news_patch_title">Ajout d'une page Patch Notes</h4>
+        <p data-i18n="home_news_patch_desc">
           Ajout d'une page dédiée aux notes de mises à jour du site et du serveur.
         </p>
-        <a href="patchnotes.html" class="home-gallery-more">
+        <a data-i18n="home_see_patch" href="patchnotes.html" class="home-gallery-more">
           Voir les patchnotes →
         </a>
       </div>
       <div class="news-card">
-        <span>ANNONCE MAJEURE</span>
-        <h4>Ouverture officielle de la Bêta du site BoucleRP</h4>
-        <p>
+        <span data-i18n="home_annonce_major">ANNONCE MAJEURE</span>
+        <h4 data-i18n="home_annonce_major_title">Ouverture officielle de la Bêta du site BoucleRP</h4>
+        <p data-i18n="home_annonce_major_desc">
           Ouverture officielle de la version Bêta du boucleRP au grand public.
         </p>
       </div>
@@ -360,39 +360,39 @@ if (popup && closeBtn) {
 
   <!-- POURQUOI NOUS -->
   <section>
-    <h3>Pourquoi rejoindre Voxtek ?</h3>
+    <h3 data-i18n="home_why_title">Pourquoi rejoindre Voxtek ?</h3>
 
     <div class="features">
       <div class="feature">
-        <h4>🎭 RP immersif</h4>
-        <p>Un univers cohérent, vivant et évolutif basé sur vos actions.</p>
+        <h4 data-i18n="home_feat_rp">🎭 RP immersif</h4>
+        <p data-i18n="home_feat_rp_desc">Un univers cohérent, vivant et évolutif basé sur vos actions.</p>
       </div>
 
       <div class="feature">
-        <h4>👥 Communauté active</h4>
-        <p>Une communauté soudée, encadrée par la HMC.</p>
+        <h4 data-i18n="home_feat_com">👥 Communauté active</h4>
+        <p data-i18n="home_feat_com_desc">Une communauté soudée, encadrée par la HMC.</p>
       </div>
 
       <div class="feature">
-        <h4>📜 Lore profond</h4>
-        <p>Des familles, des intrigues, des choix lourds de conséquences.</p>
+        <h4 data-i18n="home_feat_lore">📜 Lore profond</h4>
+        <p data-i18n="home_feat_lore_desc">Des familles, des intrigues, des choix lourds de conséquences.</p>
       </div>
 
       <div class="feature">
-        <h4>⚙️ Projet sérieux</h4>
-        <p>Un serveur suivi, mis à jour et pensé sur le long terme.</p>
+        <h4 data-i18n="home_serious_project_title">⚙️ Projet sérieux</h4>
+        <p data-i18n="home_serious_project_desc">Un serveur suivi, mis à jour et pensé sur le long terme.</p>
       </div>
     </div>
   </section>
   <!-- GALLERY -->
   <section class="home-gallery">
-  <h3>📸 Aperçu de la galerie</h3>
+  <h3 data-i18n="home_gallery_title">📸 Aperçu de la galerie</h3>
 
   <div class="home-gallery-grid">
     <!-- Images injectées en JS -->
   </div>
 
-  <a href="galerie.html" class="home-gallery-more">
+  <a data-i18n="home_gallery_more" href="galerie.html" class="home-gallery-more">
     Voir toute la galerie →
   </a>
 </section>
@@ -405,7 +405,7 @@ if (popup && closeBtn) {
 <!-- JS for Header/Footer-->
 <script src="js/layout.js"></script>
 <!-- JS for Gallery Preview -->
-<script src="js/gallery-data.js"></script>
+<script src="data/gallery-data.js"></script>
 <script>
 const homeGrid = document.querySelector(".home-gallery-grid");
 
@@ -426,6 +426,10 @@ if (typeof galleryData !== "undefined") {
   });
 }
 </script>
+
+<!-- Traduction -->
+<script src="data/translations.js"></script>
+<script src="js/main-i18n.js"></script>
 
 
 

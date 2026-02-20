@@ -1,13 +1,36 @@
-<header>
-  <h1>VOXTEK │ By HMC</h1>
-  <p>H.M.C Community • BoucleRP</p>
+<div class="header-top-bar">
+    <div class="logo-area">
+        <h1 data-i18n="header_title">VOXTEK │ By HMC</h1>
+    </div>
+    
+    <nav class="main-nav">
+        <a href="index.html" class="nav-item" data-i18n="nav_home">Accueil</a>
+        
+        <div class="dropdown">
+            <button class="dropbtn">
+                <span data-i18n="nav_community">Communauté</span> <span class="arrow">▾</span>
+            </button>
+            <div class="dropdown-content">
+                <a href="staff.html" data-i18n="nav_staff">Staff</a>
+                <a href="reglement.html" data-i18n="nav_rules">Règlement</a>
+                <a href="galerie.html" data-i18n="nav_gal">Galerie</a>
+            </div>
+        </div>
 
-  <nav>
-    <a href="index.html">Accueil</a>
-    <a href="lore.html">Lore</a>
-    <a href="reglement.html">Règlement</a>
-    <a href="staff.html">Staff</a>
-    <a href="family-tree.html">Arbre généalogique</a>
-    <a href="galerie.html">Galerie</a>
-  </nav>
-</header>
+        <a href="lore.html" class="nav-item" data-i18n="nav_lore">Lore</a>
+        <a href="family-tree.html" class="nav-item" data-i18n="nav_family_tree">Arbre généalogique</a>
+
+        <div class="lang-switcher">
+            <button class="lang-btn">
+                <span id="current_lang_label" data-i18n="current_lang_label">FR</span> <span class="arrow">▾</span>
+            </button>
+            <div class="lang-dropdown">
+                <a href="#" onclick="changeLanguage('fr'); return false;">Français</a>
+                <a href="#" onclick="changeLanguage('en'); return false;">English</a>
+            </div>
+        </div>
+    </nav>
+</div>
+<div class="header-subtitle">
+    <p>H.M.C Community • BoucleRP</p>
+</div>

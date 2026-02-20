@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HMC | Partenaires</title>
+  
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="Image/logo-bouclerp.webp">
+
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="HMC • Partenaires">
+  <meta property="og:description" content="Découvrez nos partenaires et collaborations au sein de la H.M.C Community.">
+  <meta property="og:image" content="https://kiro701.github.io/BoucleRP/Image/preview.png">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://kiro701.github.io/BoucleRP/partenaire.html">
+
+  <style>
+    h1 {
+        margin-bottom: 20px;
+    }
+    /* SECTIONS */
+    section {
+      margin-top: 40px;
+    }
+
+    section h3 {
+      font-size: 2rem;
+      margin-bottom: 30px;
+    }
+    .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 370px));
+      gap: 25px;
+    }
+    .partenaire-link {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(10px, 40px));
+      gap: 25px;
+      margin-top: 5px;
+      padding-top: 5px;
+      border-top: solid;
+      border-radius: 1;
+      border-color: rgb(20, 20, 20);
+    }
+
+    .partenaires-grid {
+      background: #111;
+      border: 1px solid #222;
+      border-radius: 14px;
+      text-align: left;
+      transition: box-shadow 0.2s ease, transform 0.2s ease;
+    }
+
+    .partenaires-grid:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 15px 40px rgba(255, 59, 59, 0.15);
+    }
+
+    .partenaires-grid span {
+      color: #2e17ff;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+
+    .partenaires-grid p {
+      font-size: 0.95rem;
+      opacity: 0.85;
+    }
+    .partenaires-grid img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 8px 8px 0 0;
+    }
+    .desc-grid {
+      padding: 0px 15px 10px 15px;
+    }
+    .desc-grid h3 {
+      margin-bottom: 10px;
+    }
+    .link-button {
+        display: inline-block;
+    }
+
+    .link-button img {
+        height: auto;
+        cursor: pointer;
+        transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+    .link-button img:hover {
+        transform: scale(1.05);
+        opacity: 0.9;
+    }
+
+    /* Responsive */
+    @media (max-width: 480px) {
+      .partenaires-grid img {
+        height: 100px;
+      }
+    }
+  </style>
+</head>
+<body> 
+    <!-- Header -->
+    <div id="header"></div>
+    <!-- Main Content -->
+    <main>
+        <section class="partenaires">
+          <h1>Nos Partenaires</h1>
+          <div class="container" id="partenaires-container"></div>
+        </section>
+    </main>
+    <!-- Footer -->
+    <div id="footer"></div> 
+    
+
+  </body>
+<!-- JS for Header/Footer-->
+<script src="js/layout.js"></script>
+<script src="js/partenariat.js"></script>
+<script src="js/partenaires.js"></script>
+

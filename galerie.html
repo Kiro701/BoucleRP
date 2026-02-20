@@ -137,17 +137,17 @@
 
     <div id="header"></div>
     <div class="gallery-filters">
-        <button class="filter-btn active" data-filter="all">Tout</button>
-        <button class="filter-btn" data-filter="Famille">Familles</button>
-        <button class="filter-btn" data-filter="Bannière">Bannière</button>
-        <button class="filter-btn" data-filter="Événement">Événement</button>
-        <button class="filter-btn" data-filter="Jeux">Jeux</button>
-        <button class="filter-btn" data-filter="Communauté">Communauté</button>
+        <button class="filter-btn active" data-filter="all" data-i18n="gallery_filter_all">Tout</button>
+        <button class="filter-btn" data-filter="Famille" data-i18n="gallery_filter_family">Familles</button>
+        <button class="filter-btn" data-filter="Bannière" data-i18n="gallery_filter_banner">Bannière</button>
+        <button class="filter-btn" data-filter="Événement" data-i18n="gallery_filter_event">Événement</button>
+        <button class="filter-btn" data-filter="Jeux" data-i18n="gallery_filter_game">Jeux</button>
+        <button class="filter-btn" data-filter="Communauté" data-i18n="gallery_filter_community">Communauté</button>
     </div>
 
     <main>
-    <h2>📸 Galerie BoucleRP</h2>
-    <p style="margin-bottom:40px; opacity:0.8;">
+    <h2 data-i18n="gallery_title">📸 Galerie BoucleRP</h2>
+    <p style="margin-bottom:40px; opacity:0.8;" data-i18n="gallery_desc">
         Moments marquants, événements RP et souvenirs de la communauté.
     </p>
 
@@ -167,7 +167,7 @@
     <div id="footer"></div>
 
     <script src="js/layout.js"></script>
-    <script src="js/gallery-data.js"></script>
+    <script src="data/gallery-data.js"></script>
 
     <script>
         const grid = document.getElementById("galleryGrid");
@@ -230,6 +230,8 @@
         renderGallery();
     </script>
 
-
+<!-- Traduction -->
+<script src="data/translations.js"></script>
+<script src="js/main-i18n.js"></script>
 </body>
 </html>

@@ -46,11 +46,11 @@
 <div id="header"></div>
 
 <main style="padding:40px; text-align:center;">
-  <h2>🚧 En cours de développement 🚧</h2>
+  <h2 data-i18n="lore_dev_title">🚧 En cours de développement 🚧</h2>
 
-  <p>Voici un bouton</p>
+  <p data-i18n="lore_dev_button_title">Voici un bouton</p>
   
-  <button id="trollBtn">1 simple bouton</button>
+  <button id="trollBtn" data-i18n="lore_dev_button">1 simple bouton</button>
 </main>
 
 <!-- Overlay -->
@@ -82,6 +82,8 @@
     sound.currentTime = 0;
   });
 </script>
-
+<!-- Traduction -->
+<script src="data/translations.js"></script>
+<script src="js/main-i18n.js"></script>
 </body>
 </html>
