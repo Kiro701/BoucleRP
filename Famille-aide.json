@@ -139,5 +139,13 @@
     "number_of_enfants_max": 6,
     "couple_fictif": true,
     "discord_user": true
+  },
+  {
+    "name" : "Léa Hamilton",
+    "id" : 37,
+    "gender" : "female",
+    "enfant" : false,
+    "couple_fictif" : true,
+    "discord_user" : true
   }
 ]
