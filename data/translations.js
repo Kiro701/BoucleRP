@@ -114,6 +114,37 @@ const translations = {
     patch_title: "Patch Notes",
     patch_desc: "Historique des mises à jour du projet HMC Community – BoucleRP",
 
+    // Term d'utilisation
+    term_service_title: "Conditions d'utilisation",
+    term_service_date_update: "Dernière mise à jour : 05/03/2026",
+    term_service_subtitle1: "1. Acceptation",
+    term_service_data1: `En utilisant le bot Discord [Nom du bot], vous acceptez les présentes conditions d'utilisation.<br>Si vous n'acceptez pas ces conditions, vous ne devez pas utiliser ce bot.</p>`,
+    term_service_subtitle2: "2. Utilisation autorisée",
+    term_service_data2: `Le bot est fourni gratuitement afin d'améliorer l'expérience des utilisateurs sur les serveurs Discord.<br>
+        Les utilisateurs s'engagent à utiliser le bot de manière responsable et conforme aux règles de Discord.`,
+    term_service_subtitle3: "3. Propriété intellectuelle",
+    term_service_data3: `Le code source du bot, ainsi que tous les éléments graphiques et textuels associés, sont la propriété de [Nom du propriétaire].<br>
+        Toute reproduction, modification ou distribution sans autorisation est interdite.`,
+    term_service_data3_1: "utiliser le bot pour enfreindre les règles de Discord",
+    term_service_data3_2: "tenter de perturber ou exploiter le fonctionnement du bot",
+    term_service_data3_3: "utiliser le bot à des fins illégales",
+    term_service_data3_4: "contourner les restrictions mises en place",
+    term_service_subtitle4: "4. Disponibilité",
+    term_service_data4: `Le bot est fourni "tel quel".<br>
+        Le développeur ne garantit pas que le bot sera disponible en permanence ou sans interruption.<br>
+        Le bot peut être modifié, suspendu ou arrêté à tout moment.`,
+    term_service_subtitle5: "5. Limitation de responsabilité",
+    term_service_data5: `Le développeur ne pourra être tenu responsable des dommages directs ou indirects résultant de l'utilisation du bot.`,
+    term_service_subtitle6: "6. Restriction d'accès",
+    term_service_data6: `Le développeur se réserve le droit de restreindre l'accès au bot à tout utilisateur ou serveur ne respectant pas ces conditions.`,
+    term_service_subtitle7: "7. Modifications des conditions",
+    term_service_data7: `Ces conditions peuvent être modifiées à tout moment.<br>
+        La version la plus récente sera toujours disponible publiquement.`,
+    term_service_subtitle8: "8. Contact",
+    term_service_data8: `Pour toute question concernant ces conditions d'utilisation :<br>
+        Contact : kiro701fr-pro@gmail.com</p>`
+
+
     // Autres pages
   },
   en: {
@@ -227,6 +258,30 @@ const translations = {
     // Patch notes
     patch_title: "Patch Notes",
     patch_desc: "History of updates of the HMC Community project – BoucleRP [Not fully translated]",
+
+    // Term of service
+    term_service_title: "Terms of Service",
+    term_service_date_update: "Last update: 05/03/2026",
+    term_service_subtitle1: "1. Acceptance",
+    term_service_data1: `By using the [Bot Name] Discord bot, you agree to these terms of service.<br>If you do not agree to these terms, you must not use this bot.</p>`,
+    term_service_subtitle2: "2. Authorized use",
+    term_service_data2: `The bot is provided free of charge to enhance the user experience on Discord servers.<br>Users agree to use the bot responsibly and in accordance with Discord's rules.`,
+    term_service_subtitle3: "3. Intellectual property",
+    term_service_data3: `The bot's source code, as well as all associated graphic and textual elements, are the property of [Owner Name].<br>Any reproduction, modification or distribution without authorization is prohibited.`,
+    term_service_data3_1: "using the bot to violate Discord's rules",
+    term_service_data3_2: "attempting to disrupt or exploit the bot's operation",
+    term_service_data3_3: "using the bot for illegal purposes",
+    term_service_data3_4: "circumventing restrictions in place",
+    term_service_subtitle4: "4. Availability",
+    term_service_data4: `The bot is provided "as is".<br>The developer does not guarantee that the bot will be available at all times or without interruption.<br>The bot may be modified, suspended or discontinued at any time.`,
+    term_service_subtitle5: "5. Limitation of liability",
+    term_service_data5: `The developer shall not be liable for any direct or indirect damages resulting from the use of the bot.`,
+    term_service_subtitle6: "6. Access restriction",
+    term_service_data6: `The developer reserves the right to restrict access to the bot to any user or server that does not comply with these terms.`,
+    term_service_subtitle7: "7. Changes to the terms",
+    term_service_data7: `These terms may be modified at any time.<br>The most recent version will always be publicly available.`,
+    term_service_subtitle8: "8. Contact",
+    term_service_data8: `For any questions regarding these terms of use:<br>Contact: kiro701fr-pro@gmail.com</p>`
 
     // Other pages
 
