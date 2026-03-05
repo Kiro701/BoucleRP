@@ -150,7 +150,43 @@ const translations = {
     privacy_policy_data_update: "Dernière mise à jour : 05/03/2026",
     privacy_policy_subtitle1: "1. Introduction",
     privacy_policy_data1: `Cette politique de confidentialité décrit comment le bot Discord BoucleRP collecte, utilise et protège certaines informations lors de son utilisation.<br>
-        En utilisant ce bot, vous acceptez les pratiques décrites dans cette politique.`
+        En utilisant ce bot, vous acceptez les pratiques décrites dans cette politique.`,
+    privacy_policy_subtitle2: "2. Informations collectées",
+    privacy_policy_data2: "Afin d'assurer son fonctionnement, le bot peut traiter certaines données fournies par Discord :",
+    privacy_policy_data2_1: "identifiant utilisateur Discord (User ID)",
+    privacy_policy_data2_2: "identifiant de serveur Discord (Guild ID)",
+    privacy_policy_data2_3: "identifiant de salon (Channel ID)",
+    privacy_policy_data2_4: "identifiant de message (Message ID)",
+    privacy_policy_data2_5: "commandes utilisées",
+    privacy_policy_subtitle3: "3. Utilisation des données",
+    privacy_policy_data3: "Les données collectées sont utilisées uniquement pour :",
+    privacy_policy_data3_1: "assurer le bon fonctionnement du bot",
+    privacy_policy_data3_2: "exécuter les commandes demandées",
+    privacy_policy_data3_3: "améliorer les fonctionnalités",
+    privacy_policy_data3_4: "prévenir les abus ou erreurs techniques",
+    privacy_policy_subtitle4: "4. Stockage des données",
+    privacy_policy_data4: `Certaines données peuvent être stockées temporairement afin d'assurer le bon fonctionnement du bot.<br>
+        Les données sont conservées uniquement pendant la durée nécessaire au fonctionnement du service.`,
+    privacy_policy_subtitle5: "5. Partage des données",
+    privacy_policy_data5: `Les données collectées ne sont ni vendues ni partagées avec des tiers.<br>
+        Elles peuvent être divulguées uniquement si la loi l'exige ou pour protéger la sécurité du service.`,
+    privacy_policy_subtitle6: "6. Sécurité des données",
+    privacy_policy_data6: "Des mesures raisonnables sont mises en place afin de protéger les données contre tout accès non autorisé, modification ou suppression.",
+    privacy_policy_subtitle7: "7. Droits des utilisateurs",
+    privacy_policy_data7: "Conformément au RGPD, les utilisateurs disposent de plusieurs droits concernant leurs données :",
+    privacy_policy_data7_1: "droit d'accès aux données",
+    privacy_policy_data7_2: "droit de rectification",
+    privacy_policy_data7_3: "droit à la suppression des données",
+    privacy_policy_data7_4: "droit à la limitation du traitement",
+    privacy_policy_subtitle8: "8. Demande de suppression",
+    privacy_policy_data8: "Les utilisateurs peuvent demander la suppression de leurs données associées au bot en contactant le développeur.",
+    privacy_policy_subtitle9: "9. Modifications",
+    privacy_policy_data9: `Cette politique de confidentialité peut être mise à jour à tout moment.<br>
+        La version la plus récente sera toujours disponible publiquement.`,
+    privacy_policy_subtitle10: "10. Contact",
+    privacy_policy_data10: `Pour toute question concernant cette politique de confidentialité :<br>
+        Contact : kiro701fr.pro@gmail.com`,
+
 
 
     // Autres pages
