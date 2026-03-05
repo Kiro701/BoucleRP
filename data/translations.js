@@ -142,7 +142,15 @@ const translations = {
         La version la plus récente sera toujours disponible publiquement.`,
     term_service_subtitle8: "8. Contact",
     term_service_data8: `Pour toute question concernant ces conditions d'utilisation :<br>
-        Contact : kiro701fr-pro@gmail.com</p>`
+        Contact : kiro701fr-pro@gmail.com</p>`,
+
+
+    // Politique de confidentialité
+    privacy_policy_title: "Politique de confidentialité",
+    privacy_policy_data_update: "Dernière mise à jour : 05/03/2026",
+    privacy_policy_subtitle1: "1. Introduction",
+    privacy_policy_data1: `Cette politique de confidentialité décrit comment le bot Discord BoucleRP collecte, utilise et protège certaines informations lors de son utilisation.<br>
+        En utilisant ce bot, vous acceptez les pratiques décrites dans cette politique.`
 
 
     // Autres pages
@@ -282,6 +290,8 @@ const translations = {
     term_service_data7: `These terms may be modified at any time.<br>The most recent version will always be publicly available.`,
     term_service_subtitle8: "8. Contact",
     term_service_data8: `For any questions regarding these terms of use:<br>Contact: kiro701fr-pro@gmail.com</p>`
+
+    // Privacy policy
 
     // Other pages
 
