@@ -1,13 +1,23 @@
 document.addEventListener("DOMContentLoaded", async () => {
 
-  const BASE_PATH = location.hostname.includes("github.io") ? "/BoucleRP/" : "/";
+  // Détection automatique du chemin de base
+  const pathParts = window.location.pathname.split("/").filter(Boolean);
 
-  // Header
+  let BASE_PATH = "/";
+
+  // Si on est sur GitHub Pages avec un repo
+  if (location.hostname.includes("github.io")) {
+    if (pathParts.length > 0) {
+      BASE_PATH = "/" + pathParts[0] + "/";
+    }
+  }
+
+  // Chargement Header
   const headerRes = await fetch(BASE_PATH + "includes/header.html");
   const headerData = await headerRes.text();
   document.getElementById("header").innerHTML = headerData;
 
-  // Footer
+  // Chargement Footer
   const footerRes = await fetch(BASE_PATH + "includes/footer.html");
   const footerData = await footerRes.text();
   document.getElementById("footer").innerHTML = footerData;
