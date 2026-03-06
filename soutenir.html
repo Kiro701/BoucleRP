@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HMC | Accueil</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="Image/logo-bouclerp.webp">
+  <style>
+    h2 {
+      color: #ffffff;
+    }
+    .support-page {
+    min-height: 60vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 20px;
+    }
+
+    .support-card {
+      background: rgba(15, 18, 30, 0.9);
+      border: 1px solid var(--border-soft);
+      border-radius: 22px;
+      padding: 45px 35px;
+      max-width: 520px;
+      text-align: center;
+      box-shadow:
+        0 0 30px rgba(109, 93, 252, 0.4),
+        inset 0 0 30px rgba(109, 93, 252, 0.1);
+    }
+
+    .support-logo {
+      width: 90px;
+      margin-bottom: 25px;
+      filter: drop-shadow(0 0 20px rgba(255, 66, 77, 0.7));
+    }
+
+    .support-card h2 {
+      font-size: 2rem;
+      margin-bottom: 15px;
+    }
+
+    .support-card p {
+      font-size: 1rem;
+      line-height: 1.6;
+      opacity: 0.9;
+      margin-bottom: 30px;
+    }
+
+    .support-button {
+      display: inline-block;
+      padding: 14px 34px;
+      border-radius: 40px;
+      background: linear-gradient(
+        135deg,
+        #ff424d,
+        #ff7a18
+      );
+      color: white;
+      font-weight: 700;
+      text-decoration: none;
+      box-shadow: 0 0 30px rgba(255, 66, 77, 0.8);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .support-button:hover {
+      transform: translateY(-3px) scale(1.04);
+      box-shadow: 0 0 45px rgba(255, 66, 77, 1);
+    }
+
+    .support-note {
+      display: block;
+      margin-top: 20px;
+      font-size: 0.85rem;
+      opacity: 0.6;
+    }
+
+  </style>
+<body>
+
+<!-- Header -->
+<div id="header"></div>
+
+<main class="support-page">
+
+  <div class="support-card">
+
+    <img src="Image/patreon_logo.png" alt="Patreon" class="support-logo">
+
+    <h2>Nous soutenir</h2>
+
+    <p>
+      HMC Community – BoucleRP est un projet communautaire développé avec passion.
+      Votre soutien permet de financer l’hébergement, les outils techniques
+      et l’évolution continue du serveur.
+    </p>
+
+    <a href="https://patreon.com"
+       target="_blank"
+       class="support-button">
+      💜 Soutenir via Patreon
+    </a>
+
+    <span class="support-note">
+      Le soutien est entièrement facultatif ❤️
+    </span>
+
+  </div>
+
+</main>
+
+
+
+
+<!-- Footer -->
+<div id="footer"></div>
+
+<script src="js/layout.js"></script>
+
+
+</body>
+</html>

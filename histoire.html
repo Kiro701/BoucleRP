@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HMC | Histoire de BoucleRP</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="Image/logo-bouclerp.webp">
+
+  <style>
+    main {
+      max-width: 1100px;
+      margin: auto;
+      padding: 60px 20px;
+    }
+
+    h2.section-title {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 50px;
+      color: #F2F1DC;
+      text-shadow: 0 0 10px #A6038B;
+    }
+
+    .story-block {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+        margin: 50px 0;
+        background: rgba(25, 66, 148, 0.15); /* bleu semi-transparent */
+        padding: 20px;
+        border: 2px solid rgba(109, 93, 252, 0.6);
+        border-radius: 16px;
+        box-shadow: 0 0 30px rgba(25, 66, 148, 0.3);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        flex-wrap: wrap;
+    }
+
+    .story-block:nth-child(even) {
+        background: rgba(166, 3, 139, 0.15); /* violet semi-transparent */
+        box-shadow: 0 0 30px rgba(166, 3, 139, 0.3);
+        flex-direction: row-reverse;
+    }
+    .story-block:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+    }
+
+    .story-image {
+      flex: 1;
+      min-width: 280px;
+      max-width: 480px;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 0 20px rgba(109, 93, 252, 0.5);
+    }
+    .story-text {
+        flex: 2;
+    }
+
+    .story-image img {
+      width: 100%;
+      height: 100%;
+      border-radius: 12px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .story-content {
+      flex: 2;
+      color: #F2F1DC;
+      max-width: 600px;
+    }
+
+    .story-content h3 {
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+      color: #A6038B;
+    }
+
+    .story-content p {
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-bottom: 20px;
+      opacity: 0.9;
+    }
+
+    .story-content a {
+      display: inline-block;
+      padding: 12px 24px;
+      background: #194294;
+      color: #F2F1DC;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .story-content a:hover {
+      transform: translateY(-2px);
+      background: #35278C;
+    }
+
+    /* Animations d'apparition */
+    .story-block {
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeUp 0.8s forwards;
+    }
+
+    .story-block:nth-child(1) { animation-delay: 0.1s; }
+    .story-block:nth-child(2) { animation-delay: 0.3s; }
+    .story-block:nth-child(3) { animation-delay: 0.5s; }
+    .story-block:nth-child(4) { animation-delay: 0.7s; }
+
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Responsive : empiler sur mobile */
+    @media (max-width: 768px) {
+        .story-block {
+          flex-direction: column;
+        }
+        .story-block:nth-child(even) {
+          flex-direction: column;
+        }
+    }
+  </style>
+</head>
+<body>
+
+<div id="header"></div>
+
+<main>
+  <h2 class="section-title">📜 Histoire de BoucleRP</h2>
+
+  <!-- Histoire 1 -->
+  <div class="story-block">
+    <div class="story-image">
+      <img src="Image/BoucleRP.png" alt="BoucleRP entreprise">
+    </div>
+    <div class="story-content">
+      <h3>La création de BoucleRP</h3>
+      <p>Découvrez comment BoucleRP est né, ses premiers pas, et l'ambition derrière ce projet unique qui a marqué la communauté.</p>
+      <a href="histoire1.html">Lire l'histoire complète</a>
+    </div>
+  </div>
+
+  <!-- Histoire 2 -->
+  <div class="story-block">
+    <div class="story-image">
+      <img src="Image/preview.png" alt="Famille BoucleRP">
+    </div>
+    <div class="story-content">
+      <h3>La famille BoucleRP</h3>
+      <p>Plongez dans l'univers familial de BoucleRP, découvrez les alliances, rivalités et intrigues qui façonnent l'histoire de la communauté.</p>
+      <a href="histoire2.html">Lire l'histoire complète</a>
+    </div>
+  </div>
+
+  <!-- Histoire 3 -->
+  <div class="story-block">
+    <div class="story-image">
+      <img src="Image/entreprise.png" alt="Entreprises BoucleRP">
+    </div>
+    <div class="story-content">
+      <h3>Les entreprises et organisations</h3>
+      <p>Découvrez toutes les entreprises et organisations qui ont marqué l'univers de BoucleRP, et comment elles influencent la vie de la communauté.</p>
+      <a href="histoire3.html">Lire l'histoire complète</a>
+    </div>
+  </div>
+
+  <!-- Histoire 4 -->
+  <div class="story-block">
+    <div class="story-image">
+      <img src="Image/evenements.png" alt="Évènements BoucleRP">
+    </div>
+    <div class="story-content">
+      <h3>Les événements marquants</h3>
+      <p>Retour sur les événements et moments clés de l’histoire de BoucleRP, qui ont façonné son univers et sa communauté.</p>
+      <a href="histoire4.html">Lire l'histoire complète</a>
+    </div>
+  </div>
+
+</main>
+
+<div id="footer"></div>
+<script src="js/layout.js"></script>
+</body>
+</html>
