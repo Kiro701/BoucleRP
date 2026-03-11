@@ -66,6 +66,7 @@ const translations = {
     staff_role_resp_helper: "Resp. Helper",
     staff_role_resp_roleplay: "Manageur Roleplay",
     staff_subtitles_admins: "Adminastrations",
+    staff_role_admin_male: "Adminastrateur",
     staff_role_admin_female: "Adminastratrice",
     staff_subtitles_moderators: "Modérations",
     staff_role_moderator_female: "Modératrice",
@@ -256,7 +257,9 @@ const translations = {
     staff_role_resp_helper: "Resp. Helper",
     staff_role_resp_roleplay: "Roleplay Manager",
     staff_subtitles_admins: "Administrations",
-    staff_role_admin_female: "Adminastrator",
+    
+    staff_role_admin_male: "Adminastrateur",
+    staff_role_admin_female: "Adminastratrice",
     staff_subtitles_moderators: "Moderations",
     staff_role_moderator_female: "Moderator",
     staff_role_moderator_male: "Moderator",
