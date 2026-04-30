@@ -12,7 +12,8 @@ const patchNotesData = [
     fix: [
       "Mise à jour du staff",
       "Fixation de la traduction patchnote",
-      "Fixation du bug de lien dans le footer"
+      "Fixation du bug de lien dans le footer",
+      "Correction de la page PatchNote qui affichait pas les améliorations"
     ]
   },
   {

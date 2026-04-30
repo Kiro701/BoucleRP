@@ -91,6 +91,7 @@
                 </button>
             </div>
             ${patch.add.length ? `<div class="patch-section"><h4 class="add">➕ Ajouts</h4><ul>${patch.add.map(a=>`<li>${a}</li>`).join("")}</ul></div>` : ""}
+            ${patch.improve.length ? `<div class="patch-section"><h4 class="improve">🔄 Améliorations</h4><ul>${patch.improve.map(i=>`<li>${i}</li>`).join("")}</ul></div>` : ""}
             ${patch.fix.length ? `<div class="patch-section"><h4 class="fix">🐛 Corrections</h4><ul>${patch.fix.map(f=>`<li>${f}</li>`).join("")}</ul></div>` : ""}
         `;
         container.appendChild(card);
