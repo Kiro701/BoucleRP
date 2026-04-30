@@ -12,6 +12,7 @@ const patchNotesData = [
     fix: [
       "Mise à jour du staff",
       "Fixation de la traduction patchnote",
+      "Fixation du bug de lien dans le footer"
     ]
   },
   {
