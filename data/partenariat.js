@@ -2,7 +2,7 @@ const partenaires = [
     {
         nom: "Unis Studio",
         image: "Image/partenariat/unis-studio.webp",
-        description: "Description du partenaire 1.",
+        description: "Partenaire de développement de projet, logiciel et de jeux vidéo.",
         liens: [
             {
                 type: "discord",
@@ -15,7 +15,7 @@ const partenaires = [
     {
         nom: "Kyubii",
         image: "Image/partenariat/Kyubii.jpg",
-        description: "Description du partenaire 2.",
+        description: "Serveur de la H.M.C.",
         liens: [
             {
                 type: "discord",
@@ -24,22 +24,4 @@ const partenaires = [
             }
         ]
     },
-
-    {
-        nom: "BoucleRP",
-        image: "Image/BoucleRP.png",
-        description: "Description du partenaire 3.",
-        liens: [
-            {
-                type: "site",
-                url: "https://kiro701.github.io/BoucleRP/",
-                icon: "Image/logo/Site.png"
-            },
-            {
-                type: "discord",
-                url: "https://discord.gg/voxtec",
-                icon: "Image/logo/Discord.png"
-            }
-        ]
-    }
 ];

@@ -80,6 +80,7 @@ const translations = {
     staff_subtitles_animators: "Animateurs",
     staff_role_animator_female: "Animatrice",
     staff_role_animator_male: "Animateur",
+    staff_role_adjunct_moderator: "Adjoint Modérateur",
 
     // Galerie
     gallery_filter_all: "Tout",
@@ -188,8 +189,18 @@ const translations = {
     privacy_policy_data10: `Pour toute question concernant cette politique de confidentialité :<br>
         Contact : kiro701fr.pro@gmail.com`,
 
+    // Entreprise
+    entreprise_title: "🪪Entreprise",
+    entreprise_company1_title: "Voxtek",
+    entreprise_company1_subtitle: "Propriétaire : Mr.Vox Hamilton",
+    entreprise_company1_desc: "Voxtek est une entreprise de Vaasbey.",
+    entreprise_company1_button: "Voir plus d'informations",
 
-
+    // Maintenance
+    maintenance_dev_title: "🚧 En cours maintenance 🚧",
+    maintenance_dev_title2: "Nous sommes en train de maintenir le site. Merci de revenir plus tard.",
+    maintenance_family_dev_title: "🚧 En cours maintenance 🚧",
+    maintenance_family_dev_title2: "L'arbre généalogique est désactivé temporairement pour une durée indéterminée. Les raisons sont que nous recontrons un problème avec le service utilisé pour gérer l'arbre généalogique. Nous regardons pour mettre en place notre propre solution. Mais cela nous demande du temps. Merci pour votre compréhension.",
     // Autres pages
   },
   en: {
@@ -272,6 +283,7 @@ const translations = {
     staff_subtitles_animators: "Animators",
     staff_role_animator_female: "Animator",
     staff_role_animator_male: "Animator",
+    staff_role_adjunct_moderator: "Adjunct Moderator",
 
     // Gallery
     gallery_filter_all: "All",
@@ -328,10 +340,61 @@ const translations = {
     term_service_subtitle7: "7. Changes to the terms",
     term_service_data7: `These terms may be modified at any time.<br>The most recent version will always be publicly available.`,
     term_service_subtitle8: "8. Contact",
-    term_service_data8: `For any questions regarding these terms of use:<br>Contact: kiro701fr-pro@gmail.com</p>`
+    term_service_data8: `For any questions regarding these terms of use:<br>Contact: kiro701fr-pro@gmail.com</p>`,
 
     // Privacy policy
 
+    privacy_policy_title: "Privacy Policy",
+    privacy_policy_data_update: "Last update: 05/03/2026",
+    privacy_policy_subtitle1: "1. Introduction",
+    privacy_policy_data1: `This privacy policy describes how the BoucleRP Discord bot collects, uses and protects certain information during its use.<br>By using this bot, you agree to the practices described in this policy.`,
+    privacy_policy_subtitle2: "2. Information collected",
+    privacy_policy_data2: "To ensure its operation, the bot may process certain data provided by Discord:",
+    privacy_policy_data2_1: "Discord user ID",
+    privacy_policy_data2_2: "Discord server ID",
+    privacy_policy_data2_3: "Channel ID",
+    privacy_policy_data2_4: "Message ID",
+    privacy_policy_data2_5: "commands used",
+    privacy_policy_subtitle3: "3. Use of data",
+    privacy_policy_data3: "The data collected is used only to:",
+    privacy_policy_data3_1: "ensure the proper functioning of the bot",
+    privacy_policy_data3_2: "execute the requested commands",
+    privacy_policy_data3_3: "improve features",
+    privacy_policy_data3_4: "prevent abuse or technical errors",
+    privacy_policy_subtitle4: "4. Data storage",
+    privacy_policy_data4: `Certain data
+  may be stored temporarily to ensure the proper functioning of the bot.<br>Data is retained only for as long as necessary for the operation of the service.`,
+    privacy_policy_subtitle5: "5. Data sharing",
+    privacy_policy_data5: `The data collected is neither sold nor shared with third parties.<br>They may be disclosed only if required by law or to protect the security of the service.`,
+    privacy_policy_subtitle6: "6. Data security",
+    privacy_policy_data6: "Reasonable measures are in place to protect data against unauthorized access, alteration or deletion.",
+    privacy_policy_subtitle7: "7. User rights",
+    privacy_policy_data7: "In accordance with the GDPR, users have several rights regarding their data:",
+    privacy_policy_data7_1: "right of access to data",
+    privacy_policy_data7_2: "right of rectification",
+    privacy_policy_data7_3: "right of erasure",
+    privacy_policy_data7_4: "right of restriction of processing",
+    privacy_policy_subtitle8: "8. Deletion request",
+    privacy_policy_data8: "Users can request the deletion of their data associated with the bot by contacting the developer.",
+    privacy_policy_subtitle9: "9. Changes",
+    privacy_policy_data9: `This privacy policy may be updated at any time.<br>The most recent version will always be publicly available.`,
+    privacy_policy_subtitle10: "10. Contact",
+      privacy_policy_data10: `For any questions regarding this privacy policy:<br>Contact:
+      Contact : kiro701fr.pro@gmail.com`,
+
+
+    // Company
+    entreprise_title: "🪪company",
+    entreprise_company1_title: "Voxtek",
+    entreprise_company1_subtitle: "Owner: Mr.Vox Hamilton",
+    entreprise_company1_desc: "Voxtek is a company from Vaasbey.",
+    entreprise_company1_button: "See more information",
+
+    // Maintenance
+    maintenance_dev_title: "🚧 Under maintenance 🚧",
+    maintenance_dev_title2: "We are currently maintaining the site. Please come back later.",
+    maintenance_family_dev_title: "🚧 Under maintenance 🚧",
+    maintenance_family_dev_title2: "The family tree is temporarily disabled for an indefinite period. The reasons are that we are encountering a problem with the service used to manage the family tree. We are looking to set up our own solution. But it takes us time. Thank you for your understanding.",
     // Other pages
 
   }

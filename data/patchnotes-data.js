@@ -1,5 +1,20 @@
 const patchNotesData = [
   {
+    version: "0.3.1.11",
+    date: "30 avril 2026",
+    add: [
+      "Ajout d'une page de maintenance",
+    ],
+    improve: [
+      "Désactivation temporaire de l'arbre généalogique",
+      "Mise à jour du staff"
+    ],
+    fix: [
+      "Mise à jour du staff",
+      "Fixation de la traduction patchnote",
+    ]
+  },
+  {
     version: "0.3.1.2",
     date: "24 février 2026",
     add: [
