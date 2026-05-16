@@ -121,20 +121,29 @@
     <div id="staff-list"></div>
 </main>
 
+<main class="staff-vrc-container">
+    <h2>Staff VRChat</h2>
+    <div id="staff-list-vrc"></div>
+</main>
+
 <div id="footer"></div>
 
 <script>
 const staffData = [
     { cat: "fondators", rank: "fondateur", id: "599130976806764545", name: "Mr.Vox Hamilton", role: "staff_role_fondator" },
-    { cat: "fondators", rank: "co-fondateur", id: "699723182793424927", name: "Kokoro Hamilton", role: "staff_role_co_fondator" },
     { cat: "fondators", rank: "co-fondateur", id: "https://kiro701.github.io/BoucleRP/Image/PP/Powder.png", name: "💖Mme.Powder Hamilton💖", role: "staff_role_co_fondator", isStatic: true },
+    { cat: "fondators", rank: "co-fondateur", id: "699723182793424927", name: "Kokoro Hamilton", role: "staff_role_co_fondator" },
     { cat: "fondators", rank: "co-fondateur", id: "451426602287366174", name: "Chara (Hamilton)", role: "staff_role_co_fondator" },
     { cat: "fondators", rank: "co-fondateur", id: "736662177481752607", name: "⋆𝙰𝚗𝚐𝚎𝚕 ( HAMILTON )", role: "staff_role_co_fondator" },
+
     { cat: "responsibles", rank: "resp-admin", id: "1248946274259042345", name: "Awwax", role: "staff_role_resp_admin" },
-    { cat: "responsibles", rank: "resp-admin", id: "902870493550485504", name: "Kiro701", role: "staff_role_resp_admin" },
+    { cat: "responsibles", rank: "manager", id: "902870493550485504", name: "Kiro701", role: "staff_role_manager" },
+    { cat: "responsibles", rank: "resp-whitelist", id: "812010788301832262", name: "Darkise", role: "staff_role_resp_whitelist" },
+    { cat: "responsibles", rank: "resp-helper", id: "1124522983294238821", name: "Joseph WILFORD", role: "staff_role_resp_helper" },
+
     { cat: "admins", rank: "admin", id: "946068504023556186", name: "L 𝐻𝐴𝑀𝐼𝐿𝑇𝑂𝑁", role: "staff_role_admin_male" },
     { cat: "admins", rank: "admin", id: "1346991196484145223", name: "CARLA_HAMILTON", role: "staff_role_admin_female" },
-    { cat: "responsibles", rank: "resp-whitelist", id: "812010788301832262", name: "Darkise", role: "staff_role_resp_whitelist" },
+
     { cat: "moderators", rank: "adjoint-moderator", id: "851018271301304330", name: "timereaper", role: "staff_role_adjunct_moderator" },
     { cat: "moderators", rank: "modérateur", id: "719519699716538389", name: "Aka Hamilton", role: "staff_role_moderator_female" },
     { cat: "moderators", rank: "modérateur", id: "993648225074561115", name: "Nakushibo Hamilton", role: "staff_role_moderator_male" },
@@ -142,17 +151,41 @@ const staffData = [
     { cat: "moderators", rank: "modérateur", id: "1302267137934491648", name: "Mason", role: "staff_role_moderator_male" },
     { cat: "moderators", rank: "modérateur", id: "1312064985559597166", name: "Nakushibo", role: "staff_role_moderator_male" },
     { cat: "moderators", rank: "modérateur", id: "1093534349896462476", name: "チャチャ", role: "staff_role_moderator_female" },
-    { cat: "responsibles", rank: "resp-helper", id: "1124522983294238821", name: "Joseph WILFORD", role: "staff_role_resp_helper" },
+
     { cat: "helpers", rank: "helper", id: "1471888307846906010", name: "Leabi_", role: "staff_role_helper_female" },
     { cat: "helpers", rank: "helper", id: "866376701634543627", name: "Terreur_M-j", role: "staff_role_helper_female" },
     { cat: "helpers", rank: "helper", id: "869648496049913876", name: "x-02_slayer_fr", role: "staff_role_helper_male" },
+
     { cat: "animators", rank: "animateur", id: "1211403503713394762", name: "✿✧Minki Hamilton✧✿", role: "staff_role_animator_female" },
     { cat: "animators", rank: "animateur", id: "1457771619417325722", name: "Blaire Lily", role: "staff_role_animator_male" },
     { cat: "animators", rank: "animateur", id: "873570789675397120", name: "MimiBi Hamilton", role: "staff_role_animator_female" },
     { cat: "animators", rank: "animateur", id: "1285707049967288331", name: "Puro RobCo", role: "staff_role_animator_male" },
     { cat: "animators", rank: "animateur", id: "1027818724432031824", name: "zyrita", role: "staff_role_animator_male" },
+
     { cat: "community_managers", rank: "community", id: "728622392456249375", name: "Coccinelle天道虫", role: "staff_role_community_manager_female" }
 ];
+
+const staffVRCData = [
+    { cat: "fondators", rank: "fondateur", id: "599130976806764545", name: "VOX-Hamilton", role: "staff_role_fondator" },
+    { cat: "fondators", rank: "co-fondateur", id: "https://kiro701.github.io/BoucleRP/Image/PP/Powder.png", name: "Sys_powder", role: "staff_role_co_fondator", isStatic: true },
+    { cat: "fondators", rank: "co-fondateur", id: "699723182793424927", name: "yanderekokoro66", role: "staff_role_co_fondator" },
+
+    { cat: "moderators", rank: "modérateur", id: "902870493550485504", name: "Kiro701", role: "staff_role_moderator_male" },
+    { cat: "moderators", rank: "modérateur", id: "1499471784049774632", name: "Darkise", role: "staff_role_moderator_male" },
+    { cat: "moderators", rank: "modérateur", id: "851018271301304330", name: "time-reaper136", role: "staff_role_moderator_male" },
+    { cat: "moderators", rank: "modérateur", id: "1248946274259042345", name: "Awwax", role: "staff_role_moderator_male" },
+    { cat: "moderators", rank: "modérateur", id: "946068504023556186", name: "kazutora.kanae", role: "staff_role_moderator_male" },
+    { cat: "moderators", rank: "modérateur", id: "1293670827996479610", name: "niglo-deu", role: "staff_role_moderator_male" },
+    { cat: "moderators", rank: "modérateur", id: "1124522983294238821", name: "OWE-TV", role: "staff_role_moderator_male" },
+    { cat: "moderators", rank: "modérateur", id: "1477418269311893536", name: "bryan07", role: "staff_role_moderator_male" },
+    { cat: "moderators", rank: "modérateur", id: "859498034568364062", name: "morganneyrat6 1121", role: "staff_role_moderator_male" },
+    { cat: "moderators", rank: "modérateur", id: "1198380482639962296", name: "yokavia", role: "staff_role_moderator_female" },
+    { cat: "moderators", rank: "modérateur", id: "1211403503713394762", name: "Minki Hamilton", role: "staff_role_moderator_female" },
+    { cat: "moderators", rank: "modérateur", id: "1499899661555728425", name: "DARKISE", role: "staff_role_moderator_male" },
+    { cat: "moderators", rank: "modérateur", id: "866376701634543627", name: "TERREUR_VANNY", role: "staff_role_moderator_male" },
+
+];
+
 
 const categories = {
     fondators: "Fondateurs",
@@ -163,6 +196,10 @@ const categories = {
     community_managers: "Community Managers",
     helpers: "Helpers",
     animators: "Animateurs"
+};
+const categoriesVRC = {
+    fondators: "Fondateurs",
+    moderators: "Modérations",
 };
 
 async function loadStaff() {
@@ -229,7 +266,71 @@ async function loadStaff() {
     }
 }
 
-loadStaff();
+
+loadStaff();async function loadStaffVRC() {
+    // ON UTILISE L'URL DE TON WORKER QUI MARCHE (Celui de l'arbre)
+    const WORKER_URL = "https://divine-moon-e24f.ptitleo2009.workers.dev/"; 
+    const GUILD_ID = "1025887285461405817";
+    const NEUTRAL_IMG = "https://kiro701.github.io/BoucleRP/Image/Profil-Neutre.avif";
+    const container = document.getElementById('staff-list-vrc');
+
+    // 1. Génération du HTML (toujours pareil)
+    Object.entries(categories).forEach(([key, title]) => {
+        const members = staffVRCData.filter(m => m.cat === key);
+        if (members.length === 0) return;
+
+        let sectionHtml = `<div class="staff-category"><h3 data-i18n="staff_subtitles_${key}">${title}</h3><div class="staff-grid">`;
+        members.forEach(m => {
+            const safeId = m.id.replace(/[^a-zA-Z0-9]/g, '');
+            const initialSrc = m.isStatic ? m.id : NEUTRAL_IMG;
+            
+            sectionHtml += `
+                <div class="staff-card" data-rank="${m.rank}">
+                    <img id="img-${safeId}" src="${initialSrc}" alt="${m.name}" class="${m.isStatic ? 'loaded' : ''}">
+                    <h4>${m.name}</h4>
+                    <p data-i18n="${m.role}">${m.role}</p>
+                </div>`;
+        });
+        sectionHtml += `</div></div>`;
+        container.innerHTML += sectionHtml;
+    });
+
+    // 2. Appel au Worker
+    const discordIds = staffVRCData.filter(m => !m.isStatic).map(m => m.id);
+    
+    try {
+        // On envoie la même requête que l'arbre
+        const res = await fetch(`${WORKER_URL}?guild=${GUILD_ID}&ids=${discordIds.join(',')}`);
+        const avatarMap = await res.json();
+
+        // 3. Application des PP
+        discordIds.forEach(id => {
+            const safeId = id.replace(/[^a-zA-Z0-9]/g, '');
+            const imgElement = document.getElementById(`img-${safeId}`);
+            
+            if (imgElement) {
+                const url = avatarMap[id];
+                if (url) {
+                    // Si l'URL existe, on l'affiche avec un fondu
+                    const temp = new Image();
+                    temp.src = url;
+                    temp.onload = () => {
+                        imgElement.src = url;
+                        imgElement.classList.add('loaded');
+                    };
+                } else {
+                    // Sinon, on enlève juste le flou sur l'image neutre
+                    imgElement.classList.add('loaded');
+                }
+            }
+        });
+    } catch (err) {
+        console.error("Erreur de chargement des PP:", err);
+        // En cas d'erreur, on affiche tout en neutre pour ne pas laisser les ronds de chargement
+        document.querySelectorAll('.staff-card img').forEach(img => img.classList.add('loaded'));
+    }
+}
+loadStaffVRC();
 </script>
 
 <script src="js/layout.js"></script>

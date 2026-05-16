@@ -1,0 +1,452 @@
+{
+  "people": [
+    {
+      "id": "p1",
+      "name": "Lorenzo Fay",
+      "gen": 1,
+      "x": 720,
+      "y": 75,
+      "gender": "homme",
+      "img": "https://i.pravatar.cc/180?img=12",
+      "dates": "1965 - 1999",
+      "role": "Fondateur",
+      "bio": "Membre fondateur de la famille de cœur.",
+      "socials": {
+        "Discord": "https://discord.com",
+        "Profil RP": "#"
+      }
+    },
+    {
+      "id": "p2",
+      "name": "Earlene Runte",
+      "gen": 1,
+      "x": 850,
+      "y": 75,
+      "gender": "homme",
+      "img": "https://i.pravatar.cc/180?img=13",
+      "dates": "1970 - 1995",
+      "role": "Fondatrice",
+      "bio": "Personne fondatrice liée à la première génération.",
+      "socials": {
+        "Discord": "https://discord.com"
+      }
+    },
+    {
+      "id": "p3",
+      "name": "Woodrow Hodkiewicz",
+      "gen": 2,
+      "x": 785,
+      "y": 230,
+      "gender": "homme",
+      "img": "https://i.pravatar.cc/180?img=14",
+      "dates": "1970 - 1995",
+      "role": "Transmission",
+      "bio": "Lien principal entre la génération fondatrice et les branches suivantes.",
+      "socials": {
+        "Fiche": "#"
+      }
+    },
+    {
+      "id": "p4",
+      "name": "Makenzie Crist",
+      "gen": 3,
+      "x": 315,
+      "y": 390,
+      "gender": "homme",
+      "img": "https://i.pravatar.cc/180?img=15",
+      "dates": "1970 - 1995",
+      "role": "Pilier",
+      "bio": "Pilier de branche.",
+      "socials": {
+        "Discord": "https://discord.com"
+      }
+    },
+    {
+      "id": "p5",
+      "name": "Caden Macelkovic",
+      "gen": 3,
+      "x": 445,
+      "y": 390,
+      "gender": "femme",
+      "img": "https://i.pravatar.cc/180?img=32",
+      "dates": "1970 - 1995",
+      "role": "Pilier",
+      "bio": "Membre proche de la branche gauche.",
+      "socials": {
+        "Instagram": "https://instagram.com"
+      }
+    },
+    {
+      "id": "p6",
+      "name": "Brionna Stoltenberg",
+      "gen": 3,
+      "x": 670,
+      "y": 390,
+      "gender": "homme",
+      "img": "https://i.pravatar.cc/180?img=16",
+      "dates": "1970 - 1995",
+      "role": "Mentor",
+      "bio": "Mentor de la branche centrale.",
+      "socials": {}
+    },
+    {
+      "id": "p7",
+      "name": "Leila Kohler",
+      "gen": 3,
+      "x": 800,
+      "y": 390,
+      "gender": "femme",
+      "img": "https://i.pravatar.cc/180?img=33",
+      "dates": "1970 - 1995",
+      "role": "Mentor",
+      "bio": "Mentor et repère relationnel.",
+      "socials": {
+        "Fiche": "#"
+      }
+    },
+    {
+      "id": "p8",
+      "name": "Gideon DuBuque",
+      "gen": 3,
+      "x": 1210,
+      "y": 390,
+      "gender": "homme",
+      "img": "https://i.pravatar.cc/180?img=17",
+      "dates": "1970 - 1995",
+      "role": "Membre proche",
+      "bio": "Membre indépendant de la génération 3.",
+      "socials": {}
+    },
+    {
+      "id": "p9",
+      "name": "Emma Kunde",
+      "gen": 3,
+      "x": 1430,
+      "y": 390,
+      "gender": "femme",
+      "img": "https://i.pravatar.cc/180?img=18",
+      "dates": "1970 - 1995",
+      "role": "Confidente",
+      "bio": "Confidente de la branche droite.",
+      "socials": {
+        "Discord": "https://discord.com"
+      }
+    },
+    {
+      "id": "p10",
+      "name": "Darius Schneider",
+      "gen": 3,
+      "x": 1560,
+      "y": 390,
+      "gender": "homme",
+      "img": "https://i.pravatar.cc/180?img=19",
+      "dates": "1970 - 1995",
+      "role": "Confident",
+      "bio": "Relation amoureuse actuelle avec Emma Kunde.",
+      "socials": {}
+    },
+    {
+      "id": "p11",
+      "name": "Jettie Durgan",
+      "gen": 4,
+      "x": 375,
+      "y": 560,
+      "gender": "femme",
+      "img": "https://i.pravatar.cc/180?img=34",
+      "dates": "1970 - 1995",
+      "role": "Frère de cœur",
+      "bio": "Membre de génération 4.",
+      "socials": {}
+    },
+    {
+      "id": "p12",
+      "name": "Karli Mills",
+      "gen": 4,
+      "x": 505,
+      "y": 560,
+      "gender": "femme",
+      "img": "https://i.pravatar.cc/180?img=35",
+      "dates": "1970 - 1995",
+      "role": "Sœur de cœur",
+      "bio": "Membre de génération 4.",
+      "socials": {
+        "Profil RP": "#"
+      }
+    },
+    {
+      "id": "p13",
+      "name": "Augustus Schaefer",
+      "gen": 4,
+      "x": 850,
+      "y": 560,
+      "gender": "homme",
+      "img": "https://i.pravatar.cc/180?img=20",
+      "dates": "1970 - 1995",
+      "role": "Protégé",
+      "bio": "Protégé de la branche centrale.",
+      "socials": {}
+    },
+    {
+      "id": "p14",
+      "name": "Julius D’Amore",
+      "gen": 5,
+      "x": 300,
+      "y": 735,
+      "gender": "homme",
+      "img": "https://i.pravatar.cc/180?img=21",
+      "dates": "1970 - 1995",
+      "role": "Membre",
+      "bio": "Descendant de la branche gauche.",
+      "socials": {}
+    },
+    {
+      "id": "p15",
+      "name": "Mikel Rutherford",
+      "gen": 5,
+      "x": 520,
+      "y": 735,
+      "gender": "homme",
+      "img": "https://i.pravatar.cc/180?img=22",
+      "dates": "1970 - 1995",
+      "role": "Membre",
+      "bio": "Membre de génération 5.",
+      "socials": {
+        "Discord": "https://discord.com"
+      }
+    },
+    {
+      "id": "p16",
+      "name": "Roman Dickinson",
+      "gen": 5,
+      "x": 740,
+      "y": 735,
+      "gender": "homme",
+      "img": "https://i.pravatar.cc/180?img=23",
+      "dates": "1970 - 1995",
+      "role": "Membre",
+      "bio": "Membre de génération 5.",
+      "socials": {}
+    },
+    {
+      "id": "p17",
+      "name": "Chelsey Weissnat",
+      "gen": 5,
+      "x": 960,
+      "y": 735,
+      "gender": "nonbinaire",
+      "img": "https://i.pravatar.cc/180?img=36",
+      "dates": "1970 - 1995",
+      "role": "Membre",
+      "bio": "Membre non-binaire de génération 5.",
+      "socials": {
+        "Profil RP": "#"
+      }
+    },
+    {
+      "id": "p18",
+      "name": "Nolan D’Amore",
+      "gen": 5,
+      "x": 335,
+      "y": 890,
+      "gender": "homme",
+      "img": "https://i.pravatar.cc/180?img=24",
+      "dates": "1970 - 1995",
+      "role": "Membre",
+      "bio": "Sous-branche D’Amore.",
+      "socials": {}
+    },
+    {
+      "id": "p19",
+      "name": "Aria D’Amore",
+      "gen": 5,
+      "x": 465,
+      "y": 890,
+      "gender": "femme",
+      "img": "https://i.pravatar.cc/180?img=37",
+      "dates": "1970 - 1995",
+      "role": "Membre",
+      "bio": "Sous-branche D’Amore.",
+      "socials": {}
+    },
+    {
+      "id": "p20",
+      "name": "Ethan Rutherford",
+      "gen": 5,
+      "x": 735,
+      "y": 890,
+      "gender": "homme",
+      "img": "https://i.pravatar.cc/180?img=25",
+      "dates": "1970 - 1995",
+      "role": "Membre",
+      "bio": "Sous-branche Rutherford.",
+      "socials": {}
+    },
+    {
+      "id": "p21",
+      "name": "Lina Rutherford",
+      "gen": 5,
+      "x": 865,
+      "y": 890,
+      "gender": "femme",
+      "img": "https://i.pravatar.cc/180?img=38",
+      "dates": "1970 - 1995",
+      "role": "Membre",
+      "bio": "Sous-branche Rutherford.",
+      "socials": {
+        "Instagram": "https://instagram.com"
+      }
+    },
+    {
+      "id": "p22",
+      "name": "Noah Dickinson",
+      "gen": 5,
+      "x": 1080,
+      "y": 890,
+      "gender": "homme",
+      "img": "https://i.pravatar.cc/180?img=26",
+      "dates": "1970 - 1995",
+      "role": "Membre",
+      "bio": "Sous-branche Dickinson.",
+      "socials": {}
+    },
+    {
+      "id": "p23",
+      "name": "Maya Dickinson",
+      "gen": 5,
+      "x": 1210,
+      "y": 890,
+      "gender": "femme",
+      "img": "https://i.pravatar.cc/180?img=39",
+      "dates": "1970 - 1995",
+      "role": "Membre",
+      "bio": "Sous-branche Dickinson.",
+      "socials": {
+        "Discord": "https://discord.com"
+      }
+    }
+  ],
+  "families": [
+    {
+      "parents": [
+        "p1",
+        "p2"
+      ],
+      "children": [
+        "p3"
+      ]
+    },
+    {
+      "parents": [
+        "p3"
+      ],
+      "children": [
+        "p4",
+        "p6",
+        "p8",
+        "p9"
+      ]
+    },
+    {
+      "parents": [
+        "p4",
+        "p5"
+      ],
+      "children": [
+        "p11",
+        "p12"
+      ]
+    },
+    {
+      "parents": [
+        "p6",
+        "p7"
+      ],
+      "children": [
+        "p13"
+      ]
+    },
+    {
+      "parents": [
+        "p11",
+        "p12"
+      ],
+      "children": [
+        "p14",
+        "p15",
+        "p16",
+        "p17"
+      ]
+    },
+    {
+      "parents": [
+        "p14"
+      ],
+      "children": [
+        "p18",
+        "p19"
+      ]
+    },
+    {
+      "parents": [
+        "p16"
+      ],
+      "children": [
+        "p20",
+        "p21"
+      ]
+    },
+    {
+      "parents": [
+        "p17"
+      ],
+      "children": [
+        "p22",
+        "p23"
+      ]
+    }
+  ],
+  "relations": [
+    {
+      "type": "love",
+      "a": "p1",
+      "b": "p2",
+      "label": "Relation amoureuse"
+    },
+    {
+      "type": "love",
+      "a": "p4",
+      "b": "p5",
+      "label": "Relation amoureuse"
+    },
+    {
+      "type": "love",
+      "a": "p6",
+      "b": "p7",
+      "label": "Relation amoureuse"
+    },
+    {
+      "type": "love",
+      "a": "p9",
+      "b": "p10",
+      "label": "Relation amoureuse"
+    },
+    {
+      "type": "love",
+      "a": "p11",
+      "b": "p12",
+      "label": "Relation amoureuse"
+    },
+    {
+      "type": "divorce",
+      "a": "p8",
+      "b": "p9",
+      "label": "Ex-relation"
+    },
+    {
+      "type": "divorce",
+      "a": "p15",
+      "b": "p16",
+      "label": "Ancienne relation"
+    }
+  ]
+}

@@ -81,6 +81,7 @@ const translations = {
     staff_role_animator_female: "Animatrice",
     staff_role_animator_male: "Animateur",
     staff_role_adjunct_moderator: "Adjoint Modérateur",
+    staff_role_manager: "Manageur",
 
     // Galerie
     gallery_filter_all: "Tout",
@@ -284,6 +285,7 @@ const translations = {
     staff_role_animator_female: "Animator",
     staff_role_animator_male: "Animator",
     staff_role_adjunct_moderator: "Adjunct Moderator",
+    staff_role_manager: "Manager",
 
     // Gallery
     gallery_filter_all: "All",
