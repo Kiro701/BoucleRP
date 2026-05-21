@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HMC | Staff</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="icon" href="Image/logo-bouclerp.webp">
-    <style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HMC | Staff</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="Image/logo-bouclerp.webp">
+
+  <style>
     :root {
       --accent-main: #7a7cff;
       --accent-soft: #9fa8ff;
@@ -16,19 +17,46 @@
       --text-soft: #cfd3ff;
     }
 
-    .staff-container { max-width: 1200px; margin: auto; padding: 40px 20px; }
-    .staff-container h2 { text-align: center; font-size: 2rem; color: var(--accent-main); margin-bottom: 40px; text-shadow: 0 0 15px var(--accent-glow); }
-    .staff-category { margin-bottom: 60px; }
-    .staff-category h3 { font-size: 1.5rem; color: var(--accent-soft); margin-bottom: 25px; border-bottom: 2px solid var(--accent-main); display: inline-block; padding-bottom: 6px; }
+    .staff-container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 40px 20px;
+    }
 
-    .staff-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 25px; }
+    .staff-container h2 {
+      text-align: center;
+      font-size: 2rem;
+      color: var(--accent-main);
+      margin-bottom: 40px;
+      text-shadow: 0 0 15px var(--accent-glow);
+    }
+
+    .staff-category {
+      margin-bottom: 60px;
+    }
+
+    .staff-category h3 {
+      font-size: 1.5rem;
+      color: var(--accent-soft);
+      margin-bottom: 25px;
+      border-bottom: 2px solid var(--accent-main);
+      display: inline-block;
+      padding-bottom: 6px;
+    }
+
+    .staff-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 25px;
+    }
 
     .staff-card {
       background: rgba(15,15,22,0.92);
       border: 1px solid var(--accent-border);
       border-radius: 18px;
       width: 200px;
-      height: 200px;
+      min-height: 220px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -37,23 +65,26 @@
       padding: 18px;
       position: relative;
       transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-      overflow: hidden;
+      overflow: visible;
+      box-shadow: 0 0 12px var(--rank-glow, var(--accent-glow));
     }
 
-    /* Couleurs de lueur par rang */
-    .staff-card[data-rank="fondateur"]      { --rank-glow: #ffde90; }
-    .staff-card[data-rank="co-fondateur"]   { --rank-glow: #9e6bff; }
-    .staff-card[data-rank="pilier"]         { --rank-glow: #ef0004; }
-    .staff-card[data-rank="resp-admin"], .staff-card[data-rank="admin"] { --rank-glow: rgb(168, 67, 0); }
-    .staff-card[data-rank="resp-whitelist"] { --rank-glow: rgb(255, 255, 255); }
-    .staff-card[data-rank="resp-rp"]        { --rank-glow: rgb(153, 170, 181); }
-    .staff-card[data-rank="resp-modo"], .staff-card[data-rank="modérateur"] { --rank-glow: rgb(113, 54, 138); }
-    .staff-card[data-rank="resp-helper"]    { --rank-glow: rgb(96, 125, 139); }
-    .staff-card[data-rank="community"]      { --rank-glow: rgb(196, 201, 206); }
-    .staff-card[data-rank="helper"]         { --rank-glow: rgb(153, 170, 181); }
-    .staff-card[data-rank="animateur"]      { --rank-glow: rgb(255, 221, 0); }
-
-    .staff-card { box-shadow: 0 0 12px var(--rank-glow, var(--accent-glow)); }
+    .staff-card[data-rank="fondateur"] { --rank-glow: #0033ff; }
+    .staff-card[data-rank="co-fondateur"] { --rank-glow: #9e6bff; }
+    .staff-card[data-rank="regent"] { --rank-glow: #f1c40f; }
+    .staff-card[data-rank="manager"] { --rank-glow: #9e6bff;; }
+    .staff-card[data-rank="adjoint-moderator"] { --rank-glow: #8e44ad; }
+    .staff-card[data-rank="pilier"] { --rank-glow: #ee0000; }
+    .staff-card[data-rank="resp-admin"] { --rank-glow: #1691e1; }
+    .staff-card[data-rank="admin"] { --rank-glow: #a84300; }
+    .staff-card[data-rank="resp-whitelist"] { --rank-glow: #1691e1; }
+    .staff-card[data-rank="resp-rp"] { --rank-glow: #99aab5; }
+    .staff-card[data-rank="resp-modo"],
+    .staff-card[data-rank="modérateur"] { --rank-glow: #71368a; }
+    .staff-card[data-rank="resp-helper"] { --rank-glow: #607d8b; }
+    .staff-card[data-rank="community"] { --rank-glow: #c4c9ce; }
+    .staff-card[data-rank="helper"] { --rank-glow: #99aab5; }
+    .staff-card[data-rank="animateur"] { --rank-glow: #ffdd00; }
 
     .staff-card:hover {
       transform: translateY(-6px) scale(1.05);
@@ -61,7 +92,7 @@
       border-color: var(--rank-glow, var(--accent-main));
     }
 
-    .staff-card img {
+    .staff-card img.avatar {
       width: 80px;
       height: 80px;
       border-radius: 50%;
@@ -69,46 +100,159 @@
       margin-bottom: 10px;
       object-fit: cover;
       z-index: 2;
-      
-      /* État pendant le chargement */
       transition: opacity 0.4s ease, transform 0.3s ease, border-color 0.3s ease;
       background-color: #1a1a24;
       animation: pulse-load 1.5s infinite ease-in-out;
-      opacity: 0.3; /* On le laisse un peu visible pour voir le rond */
+      opacity: 0.3;
     }
 
-    .staff-card:hover img { border-color: var(--rank-glow, var(--accent-main)); }
-    .staff-card h4 { font-size: 1rem; color: var(--text-main); margin-bottom: 5px; z-index: 2; }
-    .staff-card p { font-size: 0.85rem; color: var(--text-soft); z-index: 2; }
-
-    /* Bordures Spéciales Fondateurs */
-    .staff-card[data-rank="fondateur"]::before, 
-    .staff-card[data-rank="co-fondateur"]::before { 
-      content: ""; position: absolute; inset: 0; border-radius: 16px; padding: 2px; 
-      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); 
-      -webkit-mask-composite: destination-out; mask-composite: exclude; z-index: 1; 
+    .staff-card:hover img.avatar {
+      border-color: var(--rank-glow, var(--accent-main));
     }
-    .staff-card[data-rank="fondateur"]::before { background: linear-gradient(135deg, #d4843d, #ffde90, #d4843d); }
-    .staff-card[data-rank="co-fondateur"]::before { background: linear-gradient(135deg, #9e6bff, #9fc1ff, #9fc1ff); }
 
-    @media screen and (max-width: 768px) {
-      .staff-card { width: 150px; height: 150px; }
-      .staff-card img { width: 60px; height: 60px; }
+    .staff-card h4 {
+      font-size: 1rem;
+      color: var(--text-main);
+      margin: 0 0 5px;
+      z-index: 2;
     }
-    /* Animation de chargement (Skeleton) */
-    /* Animation de pulsation pour le chargement */
+
+    .staff-card p {
+      font-size: 0.85rem;
+      color: var(--text-soft);
+      margin: 0;
+      z-index: 2;
+    }
+
+    .staff-platforms {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 10px;
+      z-index: 5;
+    }
+
+    .platform-badge {
+      width: 28px;
+      height: 28px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(255,255,255,0.16);
+      background: rgba(255,255,255,0.07);
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      cursor: help;
+      position: relative;
+      transition: transform 0.2s ease, opacity 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+    }
+
+    .platform-badge:hover {
+      transform: translateY(-2px) scale(1.12);
+      background: rgba(255,255,255,0.13);
+      border-color: var(--rank-glow, var(--accent-main));
+    }
+
+    .platform-badge svg {
+      width: 17px;
+      height: 17px;
+      fill: white;
+      display: block;
+    }
+
+    .platform-badge::after {
+      content: attr(data-tooltip);
+      position: absolute;
+      left: 50%;
+      bottom: calc(100% + 8px);
+      transform: translateX(-50%) translateY(4px);
+      background: rgba(10,10,16,0.96);
+      color: white;
+      font-size: 0.72rem;
+      line-height: 1;
+      padding: 7px 9px;
+      border-radius: 8px;
+      white-space: nowrap;
+      opacity: 0;
+      pointer-events: none;
+      border: 1px solid rgba(255,255,255,0.12);
+      box-shadow: 0 0 15px rgba(0,0,0,0.35);
+      transition: opacity 0.2s ease, transform 0.2s ease;
+      z-index: 20;
+    }
+
+    .platform-badge:hover::after {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .platform-discord {
+      background: rgba(88,101,242,0.22);
+    }
+
+    .platform-vrchat {
+      background: rgba(0,180,255,0.18);
+    }
+
+    .staff-card::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: 16px;
+        padding: 2px;
+        -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+        -webkit-mask-composite: destination-out;
+        mask-composite: exclude;
+        z-index: 1;
+        pointer-events: none;
+    }
+
+    .staff-card[data-rank="fondateur"]::before {
+        background: linear-gradient(135deg, #0033ff, #6988c7, #0033ff); 
+    }
+
+    .staff-card[data-rank="co-fondateur"]::before {
+        background: linear-gradient(135deg, #9e6bff, #9fc1ff, #9e6bff);
+    }
+
+    .staff-card[data-rank="resp-admin"]::before {
+        background: linear-gradient(135deg, #1691e1, #e5da0d, #1691e1);
+    }
+
+    .staff-card[data-rank="pilier"]::before {
+        background: linear-gradient(135deg, #ee0000, #3b0101, #ee0000);
+    }
+
+    .staff-card[data-rank="resp-whitelist"]::before {
+        background: linear-gradient(135deg, #37036d, #761212, #37036d);
+    }
+    .staff-card[data-rank="manager"]::before {
+        background: linear-gradient(135deg, #9e6bff, #231a1a, #9e6bff);
+    }
+
     @keyframes pulse-load {
       0% { background-color: rgba(255, 255, 255, 0.05); box-shadow: 0 0 10px rgba(122,124,255,0.1); }
       50% { background-color: rgba(255, 255, 255, 0.15); box-shadow: 0 0 20px rgba(122,124,255,0.3); }
       100% { background-color: rgba(255, 255, 255, 0.05); box-shadow: 0 0 10px rgba(122,124,255,0.1); }
     }
 
-    /* État quand l'image est chargée */
-    .staff-card img.loaded {
+    .staff-card img.avatar.loaded {
       opacity: 1;
       animation: none;
       background-color: transparent;
       border-color: var(--accent-main);
+    }
+
+    @media screen and (max-width: 768px) {
+      .staff-card {
+        width: 150px;
+        min-height: 190px;
+      }
+
+      .staff-card img.avatar {
+        width: 60px;
+        height: 60px;
+      }
     }
   </style>
 </head>
@@ -117,220 +261,237 @@
 <div id="header"></div>
 
 <main class="staff-container">
-    <h2 data-i18n="staff_title">Staff H.M.C Community</h2>
-    <div id="staff-list"></div>
-</main>
-
-<main class="staff-vrc-container">
-    <h2>Staff VRChat</h2>
-    <div id="staff-list-vrc"></div>
+  <h2 data-i18n="staff_title">Staff H.M.C Community</h2>
+  <div id="staff-list"></div>
 </main>
 
 <div id="footer"></div>
 
 <script>
-const staffData = [
-    { cat: "fondators", rank: "fondateur", id: "599130976806764545", name: "Mr.Vox Hamilton", role: "staff_role_fondator" },
-    { cat: "fondators", rank: "co-fondateur", id: "https://kiro701.github.io/BoucleRP/Image/PP/Powder.png", name: "💖Mme.Powder Hamilton💖", role: "staff_role_co_fondator", isStatic: true },
-    { cat: "fondators", rank: "co-fondateur", id: "699723182793424927", name: "Kokoro Hamilton", role: "staff_role_co_fondator" },
-    { cat: "fondators", rank: "co-fondateur", id: "451426602287366174", name: "Chara (Hamilton)", role: "staff_role_co_fondator" },
-    { cat: "fondators", rank: "co-fondateur", id: "736662177481752607", name: "⋆𝙰𝚗𝚐𝚎𝚕 ( HAMILTON )", role: "staff_role_co_fondator" },
+const discordStaffData = [
+  { cat: "fondators", rank: "fondateur", id: "599130976806764545", name: "Mr.Vox Hamilton", role: "staff_role_fondator" },
+  { cat: "fondators", rank: "co-fondateur", id: "https://kiro701.github.io/BoucleRP/Image/PP/Powder.png", name: "💖Mme.Powder Hamilton💖", role: "staff_role_co_fondator", isStatic: true },
+  { cat: "fondators", rank: "co-fondateur", id: "699723182793424927", name: "Kokoro Hamilton", role: "staff_role_co_fondator" },
+  { cat: "fondators", rank: "co-fondateur", id: "451426602287366174", name: "Chara (Hamilton)", role: "staff_role_co_fondator" },
+  { cat: "fondators", rank: "co-fondateur", id: "736662177481752607", name: "⋆𝙰𝚗𝚐𝚎𝚕 ( HAMILTON )", role: "staff_role_co_fondator" },
 
-    { cat: "responsibles", rank: "resp-admin", id: "1248946274259042345", name: "Awwax", role: "staff_role_resp_admin" },
-    { cat: "responsibles", rank: "manager", id: "902870493550485504", name: "Kiro701", role: "staff_role_manager" },
-    { cat: "responsibles", rank: "resp-whitelist", id: "812010788301832262", name: "Darkise", role: "staff_role_resp_whitelist" },
-    { cat: "responsibles", rank: "resp-helper", id: "1124522983294238821", name: "Joseph WILFORD", role: "staff_role_resp_helper" },
+  { cat: "responsibles", rank: "regent", id: "1248946274259042345", name: "Awwax", role: "staff_role_regent" },
+  { cat: "responsibles", rank: "manager", id: "902870493550485504", name: "Kiro701", role: "staff_role_manager" },
+  { cat: "responsibles", rank: "resp-whitelist", id: "812010788301832262", name: "Darkise", role: "staff_role_resp_whitelist" },
+  { cat: "responsibles", rank: "resp-helper", id: "1124522983294238821", name: "Joseph WILFORD", role: "staff_role_resp_helper" },
 
-    { cat: "admins", rank: "admin", id: "946068504023556186", name: "L 𝐻𝐴𝑀𝐼𝐿𝑇𝑂𝑁", role: "staff_role_admin_male" },
-    { cat: "admins", rank: "admin", id: "1346991196484145223", name: "CARLA_HAMILTON", role: "staff_role_admin_female" },
+  { cat: "admins", rank: "admin", id: "946068504023556186", name: "L 𝐻𝐴𝑀𝐼𝐿𝑇𝑂𝑁", role: "staff_role_admin_male" },
+  { cat: "admins", rank: "admin", id: "1346991196484145223", name: "CARLA_HAMILTON", role: "staff_role_admin_female" },
 
-    { cat: "moderators", rank: "adjoint-moderator", id: "851018271301304330", name: "timereaper", role: "staff_role_adjunct_moderator" },
-    { cat: "moderators", rank: "modérateur", id: "719519699716538389", name: "Aka Hamilton", role: "staff_role_moderator_female" },
-    { cat: "moderators", rank: "modérateur", id: "993648225074561115", name: "Nakushibo Hamilton", role: "staff_role_moderator_male" },
-    { cat: "moderators", rank: "modérateur", id: "868257732795465789", name: "Arlecchino Hamilton", role: "staff_role_moderator_female" },
-    { cat: "moderators", rank: "modérateur", id: "1302267137934491648", name: "Mason", role: "staff_role_moderator_male" },
-    { cat: "moderators", rank: "modérateur", id: "1312064985559597166", name: "Nakushibo", role: "staff_role_moderator_male" },
-    { cat: "moderators", rank: "modérateur", id: "1093534349896462476", name: "チャチャ", role: "staff_role_moderator_female" },
+  { cat: "moderators", rank: "adjoint-moderator", id: "851018271301304330", name: "timereaper", role: "staff_role_adjunct_moderator" },
+  { cat: "moderators", rank: "modérateur", id: "993648225074561115", name: "Nakushibo Hamilton", role: "staff_role_moderator_male" },
+  { cat: "moderators", rank: "modérateur", id: "1302267137934491648", name: "Mason", role: "staff_role_moderator_male" },
+  { cat: "moderators", rank: "modérateur", id: "1312064985559597166", name: "Nakushibo", role: "staff_role_moderator_male" },
+  { cat: "moderators", rank: "modérateur", id: "1093534349896462476", name: "チャチャ", role: "staff_role_moderator_female" },
 
-    { cat: "helpers", rank: "helper", id: "1471888307846906010", name: "Leabi_", role: "staff_role_helper_female" },
-    { cat: "helpers", rank: "helper", id: "866376701634543627", name: "Terreur_M-j", role: "staff_role_helper_female" },
-    { cat: "helpers", rank: "helper", id: "869648496049913876", name: "x-02_slayer_fr", role: "staff_role_helper_male" },
+  { cat: "helpers", rank: "helper", id: "1471888307846906010", name: "Leabi_", role: "staff_role_helper_female" },
+  { cat: "helpers", rank: "helper", id: "866376701634543627", name: "Terreur_M-j", role: "staff_role_helper_female" },
+  { cat: "helpers", rank: "helper", id: "869648496049913876", name: "x-02_slayer_fr", role: "staff_role_helper_male" },
 
-    { cat: "animators", rank: "animateur", id: "1211403503713394762", name: "✿✧Minki Hamilton✧✿", role: "staff_role_animator_female" },
-    { cat: "animators", rank: "animateur", id: "1457771619417325722", name: "Blaire Lily", role: "staff_role_animator_male" },
-    { cat: "animators", rank: "animateur", id: "873570789675397120", name: "MimiBi Hamilton", role: "staff_role_animator_female" },
-    { cat: "animators", rank: "animateur", id: "1285707049967288331", name: "Puro RobCo", role: "staff_role_animator_male" },
-    { cat: "animators", rank: "animateur", id: "1027818724432031824", name: "zyrita", role: "staff_role_animator_male" },
+  { cat: "animators", rank: "animateur", id: "1211403503713394762", name: "✿✧Minki Hamilton✧✿", role: "staff_role_animator_female" },
+  { cat: "animators", rank: "animateur", id: "873570789675397120", name: "MimiBi Hamilton", role: "staff_role_animator_female" },
+  { cat: "animators", rank: "animateur", id: "1285707049967288331", name: "Puro RobCo", role: "staff_role_animator_male" },
+  { cat: "animators", rank: "animateur", id: "1027818724432031824", name: "zyrita", role: "staff_role_animator_male" },
 
-    { cat: "community_managers", rank: "community", id: "728622392456249375", name: "Coccinelle天道虫", role: "staff_role_community_manager_female" }
+  { cat: "community_managers", rank: "community", id: "728622392456249375", name: "Coccinelle天道虫", role: "staff_role_community_manager_female" }
 ];
 
-const staffVRCData = [
-    { cat: "fondators", rank: "fondateur", id: "599130976806764545", name: "VOX-Hamilton", role: "staff_role_fondator" },
-    { cat: "fondators", rank: "co-fondateur", id: "https://kiro701.github.io/BoucleRP/Image/PP/Powder.png", name: "Sys_powder", role: "staff_role_co_fondator", isStatic: true },
-    { cat: "fondators", rank: "co-fondateur", id: "699723182793424927", name: "yanderekokoro66", role: "staff_role_co_fondator" },
+const vrchatStaffData = [
+  { cat: "fondators", rank: "fondateur", id: "599130976806764545", name: "VOX-Hamilton", role: "staff_role_fondator" },
+  { cat: "fondators", rank: "co-fondateur", id: "https://kiro701.github.io/BoucleRP/Image/PP/Powder.png", name: "Sys_powder", role: "staff_role_co_fondator", isStatic: true },
+  { cat: "fondators", rank: "co-fondateur", id: "699723182793424927", name: "yanderekokoro66", role: "staff_role_co_fondator" },
 
-    { cat: "moderators", rank: "modérateur", id: "902870493550485504", name: "Kiro701", role: "staff_role_moderator_male" },
-    { cat: "moderators", rank: "modérateur", id: "1499471784049774632", name: "Darkise", role: "staff_role_moderator_male" },
-    { cat: "moderators", rank: "modérateur", id: "851018271301304330", name: "time-reaper136", role: "staff_role_moderator_male" },
-    { cat: "moderators", rank: "modérateur", id: "1248946274259042345", name: "Awwax", role: "staff_role_moderator_male" },
-    { cat: "moderators", rank: "modérateur", id: "946068504023556186", name: "kazutora.kanae", role: "staff_role_moderator_male" },
-    { cat: "moderators", rank: "modérateur", id: "1293670827996479610", name: "niglo-deu", role: "staff_role_moderator_male" },
-    { cat: "moderators", rank: "modérateur", id: "1124522983294238821", name: "OWE-TV", role: "staff_role_moderator_male" },
-    { cat: "moderators", rank: "modérateur", id: "1477418269311893536", name: "bryan07", role: "staff_role_moderator_male" },
-    { cat: "moderators", rank: "modérateur", id: "859498034568364062", name: "morganneyrat6 1121", role: "staff_role_moderator_male" },
-    { cat: "moderators", rank: "modérateur", id: "1198380482639962296", name: "yokavia", role: "staff_role_moderator_female" },
-    { cat: "moderators", rank: "modérateur", id: "1211403503713394762", name: "Minki Hamilton", role: "staff_role_moderator_female" },
-    { cat: "moderators", rank: "modérateur", id: "1499899661555728425", name: "DARKISE", role: "staff_role_moderator_male" },
-    { cat: "moderators", rank: "modérateur", id: "866376701634543627", name: "TERREUR_VANNY", role: "staff_role_moderator_male" },
-
+  { cat: "moderators", rank: "moderateur", id: "902870493550485504", name: "Kiro701", role: "staff_role_moderator_male" },
+  { cat: "moderators", rank: "modérateur", id: "812010788301832262", name: "Darkise", role: "staff_role_moderator_male" },
+  { cat: "moderators", rank: "modérateur", id: "851018271301304330", name: "time-reaper136", role: "staff_role_moderator_male" },
+  { cat: "moderators", rank: "modérateur", id: "1248946274259042345", name: "Awwax", role: "staff_role_moderator_male" },
+  { cat: "moderators", rank: "modérateur", id: "946068504023556186", name: "kazutora.kanae", role: "staff_role_moderator_male" },
+  { cat: "moderators", rank: "modérateur", id: "1293670827996479610", name: "niglo-deu", role: "staff_role_moderator_male" },
+  { cat: "moderators", rank: "modérateur", id: "1124522983294238821", name: "OWE-TV", role: "staff_role_moderator_male" },
+  { cat: "moderators", rank: "modérateur", id: "1477418269311893536", name: "bryan07", role: "staff_role_moderator_male" },
+  { cat: "moderators", rank: "modérateur", id: "859498034568364062", name: "morganneyrat6 1121", role: "staff_role_moderator_male" },
+  { cat: "moderators", rank: "modérateur", id: "1198380482639962296", name: "yokavia", role: "staff_role_moderator_female" },
+  { cat: "moderators", rank: "modérateur", id: "1211403503713394762", name: "Minki Hamilton", role: "staff_role_moderator_female" },
+  { cat: "moderators", rank: "modérateur", id: "866376701634543627", name: "la mamie du 95", role: "staff_role_moderator_male" }
 ];
-
 
 const categories = {
-    fondators: "Fondateurs",
-    pillars: "Piliers",
-    responsibles: "Responsables",
-    admins: "Administrations",
-    moderators: "Modérations",
-    community_managers: "Community Managers",
-    helpers: "Helpers",
-    animators: "Animateurs"
-};
-const categoriesVRC = {
-    fondators: "Fondateurs",
-    moderators: "Modérations",
+  fondators: "Fondateurs",
+  pillars: "Piliers",
+  responsibles: "Responsables",
+  admins: "Administrations",
+  moderators: "Modérations Discord",
+  community_managers: "Community Managers",
+  helpers: "Helpers",
+  animators: "Animateurs",
 };
 
-async function loadStaff() {
-    // ON UTILISE L'URL DE TON WORKER QUI MARCHE (Celui de l'arbre)
-    const WORKER_URL = "https://divine-moon-e24f.ptitleo2009.workers.dev/"; 
-    const GUILD_ID = "1025887285461405817";
-    const NEUTRAL_IMG = "https://kiro701.github.io/BoucleRP/Image/Profil-Neutre.avif";
-    const container = document.getElementById('staff-list');
-
-    // 1. Génération du HTML (toujours pareil)
-    Object.entries(categories).forEach(([key, title]) => {
-        const members = staffData.filter(m => m.cat === key);
-        if (members.length === 0) return;
-
-        let sectionHtml = `<div class="staff-category"><h3 data-i18n="staff_subtitles_${key}">${title}</h3><div class="staff-grid">`;
-        members.forEach(m => {
-            const safeId = m.id.replace(/[^a-zA-Z0-9]/g, '');
-            const initialSrc = m.isStatic ? m.id : NEUTRAL_IMG;
-            
-            sectionHtml += `
-                <div class="staff-card" data-rank="${m.rank}">
-                    <img id="img-${safeId}" src="${initialSrc}" alt="${m.name}" class="${m.isStatic ? 'loaded' : ''}">
-                    <h4>${m.name}</h4>
-                    <p data-i18n="${m.role}">${m.role}</p>
-                </div>`;
-        });
-        sectionHtml += `</div></div>`;
-        container.innerHTML += sectionHtml;
-    });
-
-    // 2. Appel au Worker
-    const discordIds = staffData.filter(m => !m.isStatic).map(m => m.id);
-    
-    try {
-        // On envoie la même requête que l'arbre
-        const res = await fetch(`${WORKER_URL}?guild=${GUILD_ID}&ids=${discordIds.join(',')}`);
-        const avatarMap = await res.json();
-
-        // 3. Application des PP
-        discordIds.forEach(id => {
-            const safeId = id.replace(/[^a-zA-Z0-9]/g, '');
-            const imgElement = document.getElementById(`img-${safeId}`);
-            
-            if (imgElement) {
-                const url = avatarMap[id];
-                if (url) {
-                    // Si l'URL existe, on l'affiche avec un fondu
-                    const temp = new Image();
-                    temp.src = url;
-                    temp.onload = () => {
-                        imgElement.src = url;
-                        imgElement.classList.add('loaded');
-                    };
-                } else {
-                    // Sinon, on enlève juste le flou sur l'image neutre
-                    imgElement.classList.add('loaded');
-                }
-            }
-        });
-    } catch (err) {
-        console.error("Erreur de chargement des PP:", err);
-        // En cas d'erreur, on affiche tout en neutre pour ne pas laisser les ronds de chargement
-        document.querySelectorAll('.staff-card img').forEach(img => img.classList.add('loaded'));
-    }
+function getMemberKey(member) {
+  return member.isStatic ? `static-${member.id}` : `discord-${member.id}`;
 }
 
+function mergeStaff(discordStaff, vrchatStaff) {
+  const map = new Map();
 
-loadStaff();async function loadStaffVRC() {
-    // ON UTILISE L'URL DE TON WORKER QUI MARCHE (Celui de l'arbre)
-    const WORKER_URL = "https://divine-moon-e24f.ptitleo2009.workers.dev/"; 
-    const GUILD_ID = "1025887285461405817";
-    const NEUTRAL_IMG = "https://kiro701.github.io/BoucleRP/Image/Profil-Neutre.avif";
-    const container = document.getElementById('staff-list-vrc');
+  discordStaff.forEach(member => {
+    const key = getMemberKey(member);
+    map.set(key, {
+      ...member,
+      platforms: ["discord"],
+      platformRoles: {
+        discord: member.role
+      }
+    });
+  });
 
-    // 1. Génération du HTML (toujours pareil)
-    Object.entries(categories).forEach(([key, title]) => {
-        const members = staffVRCData.filter(m => m.cat === key);
-        if (members.length === 0) return;
+  vrchatStaff.forEach(member => {
+    const key = getMemberKey(member);
 
-        let sectionHtml = `<div class="staff-category"><h3 data-i18n="staff_subtitles_${key}">${title}</h3><div class="staff-grid">`;
-        members.forEach(m => {
-            const safeId = m.id.replace(/[^a-zA-Z0-9]/g, '');
-            const initialSrc = m.isStatic ? m.id : NEUTRAL_IMG;
-            
-            sectionHtml += `
-                <div class="staff-card" data-rank="${m.rank}">
-                    <img id="img-${safeId}" src="${initialSrc}" alt="${m.name}" class="${m.isStatic ? 'loaded' : ''}">
-                    <h4>${m.name}</h4>
-                    <p data-i18n="${m.role}">${m.role}</p>
-                </div>`;
-        });
-        sectionHtml += `</div></div>`;
-        container.innerHTML += sectionHtml;
+    if (map.has(key)) {
+      const existing = map.get(key);
+
+      if (!existing.platforms.includes("vrchat")) {
+        existing.platforms.push("vrchat");
+      }
+
+      existing.platformRoles.vrchat = member.role;
+    } else {
+      map.set(key, {
+        ...member,
+        platforms: ["vrchat"],
+        platformRoles: {
+          vrchat: member.role
+        }
+      });
+    }
+  });
+
+  return Array.from(map.values());
+}
+
+function platformIcon(platform) {
+  if (platform === "discord") {
+    return `
+      <span class="platform-badge platform-discord" data-tooltip="Discord" aria-label="Discord">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M20.3 4.4A16.2 16.2 0 0 0 16.3 3l-.2.4c1.4.4 2.1 1 2.1 1s-1.8-1-5.4-1-5.4 1-5.4 1 .8-.6 2.1-1L9.3 3a16.2 16.2 0 0 0-4 1.4C2.8 8.1 2.1 11.7 2.4 15.2A16 16 0 0 0 7.3 17.7l.9-1.2c-.5-.2-1-.4-1.4-.7l.3-.2c2.8 1.3 5.9 1.3 8.7 0l.3.2c-.5.3-.9.5-1.4.7l.9 1.2a16 16 0 0 0 4.9-2.5c.4-4.1-.7-7.6-2.2-10.8ZM9.1 13.3c-.9 0-1.6-.8-1.6-1.8s.7-1.8 1.6-1.8 1.6.8 1.6 1.8-.7 1.8-1.6 1.8Zm5.8 0c-.9 0-1.6-.8-1.6-1.8s.7-1.8 1.6-1.8 1.6.8 1.6 1.8-.7 1.8-1.6 1.8Z"/>
+        </svg>
+      </span>`;
+  }
+
+  if (platform === "vrchat") {
+    return `
+      <span class="platform-badge platform-vrchat" data-tooltip="VRChat" aria-label="VRChat">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M5 5.5h14a3 3 0 0 1 3 3v5.2a3 3 0 0 1-3 3h-5.2L9.5 20v-3.3H5a3 3 0 0 1-3-3V8.5a3 3 0 0 1 3-3Zm1.4 3.2 2.1 5.2h1.7l2.1-5.2h-1.7l-1.2 3.4-1.2-3.4H6.4Zm6.6 0v5.2h1.5v-1.7h.8l1.1 1.7h1.8l-1.3-1.9c.7-.3 1.1-.9 1.1-1.6 0-1.1-.8-1.7-2.1-1.7H13Zm1.5 1.3h1.2c.5 0 .8.2.8.6s-.3.6-.8.6h-1.2V10Z"/>
+        </svg>
+      </span>`;
+  }
+
+  return "";
+}
+
+function renderStaff() {
+  const container = document.getElementById("staff-list");
+  const staffData = mergeStaff(discordStaffData, vrchatStaffData);
+  const usedKeys = new Set();
+
+  container.innerHTML = "";
+
+  Object.entries(categories).forEach(([key, title]) => {
+    let members = staffData.filter(member => member.cat === key);
+
+    if (key === "moderators_vrc") {
+      members = members.filter(member => !usedKeys.has(getMemberKey(member)));
+    }
+
+    if (members.length === 0) return;
+
+    let sectionHtml = `
+      <div class="staff-category">
+        <h3 data-i18n="staff_subtitles_${key}">${title}</h3>
+        <div class="staff-grid">`;
+
+    members.forEach(member => {
+      usedKeys.add(getMemberKey(member));
+
+      const safeId = getMemberKey(member).replace(/[^a-zA-Z0-9]/g, "");
+      const initialSrc = member.isStatic ? member.id : "https://kiro701.github.io/BoucleRP/Image/Profil-Neutre.avif";
+      const iconsHtml = member.platforms.map(platformIcon).join("");
+
+      sectionHtml += `
+        <div class="staff-card" data-rank="${member.rank}">
+          <img id="img-${safeId}" class="avatar ${member.isStatic ? "loaded" : ""}" src="${initialSrc}" alt="${member.name}">
+          <h4>${member.name}</h4>
+          <p data-i18n="${member.role}">${member.role}</p>
+          <div class="staff-platforms">
+            ${iconsHtml}
+          </div>
+        </div>`;
     });
 
-    // 2. Appel au Worker
-    const discordIds = staffVRCData.filter(m => !m.isStatic).map(m => m.id);
-    
-    try {
-        // On envoie la même requête que l'arbre
-        const res = await fetch(`${WORKER_URL}?guild=${GUILD_ID}&ids=${discordIds.join(',')}`);
-        const avatarMap = await res.json();
+    sectionHtml += `
+        </div>
+      </div>`;
 
-        // 3. Application des PP
-        discordIds.forEach(id => {
-            const safeId = id.replace(/[^a-zA-Z0-9]/g, '');
-            const imgElement = document.getElementById(`img-${safeId}`);
-            
-            if (imgElement) {
-                const url = avatarMap[id];
-                if (url) {
-                    // Si l'URL existe, on l'affiche avec un fondu
-                    const temp = new Image();
-                    temp.src = url;
-                    temp.onload = () => {
-                        imgElement.src = url;
-                        imgElement.classList.add('loaded');
-                    };
-                } else {
-                    // Sinon, on enlève juste le flou sur l'image neutre
-                    imgElement.classList.add('loaded');
-                }
-            }
-        });
-    } catch (err) {
-        console.error("Erreur de chargement des PP:", err);
-        // En cas d'erreur, on affiche tout en neutre pour ne pas laisser les ronds de chargement
-        document.querySelectorAll('.staff-card img').forEach(img => img.classList.add('loaded'));
-    }
+    container.innerHTML += sectionHtml;
+  });
+
+  loadAvatars(staffData);
 }
-loadStaffVRC();
+
+async function loadAvatars(staffData) {
+  const WORKER_URL = "https://divine-moon-e24f.ptitleo2009.workers.dev/";
+  const GUILD_ID = "1025887285461405817";
+
+  const discordIds = [...new Set(
+    staffData
+      .filter(member => !member.isStatic)
+      .map(member => member.id)
+  )];
+
+  try {
+    const res = await fetch(`${WORKER_URL}?guild=${GUILD_ID}&ids=${discordIds.join(",")}`);
+    if (!res.ok) throw new Error(`Erreur Worker: ${res.status}`);
+
+    const avatarMap = await res.json();
+
+    discordIds.forEach(id => {
+      const key = `discord-${id}`;
+      const safeId = key.replace(/[^a-zA-Z0-9]/g, "");
+      const imgElement = document.getElementById(`img-${safeId}`);
+
+      if (!imgElement) return;
+
+      const url = avatarMap[id];
+
+      if (!url) {
+        imgElement.classList.add("loaded");
+        return;
+      }
+
+      const temp = new Image();
+      temp.src = url;
+      temp.onload = () => {
+        imgElement.src = url;
+        imgElement.classList.add("loaded");
+      };
+      temp.onerror = () => {
+        imgElement.classList.add("loaded");
+      };
+    });
+  } catch (err) {
+    console.error("Erreur de chargement des PP:", err);
+    document.querySelectorAll(".staff-card img.avatar").forEach(img => img.classList.add("loaded"));
+  }
+}
+
+renderStaff();
 </script>
 
 <script src="js/layout.js"></script>

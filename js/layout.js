@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", async () => {
   // 1. On charge le Header et on attend qu'il soit fini (await)
-  const headerRes = await fetch("https://kiro701.github.io/BoucleRP/includes/header.html");
+  const headerRes = await fetch("includes/header.html");
   const headerData = await headerRes.text();
   document.getElementById("header").innerHTML = headerData;
 

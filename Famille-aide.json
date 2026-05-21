@@ -4,6 +4,23 @@
     "id": "p7",
     "genre": "female",
     "enfant": true,
+    "nombre_enfant": 3,
     "couple_fictif": false
+  },
+  {
+    "name": "Kaz Hamilton",
+    "id": "p17",
+    "genre": "male",
+    "enfant": false,
+    "couple_fictif": false
+  },
+  {
+    "name": "Aria Kamuri",
+    "id": "p8",
+    "genre": "female",
+    "enfant": true,
+    "nombre_enfant": 1,
+    "couple_fictif": false,
+    "genre_préference": "female"
   }
 ]

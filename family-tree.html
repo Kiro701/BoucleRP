@@ -3,33 +3,1103 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HMC | Accueil</title>
+  <title>HMC | Arbre généalogique</title>
   <link rel="stylesheet" href="css/style.css">
   <link rel="icon" href="Image/logo-bouclerp.webp">
 
+  <style>
+    :root {
+      --hmc-bg: #10142e;
+      --hmc-bg-2: #080d1c;
+      --hmc-panel: #0b1022;
+      --hmc-panel-soft: #111734;
+      --hmc-border: rgba(255, 0, 184, .22);
+      --hmc-text: #f5f5f7;
+      --hmc-muted: #b9bfd1;
+      --hmc-line: rgba(120, 170, 255, .72);
+      --hmc-blue: #188cff;
+      --hmc-male: #188cff;
+      --hmc-orange: #ff8a35;
+      --hmc-female: #ea00ff;
+      --hmc-yellow: #f5bd28;
+      --hmc-gray: #98a2b3;
+      --hmc-love: #ff00b8;
+      --hmc-divorce: #b8bed4;
+      --hmc-focus: #ff00b8;
+      --hmc-shadow: 0 18px 45px rgba(0, 0, 0, .38);
+    }
+
+    .family-page {
+      min-height: calc(100vh - 120px);
+      background: linear-gradient(180deg, #10142e 0%, #10142e 70%, #0a0f20 100%);
+      color: var(--hmc-text);
+    }
+
+    .family-app {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      height: calc(100vh - 120px);
+      min-height: 760px;
+      overflow: hidden;
+      border-top: 1px solid var(--hmc-border);
+      position: relative;
+    }
+
+    .family-app:fullscreen {
+      height: 100vh;
+      min-height: 100vh;
+      background: #10142e;
+    }
+
+    .family-panel {
+      width: 300px;
+      background: rgba(8,13,28,.96);
+      border-right: 1px solid var(--hmc-border);
+      padding: 20px;
+      overflow-y: auto;
+      box-shadow: 8px 0 30px rgba(0,0,0,.28);
+      z-index: 5;
+      text-align: left;
+      transition: width .25s ease, padding .25s ease;
+    }
+
+    .family-panel.collapsed {
+      width: 0;
+      padding-left: 0;
+      padding-right: 0;
+      overflow: hidden;
+      border-right: 0;
+    }
+
+    .panel-toggle {
+      position: absolute;
+      top: 18px;
+      left: 0;
+      z-index: 7;
+      width: 42px;
+      height: 42px;
+      border: 1px solid var(--hmc-border);
+      border-radius: 0 12px 12px 0;
+      background: #080d1c;
+      color: var(--hmc-love);
+      font-size: 20px;
+      cursor: pointer;
+      box-shadow: var(--hmc-shadow);
+      transition: left .25s ease;
+    }
+
+    .family-panel:not(.collapsed) + .panel-toggle { left: 300px; }
+
+    .family-panel h2 { margin: 0 0 6px; font-size: 22px; color: var(--hmc-text); }
+    .family-panel .subtitle { margin: 0 0 20px; color: var(--hmc-muted); font-size: 14px; line-height: 1.4; }
+    .panel-section-title { margin: 22px 0 12px; font-size: 13px; font-weight: 800; color: var(--hmc-love); text-transform: uppercase; letter-spacing: .05em; }
+
+    .family-search {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 10px;
+      font-size: 14px;
+      outline: none;
+      background: #0f1730;
+      color: var(--hmc-text);
+    }
+
+    .family-search:focus { border-color: var(--hmc-focus); box-shadow: 0 0 0 3px rgba(255,0,184,.12); }
+    .check-row { display: flex; align-items: center; gap: 10px; margin: 12px 0; font-size: 14px; color: var(--hmc-muted); }
+    .check-row input { width: 16px; height: 16px; accent-color: var(--hmc-focus); }
+    .generation-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
+
+    .family-btn {
+      border: 1px solid rgba(255,255,255,.12);
+      background: #111734;
+      color: var(--hmc-text);
+      border-radius: 8px;
+      padding: 10px;
+      cursor: pointer;
+      font-weight: 800;
+    }
+
+    .family-btn.active { background: rgba(255,0,184,.15); color: var(--hmc-love); border-color: rgba(255,0,184,.45); }
+    .family-btn.full { width: 100%; margin-top: 10px; }
+
+    .legend-card { margin-top: 22px; border: 1px solid rgba(255,255,255,.1); border-radius: 12px; padding: 14px; background: #0f1730; }
+    .legend-row { display: flex; align-items: center; gap: 9px; font-size: 12px; color: var(--hmc-muted); margin: 10px 0; }
+    .line-sample { width: 26px; height: 0; border-top: 2px solid var(--hmc-line); }
+    .line-sample.love { border-color: var(--hmc-love); }
+    .line-sample.divorce { border-color: var(--hmc-divorce); border-top-style: dashed; }
+    .ring-sample { width: 14px; height: 14px; border-radius: 50%; border: 2px solid var(--hmc-blue); }
+    .family-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 14px; }
+    .family-stat { background: #0f1730; border: 1px solid rgba(255,255,255,.1); border-radius: 12px; padding: 12px; text-align: center; }
+    .family-stat strong { display: block; font-size: 20px; color: var(--hmc-text); }
+    .family-stat span { color: var(--hmc-muted); font-size: 12px; }
+
+    .family-workspace { position: relative; overflow: hidden; }
+    .canvas-tools { position: absolute; top: 16px; right: 16px; z-index: 4; display: flex; background: #080d1c; border-radius: 10px; box-shadow: var(--hmc-shadow); overflow: hidden; border: 1px solid var(--hmc-border); }
+    .canvas-tools button { width: 48px; height: 44px; border: 0; border-right: 1px solid rgba(255,255,255,.1); background: #080d1c; font-size: 18px; cursor: pointer; color: var(--hmc-text); }
+    .canvas-tools button:last-child { border-right: 0; }
+
+    .tree-stage {
+      width: 100%; height: 100%; overflow: hidden; cursor: grab;
+      background: radial-gradient(circle at top, #151a38 0%, #10142e 45%, #080d1c 100%);
+      user-select: none; touch-action: none;
+    }
+
+    .tree-stage.dragging { cursor: grabbing; }
+    .tree { position: relative; width: 2200px; height: 1400px; transform-origin: 0 0; }
+    .generation-label { position: absolute; left: 28px; color: #ff00b8; opacity: .8; font-size: 13px; font-weight: 800; letter-spacing: .02em; }
+    .generation-guide { display: none; }
+
+    svg.relations { position: absolute; inset: 0; width: 2200px; height: 1400px; pointer-events: none; overflow: visible; }
+    .family-line { fill: none; stroke: var(--hmc-line); stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+    .love-line { stroke: var(--hmc-love); stroke-width: 2.6; stroke-linecap: round; }
+    .love-heart { fill: var(--hmc-love); font-size: 18px; font-weight: 900; }
+    .divorce-line { fill: none; stroke: var(--hmc-divorce); stroke-width: 2.2; stroke-dasharray: 8 7; stroke-linecap: round; opacity: .9; }
+    .divorce-cross { fill: #080d1c; stroke: var(--hmc-divorce); stroke-width: 1.5; }
+    .divorce-cross-text { fill: var(--hmc-divorce); font-size: 14px; font-weight: 900; text-anchor: middle; dominant-baseline: central; }
+
+    .person { position: absolute; width: 130px; text-align: center; transform: translate(-65px, -50px); cursor: pointer; transition: transform .2s ease, filter .2s ease; z-index: 2; }
+    .person:hover { transform: translate(-65px, -55px); }
+    .avatar-ring { width: 98px; height: 98px; margin: 0 auto; border-radius: 50%; padding: 4px; background: var(--hmc-blue); box-shadow: 0 6px 16px rgba(0, 0, 0, .35); }
+    .avatar-ring.femme { background: var(--hmc-female); }
+    .avatar-ring.nonbinaire { background: var(--hmc-yellow); }
+    .avatar-ring.autre { background: var(--hmc-gray); }
+    .avatar-ring img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; border: 4px solid white; background: #1a1a24; opacity: .45; animation: pulse-load 1.5s infinite ease-in-out; transition: opacity .3s ease; }
+    .avatar-ring img.loaded { opacity: 1; animation: none; }
+    @keyframes pulse-load { 0%,100%{box-shadow:0 0 8px rgba(255,0,184,.08)} 50%{box-shadow:0 0 20px rgba(255,0,184,.25)} }
+    .name { margin-top: 5px; font-size: 13px; font-weight: 800; color: var(--hmc-text); white-space: nowrap; text-shadow: 0 2px 8px rgba(0,0,0,.45); }
+    .dates { font-size: 11px; color: var(--hmc-muted); margin-top: 2px; }
+    .person.selected .avatar-ring { box-shadow: 0 0 0 6px rgba(255,0,184,.22), 0 8px 20px rgba(0,0,0,.38); }
+    .person.search-match .avatar-ring { box-shadow: 0 0 0 5px rgba(24,140,255,.22), 0 8px 18px rgba(0,0,0,.32); }
+    .relation.selected-link { filter: drop-shadow(0 4px 6px rgba(0,0,0,.22)); }
+
+    .modal { display: none; position: absolute; inset: 0; z-index: 10; background: rgba(0,0,0,.55); align-items: center; justify-content: center; }
+    .modal-card { width: min(620px, calc(100vw - 32px)); max-height: min(760px, calc(100vh - 48px)); overflow-y: auto; background: #080d1c; border: 1px solid var(--hmc-border); border-radius: 20px; padding: 22px; box-shadow: var(--hmc-shadow); text-align: left; color: var(--hmc-text); }
+    .modal-head { display: flex; gap: 14px; align-items: center; }
+    .modal-head img { width: 72px; height: 72px; border-radius: 50%; object-fit: cover; }
+    .popup-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 18px; }
+    .popup-box { background: #0f1730; border: 1px solid rgba(255,255,255,.1); border-radius: 14px; padding: 14px; }
+    .popup-box h3 { margin: 0 0 10px; color: var(--hmc-love); font-size: 14px; }
+    .pill { display: inline-block; margin: 5px 4px 0 0; padding: 5px 9px; border-radius: 999px; background: rgba(255,0,184,.12); border: 1px solid rgba(255,0,184,.22); font-size: 12px; color: var(--hmc-text); }
+    .social-link { display: inline-block; margin: 5px 5px 0 0; padding: 7px 10px; border-radius: 999px; background: rgba(255,255,255,.08); color: var(--hmc-text); text-decoration: none; font-size: 12px; border: 1px solid rgba(255,255,255,.12); }
+
+
+    .markdown-content {
+      color: var(--hmc-muted);
+      line-height: 1.55;
+      white-space: normal;
+      overflow-wrap: anywhere;
+    }
+
+    .markdown-content p { margin: 0 0 10px; }
+    .markdown-content p:last-child { margin-bottom: 0; }
+    .markdown-content strong { color: var(--hmc-text); font-weight: 900; }
+    .markdown-content em { color: #dfe3ff; }
+
+    .markdown-content a {
+      color: var(--hmc-love);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(255,0,184,.35);
+    }
+
+    .markdown-content a:hover { border-bottom-color: var(--hmc-love); }
+
+    .markdown-content ul,
+    .markdown-content ol {
+      margin: 8px 0 10px 18px;
+      padding: 0;
+    }
+
+    .markdown-content li { margin: 4px 0; }
+
+    .markdown-content code {
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 6px;
+      padding: 1px 5px;
+      color: #fff;
+      font-size: .92em;
+    }
+
+    .markdown-content blockquote {
+      margin: 8px 0 10px;
+      padding: 8px 12px;
+      border-left: 3px solid var(--hmc-love);
+      background: rgba(255,0,184,.08);
+      border-radius: 8px;
+      color: #dfe3ff;
+    }
+
+    @media (max-width: 900px) {
+      .family-app { grid-template-columns: 1fr; height: calc(100vh - 90px); min-height: 700px; }
+      .family-panel { position: absolute; height: 100%; width: min(86vw, 300px); }
+      .family-panel:not(.collapsed) + .panel-toggle { left: min(86vw, 300px); }
+      .popup-grid { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
-
 <body>
-
-<!-- Header -->
 <div id="header"></div>
 
-<main style="padding:40px; text-align:center;">
-  <h2 data-i18n="maintenance-family_dev_title">🚧 En cours maintenance 🚧</h2>
+<main class="family-page">
+  <section class="family-app" id="familyApp" aria-label="Arbre de famille de cœur">
+    <aside class="family-panel collapsed" id="familyPanel">
+      <h2 data-i18n="family_title">Famille Hamilton</h2>
+      <p class="subtitle" data-i18n="family_subtitle">Arbre global avec relations familiales, amoureuses et séparations.</p>
+      <input id="familySearch" class="family-search" placeholder="🔍 Rechercher une personne…" data-i18n="family_search_placeholder" oninput="searchPeople()">
 
-  <p data-i18n="maintenance-family_dev_title2">L'arbre généalogique est désactivé temporairement pour une durée indéterminée. Les raisons sont que nous recontrons un problème avec le service utilisé pour gérer l'arbre généalogique. Nous regardons pour mettre en place notre propre solution. Mais cela nous demande du temps. Merci pour votre compréhension.</p>
-  
-    <a href="index.html" class="nav-item" data-i18n="nav_home">Accueil</a>
-    <a href="soutenir.html" class="nav-item" data-i18n="nav_support">Soutenir</a>
-  
+      <div class="panel-section-title">Filtres</div>
+      <label class="check-row"><input id="showLove" type="checkbox" checked onchange="renderTree()" data-i18n="family_filter_love">Relations amoureuses</label>
+      <label class="check-row"><input id="showFamily" type="checkbox" checked onchange="renderTree()" data-i18n="family_filter_family">Liens familiaux</label>
+
+      <button class="family-btn full" onclick="clearSelection()" data-i18n="family_clear_selection">Désélectionner</button>
+      <button class="family-btn full" onclick="resetView()" data-i18n="family_reset_view">⟳ Réinitialiser</button>
+
+      <div class="family-stats">
+        <div class="family-stat"><strong id="statPeople">0</strong><span data-i18n="family_stat_people">membres</span></div>
+        <div class="family-stat"><strong id="statRelations">0</strong><span data-i18n="family_stat_relations">relations</span></div>
+      </div>
+
+      <div class="legend-card">
+        <div class="panel-section-title" style="margin-top:0" data-i18n="family_legend">Légende</div>
+        <div class="legend-row"><span class="line-sample"></span ><span data-i18n="family_legend_family">Lien familial</span></div>
+        <div class="legend-row"><span class="line-sample love"></span><span data-i18n="family_legend_love">Relation amoureuse</span></div>
+        <div class="legend-row"><span class="ring-sample" style="border-color:var(--hmc-male)"></span><span data-i18n="family_legend_male">Homme</span></div>
+        <div class="legend-row"><span class="ring-sample" style="border-color:var(--hmc-female)"></span><span data-i18n="family_legend_female">Femme</span></div>
+        <div class="legend-row"><span class="ring-sample" style="border-color:var(--hmc-yellow)"></span><span data-i18n="family_legend_non_binary">Non-binaire</span></div>
+        <div class="legend-row"><span class="ring-sample" style="border-color:var(--hmc-gray)"></span><span data-i18n="family_legend_other">Autre</span></div>
+      </div>
+    </aside>
+    <button class="panel-toggle" id="panelToggle" onclick="togglePanel()">›</button>
+
+    <section class="family-workspace">  
+      <div class="canvas-tools">
+        <button type="button" onclick="zoomBy(1.15)" >+</button>
+        <button type="button" onclick="zoomBy(.85)" >−</button>
+        <button type="button" onclick="centerTree()">⌖</button>
+        <button type="button" onclick="toggleFullscreen()" >⛶</button>
+        <button type="button" onclick="clearSelection()">✕</button>
+      </div>
+
+      <div class="tree-stage" id="familyStage">
+        <div class="tree" id="familyTree">
+          <svg class="relations" id="relationsSvg"></svg>
+        </div>
+      </div>
+
+      <div class="modal" id="personModal" onclick="closeModal(event)">
+        <div class="modal-card" onclick="event.stopPropagation()">
+          <div class="modal-head">
+            <img id="modalImg" alt="Photo de profil">
+            <div>
+              <h2 id="modalName" style="margin:0;font-size:22px;color:var(--hmc-text)"></h2>
+              <p id="modalMeta" style="margin:4px 0 0;color:var(--hmc-muted)"></p>
+            </div>
+          </div>
+          <div class="popup-grid">
+            <div class="popup-box"><h3 data-i18n="family_modal_profile">Profil</h3><div id="modalInfo" class="markdown-content"></div></div>
+            <div class="popup-box"><h3 data-i18n="family_modal_relations">Relations</h3><div id="modalTags"></div></div>
+            <div class="popup-box"><h3 data-i18n="family_modal_socials">Réseaux sociaux</h3><div id="modalSocials"></div></div>
+            <div class="popup-box"><h3 data-i18n="family_modal_navigation">Navigation</h3><button class="family-btn full" onclick="centerOnSelected()" data-i18n="family_center_on_person">Centrer sur cette personne</button></div>
+          </div>
+          <button class="family-btn full" onclick="document.getElementById('personModal').style.display='none'" data-i18n="family_close_modal">Fermer</button>
+        </div>
+      </div>
+    </section>
+  </section>
 </main>
 
-
-<!-- Footer -->
 <div id="footer"></div>
 
+<script>
+  const FAMILY_DATA_URL = 'family-data.json';
+  const WORKER_URL = 'https://divine-moon-e24f.ptitleo2009.workers.dev/';
+  const GUILD_ID = '1025887285461405817';
+  const NEUTRAL_IMG = 'https://kiro701.github.io/BoucleRP/Image/Profil-Neutre.avif';
+
+  let people = [];
+  let families = [];
+  let relations = [];
+  let byId = {};
+  let selectedId = null;
+  let zoom = 1, panX = 0, panY = 0, isDragging = false;
+  let dragStart = {x:0,y:0}, panStart = {x:0,y:0};
+
+  const tree = document.getElementById('familyTree');
+  const svg = document.getElementById('relationsSvg');
+  const stage = document.getElementById('familyStage');
+
+
+  function getCurrentLang() {
+    return localStorage.getItem('lang')
+      || localStorage.getItem('language')
+      || document.documentElement.lang
+      || 'fr';
+  }
+
+  function t(key, fallback = '') {
+    const lang = getCurrentLang();
+
+    if (window.translations) {
+      if (window.translations[lang] && window.translations[lang][key]) return window.translations[lang][key];
+      if (window.translations[key] && window.translations[key][lang]) return window.translations[key][lang];
+      if (window.translations.fr && window.translations.fr[key]) return window.translations.fr[key];
+      if (window.translations[key] && window.translations[key].fr) return window.translations[key].fr;
+    }
+
+    return fallback || key;
+  }
+
+  function applyFamilyTranslations() {
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      const value = t(key, el.textContent);
+      if (value) el.textContent = value;
+    });
+
+    document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+      const key = el.getAttribute('data-i18n-placeholder');
+      const value = t(key, el.getAttribute('placeholder') || '');
+      if (value) el.setAttribute('placeholder', value);
+    });
+
+    document.querySelectorAll('[data-i18n-title]').forEach(el => {
+      const key = el.getAttribute('data-i18n-title');
+      const value = t(key, el.getAttribute('title') || '');
+      if (value) el.setAttribute('title', value);
+    });
+  }
+
+  function applyTransform(){ tree.style.transform = `translate(${panX}px, ${panY}px) scale(${zoom})`; }
+
+  stage.addEventListener('pointerdown', e => {
+    if(e.target.closest('.person') || e.target.closest('button') || e.target.closest('.modal-card')) return;
+    clearSelection(false);
+    isDragging = true;
+    stage.classList.add('dragging');
+    dragStart={x:e.clientX,y:e.clientY};
+    panStart={x:panX,y:panY};
+    stage.setPointerCapture(e.pointerId);
+  });
+
+  stage.addEventListener('pointermove', e => {
+    if(!isDragging) return;
+    panX = panStart.x + (e.clientX-dragStart.x);
+    panY = panStart.y + (e.clientY-dragStart.y);
+    applyTransform();
+  });
+
+  stage.addEventListener('pointerup', () => { isDragging = false; stage.classList.remove('dragging'); });
+  stage.addEventListener('pointercancel', () => { isDragging = false; stage.classList.remove('dragging'); });
+
+  stage.addEventListener('wheel', e => {
+    e.preventDefault();
+    const oldZoom = zoom;
+    const factor = e.deltaY < 0 ? 1.09 : 0.91;
+    zoom = Math.max(.35, Math.min(2.2, zoom * factor));
+    const rect = stage.getBoundingClientRect();
+    const mouseX = e.clientX - rect.left;
+    const mouseY = e.clientY - rect.top;
+    panX = mouseX - (mouseX - panX) * (zoom / oldZoom);
+    panY = mouseY - (mouseY - panY) * (zoom / oldZoom);
+    applyTransform();
+  }, { passive:false });
+
+  function computeLevels() {
+    const levels = {};
+    const changedLimit = Math.max(20, people.length * 4);
+
+    people.forEach(p => levels[p.id] = 0);
+
+    for (let pass = 0; pass < changedLimit; pass++) {
+      let changed = false;
+
+      families.forEach(f => {
+        const parentLevels = f.parents
+          .map(id => levels[id])
+          .filter(v => Number.isFinite(v));
+
+        const wantedChildLevel = parentLevels.length
+          ? Math.max(...parentLevels) + 1
+          : 0;
+
+        f.children.forEach(childId => {
+          if ((levels[childId] ?? 0) < wantedChildLevel) {
+            levels[childId] = wantedChildLevel;
+            changed = true;
+          }
+        });
+      });
+
+      relations
+        .filter(r => r.type === 'love')
+        .forEach(r => {
+          if (levels[r.a] === undefined || levels[r.b] === undefined) return;
+          const sameLevel = Math.max(levels[r.a], levels[r.b]);
+          if (levels[r.a] !== sameLevel) { levels[r.a] = sameLevel; changed = true; }
+          if (levels[r.b] !== sameLevel) { levels[r.b] = sameLevel; changed = true; }
+        });
+
+      if (!changed) break;
+    }
+
+    people.forEach(p => p.level = levels[p.id] ?? 0);
+    return levels;
+  }
+
+  function computeAutoLayout() {
+    computeLevels();
+
+    const yGap = 215;
+    const coupleGap = 145;
+    const blockGap = 115;
+    const itemGap = 58;
+    const singleWidth = 155;
+    const marginX = 180;
+    const marginY = 105;
+    const baseWidth = Math.max(1250, people.length * 105);
+
+    const groups = new Map();
+    people.forEach(p => {
+      const level = p.level || 0;
+      if (!groups.has(level)) groups.set(level, []);
+      groups.get(level).push(p);
+    });
+
+    const lovePairs = relations.filter(r => r.type === 'love');
+    const levels = [...groups.keys()].sort((a,b)=>a-b);
+
+    levels.forEach(level => {
+      const members = groups.get(level);
+      const memberIds = new Set(members.map(p => p.id));
+      const paired = new Set();
+      const items = [];
+
+      lovePairs.forEach(pair => {
+        if (
+          memberIds.has(pair.a) &&
+          memberIds.has(pair.b) &&
+          !paired.has(pair.a) &&
+          !paired.has(pair.b)
+        ) {
+          const a = byId[pair.a];
+          const b = byId[pair.b];
+          const anchored = getAnchoredMemberForCouple(a, b);
+
+          items.push({
+            type: 'couple',
+            people: [a, b],
+            width: coupleGap,
+            visualWidth: coupleGap + 125,
+            anchor: getItemAnchor([a, b], level),
+            anchoredId: anchored ? anchored.id : null,
+            familyKey: getFamilyKeyForItem([a, b])
+          });
+
+          paired.add(pair.a);
+          paired.add(pair.b);
+        }
+      });
+
+      members.forEach(p => {
+        if (!paired.has(p.id)) {
+          items.push({
+            type: 'single',
+            people: [p],
+            width: singleWidth,
+            visualWidth: singleWidth,
+            anchor: getItemAnchor([p], level),
+            anchoredId: p.id,
+            familyKey: getFamilyKeyForItem([p])
+          });
+        }
+      });
+
+      items.sort((a,b) => a.anchor - b.anchor || a.people[0].name.localeCompare(b.people[0].name));
+
+      if (level === levels[0]) {
+        const totalWidth = items.reduce((sum,item)=>sum+item.visualWidth,0) + Math.max(0, items.length-1) * blockGap;
+        let cursor = marginX + Math.max(0, (baseWidth - totalWidth) / 2);
+
+        items.forEach(item => {
+          placeItem(item, cursor, marginY + level * yGap, coupleGap);
+          cursor += item.visualWidth + blockGap;
+        });
+        return;
+      }
+
+      const familyGroups = [];
+      const familyMap = new Map();
+
+      items.forEach(item => {
+        const key = item.familyKey || `solo:${item.people.map(p=>p.id).join('-')}`;
+        if (!familyMap.has(key)) {
+          familyMap.set(key, {
+            key,
+            items: [],
+            anchor: item.familyKey ? getFamilyAnchorByKey(item.familyKey) : item.anchor
+          });
+          familyGroups.push(familyMap.get(key));
+        }
+        familyMap.get(key).items.push(item);
+      });
+
+      familyGroups.sort((a,b) => a.anchor - b.anchor);
+
+      let previousRight = marginX - blockGap;
+
+      familyGroups.forEach(group => {
+        group.items.sort((a,b) => a.anchor - b.anchor || a.people[0].name.localeCompare(b.people[0].name));
+
+        const lefts = [];
+        let cursor = 0;
+
+        // Placement interne robuste : chaque bloc a sa vraie largeur visuelle.
+        // Ça empêche un couple amoureux de se superposer avec un enfant/frère/sœur.
+        group.items.forEach((item, index) => {
+          if (index === 0) {
+            lefts[index] = 0;
+            cursor = item.visualWidth + itemGap;
+          } else {
+            lefts[index] = cursor;
+            cursor += item.visualWidth + itemGap;
+          }
+        });
+
+        const rawLeft = Math.min(...lefts);
+        const rawRight = Math.max(...group.items.map((item, index) => lefts[index] + item.visualWidth));
+        const rawWidth = rawRight - rawLeft;
+
+        // Centre le groupe complet sous le parent/référent.
+        let groupLeft = group.anchor - rawWidth / 2;
+        if (groupLeft < previousRight + blockGap) {
+          groupLeft = previousRight + blockGap;
+        }
+
+        group.items.forEach((item, index) => {
+          placeItem(item, groupLeft + lefts[index], marginY + level * yGap, coupleGap);
+        });
+
+        previousRight = groupLeft + rawWidth;
+      });
+    });
+
+    normalizeTreeX();
+
+    const maxX = Math.max(...people.map(p => p.x), 1250) + 280;
+    const maxY = Math.max(...people.map(p => p.y), 900) + 220;
+
+    tree.style.width = maxX + 'px';
+    tree.style.height = maxY + 'px';
+    svg.setAttribute('width', maxX);
+    svg.setAttribute('height', maxY);
+    svg.style.width = maxX + 'px';
+    svg.style.height = maxY + 'px';
+  }
+
+  function normalizeTreeX() {
+    const minX = Math.min(...people.map(p => p.x), 0);
+    if (minX < 120) {
+      const shift = 120 - minX;
+      people.forEach(p => p.x += shift);
+    }
+  }
+
+  function getFamilyKeyForItem(members) {
+    const child = members.find(member => families.some(f => f.children.includes(member.id)));
+    if (!child) return null;
+    const familyIndex = families.findIndex(f => f.children.includes(child.id));
+    return familyIndex >= 0 ? `family:${familyIndex}` : null;
+  }
+
+  function getFamilyAnchorByKey(key) {
+    const index = Number(String(key).replace('family:', ''));
+    const family = families[index];
+    if (!family) return 400;
+
+    const parents = family.parents.map(id => byId[id]).filter(p => p && Number.isFinite(p.x));
+    if (!parents.length) return 400;
+
+    return parents.reduce((sum,p)=>sum+p.x,0) / parents.length;
+  }
+
+  function hasParents(member) {
+    return families.some(f => f.children.includes(member.id));
+  }
+
+  function getAnchoredMemberForCouple(a, b) {
+    const aHasParents = hasParents(a);
+    const bHasParents = hasParents(b);
+
+    if (aHasParents && !bHasParents) return a;
+    if (bHasParents && !aHasParents) return b;
+
+    return null;
+  }
+
+  function getRepresentativeOffset(item, coupleGap) {
+    if (item.type === 'single') return item.width / 2;
+
+    if (item.type === 'couple' && item.anchoredId) {
+      const anchoredIndex = item.people.findIndex(p => p.id === item.anchoredId);
+      return anchoredIndex === 0 ? 0 : coupleGap;
+    }
+
+    return item.width / 2;
+  }
+
+  function placeItem(item, left, y, coupleGap) {
+    if (item.type === 'couple') {
+      item.people[0].x = left;
+      item.people[1].x = left + coupleGap;
+      item.people[0].y = item.people[1].y = y;
+      return;
+    }
+
+    item.people[0].x = left + item.width / 2;
+    item.people[0].y = y;
+  }
+
+  function getItemAnchor(members, level) {
+    const parentAnchors = members.map(member => {
+      const family = families.find(f => f.children.includes(member.id));
+      if (!family) return null;
+
+      const parentNodes = family.parents.map(id => byId[id]).filter(Boolean);
+      const placedParents = parentNodes.filter(p => Number.isFinite(p.x));
+
+      if (!placedParents.length) return null;
+
+      return placedParents.reduce((sum,p)=>sum+p.x,0) / placedParents.length;
+    }).filter(v => Number.isFinite(v));
+
+    if (parentAnchors.length) {
+      return parentAnchors.reduce((sum,v)=>sum+v,0) / parentAnchors.length;
+    }
+
+    const explicit = members.map(p => p.order).filter(v => Number.isFinite(v));
+    if (explicit.length) {
+      return 250 + (explicit.reduce((s,v)=>s+v,0) / explicit.length) * 155;
+    }
+
+    return 250 + level * 180 + members[0].name.charCodeAt(0);
+  }
+
+  function getSortValue(...members) {
+    const explicit = members.map(p => p.order).filter(v => Number.isFinite(v));
+    if (explicit.length) return explicit.reduce((s,v)=>s+v,0) / explicit.length;
+
+    const parentScores = members.map(member => {
+      const parentFamily = families.find(f => f.children.includes(member.id));
+      if (!parentFamily) return (member.level || 0) * 1000;
+      const parentXs = parentFamily.parents.map(id => byId[id]?.x).filter(v => Number.isFinite(v));
+      return parentXs.length ? parentXs.reduce((s,v)=>s+v,0) / parentXs.length : (member.level || 0) * 1000;
+    });
+    return parentScores.reduce((s,v)=>s+v,0) / parentScores.length;
+  }
+
+  function parentPoint(ids){
+    const nodes = ids.map(id => byId[id]).filter(Boolean);
+    const centerX = nodes.reduce((s,p)=>s+p.x,0) / nodes.length;
+
+    if (nodes.length >= 2) {
+      const sameLevel = nodes.every(p => p.level === nodes[0].level);
+      if (sameLevel) return { x:centerX, y:nodes[0].y };
+    }
+
+    return { x:centerX, y:Math.max(...nodes.map(p=>p.y)) + 51 };
+  }
+
+  function childTop(id){ const p=byId[id]; return {x:p.x,y:p.y-51}; }
+  function isPersonVisible(id){ return !!byId[id]; }
+
+  function familyPath(f){
+    const visibleChildren = f.children
+      .filter(isPersonVisible)
+      .map(childTop)
+      .sort((a,b)=>a.x-b.x);
+
+    const visibleParents = f.parents.filter(isPersonVisible);
+    if(!visibleChildren.length || !visibleParents.length) return '';
+
+    const start = parentPoint(visibleParents);
+    const childrenX = visibleChildren.map(c => c.x);
+    const childrenCenterX = childrenX.reduce((sum,x)=>sum+x,0) / childrenX.length;
+
+    const firstChildY = Math.min(...visibleChildren.map(c => c.y));
+
+    // Un seul enfant : ligne aussi droite que possible.
+    // Si l'enfant est décalé à cause d'un partenaire, on fait un petit coude propre,
+    // mais seulement entre les générations, pas à travers les avatars.
+    if (visibleChildren.length === 1) {
+      const child = visibleChildren[0];
+      const midY = start.y + Math.max(62, (child.y - start.y) * 0.45);
+
+      if (Math.abs(start.x - child.x) < 2) {
+        return `M${start.x},${start.y} V${child.y}`;
+      }
+
+      return `M${start.x},${start.y} V${midY} H${child.x} V${child.y}`;
+    }
+
+    // Plusieurs enfants : tronc vertical centré, barre horizontale, puis descentes.
+    const junctionY = start.y + Math.max(62, (firstChildY - start.y) * 0.45);
+    const minX = Math.min(...childrenX);
+    const maxX = Math.max(...childrenX);
+
+    let d = `M${start.x},${start.y} V${junctionY}`;
+
+    if (Math.abs(start.x - childrenCenterX) > 2) {
+      d += ` H${childrenCenterX}`;
+    }
+
+    d += ` M${minX},${junctionY} H${maxX}`;
+    visibleChildren.forEach(c => d += ` M${c.x},${junctionY} V${c.y}`);
+
+    return d;
+  }
+
+  function loveLine(a,b){
+    const p1 = byId[a];
+    const p2 = byId[b];
+    const left = p1.x < p2.x ? p1 : p2;
+    const right = p1.x < p2.x ? p2 : p1;
+    const x1 = left.x + 56;
+    const x2 = right.x - 56;
+    const y = (left.y + right.y) / 2;
+    return {x1,x2,y,midX:(x1+x2)/2,midY:y};
+  }
+
+  function smartCurve(a,b,offset=0){
+    const p1=byId[a], p2=byId[b];
+    const left = p1.x < p2.x ? p1 : p2;
+    const right = p1.x < p2.x ? p2 : p1;
+
+    // Divorce/ex : route propre, séparée des avatars et des liens amoureux.
+    // Même génération = arc horizontal au-dessus des profils.
+    if (p1.gen === p2.gen) {
+      const y = Math.min(p1.y, p2.y) - 76 - offset;
+      const x1 = left.x + 56;
+      const x2 = right.x - 56;
+      const lift = Math.min(90, Math.max(38, Math.abs(x2-x1) * 0.12));
+      return `M${x1},${y} C${x1},${y-lift} ${x2},${y-lift} ${x2},${y}`;
+    }
+
+    // Générations différentes = courbe latérale pour éviter de traverser l’arbre.
+    const direction = p1.x < p2.x ? 1 : -1;
+    const x1 = p1.x + direction * 54;
+    const x2 = p2.x - direction * 54;
+    const midY = (p1.y + p2.y) / 2;
+    const side = Math.max(p1.x, p2.x) + 120;
+    return `M${x1},${p1.y} C${side},${p1.y} ${side},${p2.y} ${x2},${p2.y}`;
+  }
+
+  function midpoint(a,b){
+    const p1=byId[a], p2=byId[b];
+    const left = p1.x < p2.x ? p1 : p2;
+    const right = p1.x < p2.x ? p2 : p1;
+
+    if (p1.gen === p2.gen) {
+      return { x:(left.x+right.x)/2, y:Math.min(p1.y,p2.y)-96 };
+    }
+
+    return { x:(p1.x+p2.x)/2, y:(p1.y+p2.y)/2 };
+  }
+
+  function renderTree(){
+    tree.querySelectorAll('.person,.generation-label,.generation-guide').forEach(n=>n.remove());
+    svg.innerHTML='';
+    const showFamily=document.getElementById('showFamily').checked;
+    const showLove=document.getElementById('showLove').checked;
+    const visiblePeople = people.filter(p => isPersonVisible(p.id));
+
+    if(showFamily) families.forEach(f=>{
+      const d = familyPath(f);
+      if(!d) return;
+      const path=document.createElementNS('http://www.w3.org/2000/svg','path');
+      path.setAttribute('d',d);
+      path.setAttribute('class','family-line relation family-relation');
+      path.dataset.ids=[...f.parents,...f.children].join(',');
+      svg.appendChild(path);
+    });
+
+    relations.forEach((r,index)=>{
+      if(!isPersonVisible(r.a) || !isPersonVisible(r.b)) return;
+
+      if(r.type==='love'&&showLove){
+        const l=loveLine(r.a,r.b);
+        if(l.x2 > l.x1){
+          const line=document.createElementNS('http://www.w3.org/2000/svg','line');
+          line.setAttribute('x1',l.x1);
+          line.setAttribute('x2',l.x2);
+          line.setAttribute('y1',l.y);
+          line.setAttribute('y2',l.y);
+          line.setAttribute('class','love-line relation');
+          line.dataset.ids=`${r.a},${r.b}`;
+          svg.appendChild(line);
+
+          const text=document.createElementNS('http://www.w3.org/2000/svg','text');
+          text.setAttribute('x',l.midX-8);
+          text.setAttribute('y',l.midY+6);
+          text.setAttribute('class','love-heart relation');
+          text.dataset.ids=`${r.a},${r.b}`;
+          text.textContent='♥';
+          svg.appendChild(text);
+        }
+      }
+
+
+    });
+
+    visiblePeople.forEach(p=>{
+      const el=document.createElement('div');
+      el.className=`person gen-${p.gen}`;
+      el.dataset.id=p.id;
+      el.style.left=`${p.x}px`;
+      el.style.top=`${p.y}px`;
+      const avatar = p.resolvedImg || p.img || NEUTRAL_IMG;
+      el.innerHTML=`<div class="avatar-ring ${p.gender}"><img id="avatar-${p.id}" src="${avatar}" alt="${p.name}"></div><div class="name">${p.name}</div><div class="dates">${p.dates || ''}</div>`;
+      el.onclick=(event)=>{ event.stopPropagation(); selectPerson(p.id,true); };
+      tree.appendChild(el);
+      const img = el.querySelector('img');
+      img.onload = () => img.classList.add('loaded');
+      if (img.complete) img.classList.add('loaded');
+    });
+
+    document.getElementById('statPeople').textContent=people.length;
+    document.getElementById('statRelations').textContent=relations.filter(r => r.type !== 'divorce').length;
+    applyFamilyTranslations();
+    if(selectedId && isPersonVisible(selectedId)) selectPerson(selectedId,false);
+  }
+
+  function relationIdsFromElement(el){ return new Set((el.dataset.ids||'').split(',').filter(Boolean)); }
+
+  function selectPerson(id,open=true){
+    selectedId=id;
+    document.querySelectorAll('.person').forEach(el=>{
+      el.classList.toggle('selected', el.dataset.id===id);
+      el.classList.remove('search-match');
+    });
+    document.querySelectorAll('.relation').forEach(el=>{
+      const related=relationIdsFromElement(el).has(id);
+      el.classList.toggle('selected-link', related);
+    });
+    if(open) openModal(byId[id]);
+  }
+
+  function searchPeople(){
+    selectedId=null;
+    const q=document.getElementById('familySearch').value.trim().toLowerCase();
+    document.querySelectorAll('.person').forEach(el=>{
+      const p=byId[el.dataset.id];
+      const match=!!q && (p.name.toLowerCase().includes(q)||(p.role||'').toLowerCase().includes(q));
+      el.classList.toggle('search-match', match);
+      el.classList.remove('selected');
+    });
+    document.querySelectorAll('.relation').forEach(el=>el.classList.remove('selected-link'));
+    const first = people.find(p => isPersonVisible(p.id) && (p.name.toLowerCase().includes(q) || (p.role||'').toLowerCase().includes(q)));
+    if(q && first) centerOn(first.id);
+  }
+
+  function clearSelection(closePopup=true){
+    selectedId=null;
+    document.querySelectorAll('.person').forEach(el=>el.classList.remove('selected','search-match'));
+    document.querySelectorAll('.relation').forEach(el=>el.classList.remove('selected-link'));
+    if(closePopup) document.getElementById('personModal').style.display='none';
+  }
+
+
+  function escapeHtml(value) {
+    return String(value ?? '')
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#039;');
+  }
+
+  function parseInlineMarkdown(text) {
+    let html = escapeHtml(text);
+
+    html = html.replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>');
+    html = html.replace(/`([^`]+)`/g, '<code>$1</code>');
+    html = html.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+    html = html.replace(/\*([^*]+)\*/g, '<em>$1</em>');
+
+    return html;
+  }
+
+  function markdownToHtml(markdown) {
+    let source = String(markdown || '');
+
+    // Accepte plusieurs façons d'écrire un saut de ligne dans family-data.json :
+    // 1) "ligne 1\nligne 2"
+    // 2) "ligne 1\\nligne 2"
+    // 3) "ligne 1<br>ligne 2"
+    source = source
+      .replace(/\r\n/g, '\n')
+      .replace(/\\n/g, '\n')
+      .replace(/<br\s*\/?>/gi, '\n')
+      .trim();
+
+    if (!source) return `<p>${t('family_no_profile_info', 'Aucune information disponible.')}</p>`;
+
+    const blocks = source.split(/\n{2,}/);
+    const htmlBlocks = [];
+
+    blocks.forEach(block => {
+      const lines = block.split('\n');
+
+      if (lines.every(line => line.trim().startsWith('>'))) {
+        const content = lines
+          .map(line => line.replace(/^>\s?/, ''))
+          .join('<br>');
+        htmlBlocks.push(`<blockquote>${parseInlineMarkdown(content)}</blockquote>`);
+        return;
+      }
+
+      if (lines.every(line => /^\s*[-*]\s+/.test(line))) {
+        const items = lines
+          .map(line => line.replace(/^\s*[-*]\s+/, ''))
+          .map(line => `<li>${parseInlineMarkdown(line)}</li>`)
+          .join('');
+        htmlBlocks.push(`<ul>${items}</ul>`);
+        return;
+      }
+
+      if (lines.every(line => /^\s*\d+\.\s+/.test(line))) {
+        const items = lines
+          .map(line => line.replace(/^\s*\d+\.\s+/, ''))
+          .map(line => `<li>${parseInlineMarkdown(line)}</li>`)
+          .join('');
+        htmlBlocks.push(`<ol>${items}</ol>`);
+        return;
+      }
+
+      // Sauts simples conservés
+      htmlBlocks.push(`<p>${lines.map(parseInlineMarkdown).join('<br>')}</p>`);
+    });
+
+    return htmlBlocks.join('');
+  }
+
+  function openModal(p){
+    document.getElementById('modalImg').src=p.resolvedImg || p.img || NEUTRAL_IMG;
+    document.getElementById('modalName').textContent=p.name;
+    document.getElementById('modalMeta').textContent=`${p.role || t('family_member', 'Membre')} · ${t('family_level', 'Niveau')} ${Number.isFinite(p.level) ? p.level + 1 : 1}${p.dates ? ' · ' + p.dates : ''}`;
+    document.getElementById('modalInfo').innerHTML=markdownToHtml(p.bio);
+    const tags=relations.filter(r=>r.a===p.id||r.b===p.id).map(r=>{
+      const other=byId[r.a===p.id?r.b:r.a];
+      return `<span class="pill">${r.labelKey ? t(r.labelKey, r.label || r.type) : (r.label || r.type)} : ${other?.name || t('family_unknown', 'Inconnu')}</span>`;
+    });
+    const familyTags=families.filter(f=>f.parents.includes(p.id)||f.children.includes(p.id)).map(f=>
+      f.parents.includes(p.id)
+      ? `<span class="pill">${t('family_parent_of', 'Parent de')} ${f.children.length} ${t('family_children_count', 'enfant(s)')}</span>`
+      : `<span class="pill">${t('family_child_of', 'Enfant de')} ${f.parents.map(id=>byId[id]?.name).join(' & ')}</span>`
+    );
+    document.getElementById('modalTags').innerHTML=[...tags,...familyTags].join('')||`<span class="pill">${t('family_no_relation', 'Aucune relation renseignée')}</span>`;
+    const socials = p.socials || {};
+    document.getElementById('modalSocials').innerHTML = Object.entries(socials).map(([name,url]) => `<a class="social-link" href="${url}" target="_blank" rel="noopener noreferrer">${name}</a>`).join('') || `<span class="pill">${t('family_no_social', 'Aucun réseau renseigné')}</span>`;
+    document.getElementById('personModal').style.display='flex';
+  }
+
+
+  function getTreeBounds() {
+    const visiblePeople = people.filter(p => Number.isFinite(p.x) && Number.isFinite(p.y));
+    if (!visiblePeople.length) return { minX:0, minY:0, maxX:1200, maxY:800, width:1200, height:800 };
+
+    const paddingX = 150;
+    const paddingY = 150;
+
+    const minX = Math.min(...visiblePeople.map(p => p.x)) - paddingX;
+    const maxX = Math.max(...visiblePeople.map(p => p.x)) + paddingX;
+    const minY = Math.min(...visiblePeople.map(p => p.y)) - paddingY;
+    const maxY = Math.max(...visiblePeople.map(p => p.y)) + paddingY;
+
+    return {
+      minX,
+      minY,
+      maxX,
+      maxY,
+      width: maxX - minX,
+      height: maxY - minY
+    };
+  }
+
+  function fitTreeToView() {
+    const bounds = getTreeBounds();
+
+    const scaleX = stage.clientWidth / bounds.width;
+    const scaleY = stage.clientHeight / bounds.height;
+
+    zoom = Math.max(0.35, Math.min(1.15, Math.min(scaleX, scaleY)));
+
+    panX = (stage.clientWidth - bounds.width * zoom) / 2 - bounds.minX * zoom;
+    panY = (stage.clientHeight - bounds.height * zoom) / 2 - bounds.minY * zoom;
+
+    applyTransform();
+  }
+
+  function closeModal(e){ if(!e||e.target.id==='personModal') document.getElementById('personModal').style.display='none'; }
+  function zoomBy(multiplier){ zoom=Math.max(.35,Math.min(2.2,zoom*multiplier)); applyTransform(); }
+  function centerTree(){ fitTreeToView(); }
+  function centerOn(id){
+    const p = byId[id];
+    if(!p) return;
+    zoom = Math.max(1.25, Math.min(1.55, zoom));
+    panX = stage.clientWidth/2 - p.x * zoom;
+    panY = stage.clientHeight/2 - p.y * zoom;
+    applyTransform();
+  }
+  function centerOnSelected(){ if(selectedId) centerOn(selectedId); }
+
+  function resetView(){
+    zoom=1;    selectedId=null;
+    document.getElementById('familySearch').value='';    renderTree();
+    fitTreeToView();
+  }
+
+  function togglePanel(){ const panel=document.getElementById('familyPanel'), button=document.getElementById('panelToggle'); panel.classList.toggle('collapsed'); button.textContent=panel.classList.contains('collapsed')?'›':'‹'; }
+  function toggleFullscreen(){ const app = document.getElementById('familyApp'); if(!document.fullscreenElement) app.requestFullscreen?.(); else document.exitFullscreen?.(); }
+
+  async function resolveDiscordAvatars() {
+    const discordIds = people.filter(p => p.discordId).map(p => p.discordId);
+    if (!discordIds.length) return;
+    try {
+      const res = await fetch(`${WORKER_URL}?guild=${GUILD_ID}&ids=${discordIds.join(',')}`);
+      const avatarMap = await res.json();
+      people.forEach(p => {
+        if (p.discordId && avatarMap[p.discordId]) p.resolvedImg = avatarMap[p.discordId];
+      });
+    } catch(err) {
+      console.error('Erreur de chargement des PP Discord:', err);
+    }
+  }
+
+  async function loadFamilyData(){
+    try {
+      const response = await fetch(FAMILY_DATA_URL, { cache: 'no-store' });
+      if(!response.ok) throw new Error('Fichier introuvable');
+      const data = await response.json();
+      people = data.people || [];
+      families = data.families || [];
+      relations = data.relations || [];
+      byId = Object.fromEntries(people.map(p => [p.id, p]));
+      computeAutoLayout();
+      await resolveDiscordAvatars();
+      renderTree();
+      setTimeout(fitTreeToView, 150);
+    } catch(error) {
+      console.error('Erreur chargement family-data.json :', error);
+      tree.innerHTML = `<p style="color:white;padding:40px">${t('family_data_load_error', 'Impossible de charger')} <strong>family-data.json</strong>. ${t('family_data_load_error_hint', 'Vérifie que le fichier est bien à la racine du site.')}</p><svg class="relations" id="relationsSvg"></svg>`;
+    }
+  }
+
+  applyFamilyTranslations();
+  loadFamilyData();
+</script>
+
 <script src="js/layout.js"></script>
-<!-- Traduction -->
 <script src="data/translations.js"></script>
 <script src="js/main-i18n.js"></script>
 </body>

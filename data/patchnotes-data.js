@@ -1,5 +1,20 @@
 const patchNotesData = [
   {
+    version: "0.3.1.12",
+    date: "21 Mai 2026",
+    add: [
+      "Ajout d'un nouvelle arbre généalogique",
+      "Ajout du staff VRChat dans la page Staff",
+      "Ajout de la langue espagnole, allemande, et russe"
+    ],
+    improve: [
+      "Amélioration de la page Staff"
+    ],
+    fix: [
+      "Correction de la traduction anglaise",
+    ]
+  },
+  {
     version: "0.3.1.11",
     date: "30 avril 2026",
     add: [

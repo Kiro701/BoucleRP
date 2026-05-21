@@ -14,5 +14,6 @@
     "vscord.app.id": "1474432355480375642",
     "vscord.app.privacyMode.enable": false,
     "vscord.status.image.large.editing.key": "https://raw.githubusercontent.com/LeonardSSH/vscord/main/assets/icons/{lang}.png",
-    "webPreview.url": "http://172.0.0.1:5501"
+    "webPreview.url": "http://172.0.0.1:5501",
+    "todo-tree.tree.showBadges": true
 }

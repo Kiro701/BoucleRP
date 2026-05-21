@@ -9,7 +9,8 @@
       "role":"Fondateur",
       "bio":"Membre fondateur de la famille de cœur.",
       "socials":{
-        "Tiktok":"https://roblox.com/users/5108440258/profile"
+        "Tiktok":"https://www.tiktok.com/@vaasbey",
+        "Discord": "https://discord.com/users/599130976806764545"
       }
     },
     {
@@ -72,7 +73,7 @@
       "name":"Joseph Wilford",
       "gender":"homme",
       "dates":"",
-      "discordId": "1124522983294238821",
+      "img": "https://kiro701.github.io/BoucleRP/Image/PP/Minki.jpg",
       "role":"",
       "bio": "",
       "socials":
@@ -95,14 +96,19 @@
     },
     {
       "id":"p8",
-      "name":"Aria Hamilton",
+      "name":"Aria Kamuri",
       "gender":"femme",
       "dates":"",
       "discordId": "1093534349896462476",
-      "role":"",
-      "bio": "",
+      "role":"Sœur de cœur de Vaasbey • Membre de la dynastie Royale",
+      "bio": "Je suis quelqu'un de gentille, drôle et expressif. Je suis très sensible émotionnellement et j'ai une fragilité avec le bruit. Mais sinon j'adore jouer ou être chill",
       "socials":
       {
+        "Discord": "https://discord.com/users/1093534349896462476",
+        "Instagram": "https://www.instagram.com/aria_kamuri/",
+        "Tiktok 1": "https://www.tiktok.com/@aria.kamuri",
+        "Tiktok 2": "https://www.tiktok.com/@just._me562",
+        "YouTube": "https://www.youtube.com/@Aria_Kamuri4"
       }
     },
     {
@@ -206,10 +212,11 @@
       "gender":"homme",
       "discordId": "946068504023556186",
       "dates":"",
-      "role":"",
-      "bio": "",
+      "role":"⚜️ Premier Ministre de la HMC ⚜️",
+      "bio": "Âme en or, énergie infinie et humour incontrôlable. Kaz est le cœur battant de la HMC : un leader accueillant, drôle et toujours prêt à embarquer son équipe dans les aventures les plus folles. \n Pas toujours le plus mature… mais toujours le premier à motiver les autres, créer des souvenirs et transformer le chaos en légende. Entre ambition, bonne humeur et esprit d’équipe, il avance avec une seule mission : faire vibrer la HMC et ceux qui l’entourent. 🚀",
       "socials":
       {
+        "Tiktok": "https://www.tiktok.com/@baji_studio"
       }
     },
     {
@@ -217,6 +224,18 @@
       "name":"Léa Hamilton",
       "gender":"femme",
       "discordId": "1471888307846906010",
+      "dates":"",
+      "role":"",
+      "bio": "",
+      "socials":
+      {
+      }
+    },
+    {
+      "id":"p19",
+      "name":"NVIDI Hamilton",
+      "gender":"homme",
+      "discordId": "1251863283074334760",
       "dates":"",
       "role":"",
       "bio": "",
@@ -233,7 +252,7 @@
     },
     {
       "parents":["p1","p2"],
-      "children":["p3", "p11", "p12", "p18"]
+      "children":["p3", "p11", "p12", "p18", "p19"]
     },
     {
       "parents":["p1"],
