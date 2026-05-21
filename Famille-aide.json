@@ -22,5 +22,14 @@
     "nombre_enfant": 1,
     "couple_fictif": false,
     "genre_préference": "female"
+  },
+  {
+    "name": "Zestial Hamilton",
+    "id": "p15",
+    "genre": "male",
+    "enfant": true,
+    "nombre_enfant": null,
+    "couple_fictif": false,
+    "genre_préference": "female"
   }
 ]
