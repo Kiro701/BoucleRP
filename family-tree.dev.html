@@ -16,36 +16,110 @@
       --hmc-border: rgba(255, 0, 184, .22);
       --hmc-text: #f5f5f7;
       --hmc-muted: #b9bfd1;
-      --hmc-line: rgba(255,255,255,.38);
+      --hmc-line: rgba(120, 170, 255, .72);
       --hmc-blue: #188cff;
+      --hmc-male: #188cff;
       --hmc-orange: #ff8a35;
+      --hmc-female: #ea00ff;
       --hmc-yellow: #f5bd28;
       --hmc-gray: #98a2b3;
       --hmc-love: #ff00b8;
-      --hmc-divorce: #8b91a8;
+      --hmc-divorce: #b8bed4;
       --hmc-focus: #ff00b8;
       --hmc-shadow: 0 18px 45px rgba(0, 0, 0, .38);
     }
 
-    .family-page { min-height: calc(100vh - 120px); background: linear-gradient(180deg, #10142e 0%, #10142e 70%, #0a0f20 100%); color: var(--hmc-text); }
-    .family-app { display: grid; grid-template-columns: auto 1fr; height: calc(100vh - 120px); min-height: 760px; overflow: hidden; border-top: 1px solid var(--hmc-border); position: relative; }
-    .family-app:fullscreen { height: 100vh; min-height: 100vh; background: #10142e; }
+    .family-page {
+      min-height: calc(100vh - 120px);
+      background: linear-gradient(180deg, #10142e 0%, #10142e 70%, #0a0f20 100%);
+      color: var(--hmc-text);
+    }
 
-    .family-panel { width: 300px; background: rgba(8,13,28,.96); border-right: 1px solid var(--hmc-border); padding: 20px; overflow-y: auto; box-shadow: 8px 0 30px rgba(0,0,0,.28); z-index: 5; text-align: left; transition: width .25s ease, padding .25s ease; }
-    .family-panel.collapsed { width: 0; padding-left: 0; padding-right: 0; overflow: hidden; border-right: 0; }
-    .panel-toggle { position: absolute; top: 18px; left: 0; z-index: 7; width: 42px; height: 42px; border: 1px solid var(--hmc-border); border-radius: 0 12px 12px 0; background: #080d1c; color: var(--hmc-love); font-size: 20px; cursor: pointer; box-shadow: var(--hmc-shadow); transition: left .25s ease; }
+    .family-app {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      height: calc(100vh - 120px);
+      min-height: 760px;
+      overflow: hidden;
+      border-top: 1px solid var(--hmc-border);
+      position: relative;
+    }
+
+    .family-app:fullscreen {
+      height: 100vh;
+      min-height: 100vh;
+      background: #10142e;
+    }
+
+    .family-panel {
+      width: 300px;
+      background: rgba(8,13,28,.96);
+      border-right: 1px solid var(--hmc-border);
+      padding: 20px;
+      overflow-y: auto;
+      box-shadow: 8px 0 30px rgba(0,0,0,.28);
+      z-index: 5;
+      text-align: left;
+      transition: width .25s ease, padding .25s ease;
+    }
+
+    .family-panel.collapsed {
+      width: 0;
+      padding-left: 0;
+      padding-right: 0;
+      overflow: hidden;
+      border-right: 0;
+    }
+
+    .panel-toggle {
+      position: absolute;
+      top: 18px;
+      left: 0;
+      z-index: 7;
+      width: 42px;
+      height: 42px;
+      border: 1px solid var(--hmc-border);
+      border-radius: 0 12px 12px 0;
+      background: #080d1c;
+      color: var(--hmc-love);
+      font-size: 20px;
+      cursor: pointer;
+      box-shadow: var(--hmc-shadow);
+      transition: left .25s ease;
+    }
+
     .family-panel:not(.collapsed) + .panel-toggle { left: 300px; }
 
     .family-panel h2 { margin: 0 0 6px; font-size: 22px; color: var(--hmc-text); }
     .family-panel .subtitle { margin: 0 0 20px; color: var(--hmc-muted); font-size: 14px; line-height: 1.4; }
     .panel-section-title { margin: 22px 0 12px; font-size: 13px; font-weight: 800; color: var(--hmc-love); text-transform: uppercase; letter-spacing: .05em; }
-    .family-search { width: 100%; padding: 12px 14px; border: 1px solid rgba(255,255,255,.12); border-radius: 10px; font-size: 14px; outline: none; background: #0f1730; color: var(--hmc-text); }
-    .family-search:focus { border-color: var(--hmc-focus); box-shadow: 0 0 0 3px rgba(255,0,184,.12); }
 
+    .family-search {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 10px;
+      font-size: 14px;
+      outline: none;
+      background: #0f1730;
+      color: var(--hmc-text);
+    }
+
+    .family-search:focus { border-color: var(--hmc-focus); box-shadow: 0 0 0 3px rgba(255,0,184,.12); }
     .check-row { display: flex; align-items: center; gap: 10px; margin: 12px 0; font-size: 14px; color: var(--hmc-muted); }
     .check-row input { width: 16px; height: 16px; accent-color: var(--hmc-focus); }
     .generation-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
-    .family-btn { border: 1px solid rgba(255,255,255,.12); background: #111734; color: var(--hmc-text); border-radius: 8px; padding: 10px; cursor: pointer; font-weight: 800; }
+
+    .family-btn {
+      border: 1px solid rgba(255,255,255,.12);
+      background: #111734;
+      color: var(--hmc-text);
+      border-radius: 8px;
+      padding: 10px;
+      cursor: pointer;
+      font-weight: 800;
+    }
+
     .family-btn.active { background: rgba(255,0,184,.15); color: var(--hmc-love); border-color: rgba(255,0,184,.45); }
     .family-btn.full { width: 100%; margin-top: 10px; }
 
@@ -65,23 +139,29 @@
     .canvas-tools button { width: 48px; height: 44px; border: 0; border-right: 1px solid rgba(255,255,255,.1); background: #080d1c; font-size: 18px; cursor: pointer; color: var(--hmc-text); }
     .canvas-tools button:last-child { border-right: 0; }
 
-    .tree-stage { width: 100%; height: 100%; overflow: hidden; cursor: grab; background: radial-gradient(circle at top, #151a38 0%, #10142e 45%, #080d1c 100%); user-select: none; touch-action: none; }
-    .tree-stage.dragging { cursor: grabbing; }
-    .tree { position: relative; width: 2000px; height: 1200px; transform-origin: 0 0; }
-    .generation-label { position: absolute; left: 28px; color: #ff00b8; opacity: .75; font-size: 13px; font-weight: 800; letter-spacing: .02em; }
+    .tree-stage {
+      width: 100%; height: 100%; overflow: hidden; cursor: grab;
+      background: radial-gradient(circle at top, #151a38 0%, #10142e 45%, #080d1c 100%);
+      user-select: none; touch-action: none;
+    }
 
-    svg.relations { position: absolute; inset: 0; width: 2000px; height: 1200px; pointer-events: none; overflow: visible; }
-    .family-line { fill: none; stroke: var(--hmc-line); stroke-width: 1.35; }
-    .love-line { stroke: var(--hmc-love); stroke-width: 2.5; stroke-linecap: round; }
+    .tree-stage.dragging { cursor: grabbing; }
+    .tree { position: relative; width: 2200px; height: 1400px; transform-origin: 0 0; }
+    .generation-label { position: absolute; left: 28px; color: #ff00b8; opacity: .8; font-size: 13px; font-weight: 800; letter-spacing: .02em; }
+    .generation-guide { display: none; }
+
+    svg.relations { position: absolute; inset: 0; width: 2200px; height: 1400px; pointer-events: none; overflow: visible; }
+    .family-line { fill: none; stroke: var(--hmc-line); stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+    .love-line { stroke: var(--hmc-love); stroke-width: 2.6; stroke-linecap: round; }
     .love-heart { fill: var(--hmc-love); font-size: 18px; font-weight: 900; }
     .divorce-line { fill: none; stroke: var(--hmc-divorce); stroke-width: 2.2; stroke-dasharray: 8 7; stroke-linecap: round; opacity: .9; }
     .divorce-cross { fill: #080d1c; stroke: var(--hmc-divorce); stroke-width: 1.5; }
     .divorce-cross-text { fill: var(--hmc-divorce); font-size: 14px; font-weight: 900; text-anchor: middle; dominant-baseline: central; }
 
-    .person { position: absolute; width: 120px; text-align: center; transform: translate(-60px, -48px); cursor: pointer; transition: transform .2s ease, filter .2s ease; z-index: 2; }
-    .person:hover { transform: translate(-60px, -53px); }
-    .avatar-ring { width: 94px; height: 94px; margin: 0 auto; border-radius: 50%; padding: 4px; background: var(--hmc-blue); box-shadow: 0 6px 16px rgba(0, 0, 0, .35); }
-    .avatar-ring.femme { background: var(--hmc-orange); }
+    .person { position: absolute; width: 130px; text-align: center; transform: translate(-65px, -50px); cursor: pointer; transition: transform .2s ease, filter .2s ease; z-index: 2; }
+    .person:hover { transform: translate(-65px, -55px); }
+    .avatar-ring { width: 98px; height: 98px; margin: 0 auto; border-radius: 50%; padding: 4px; background: var(--hmc-blue); box-shadow: 0 6px 16px rgba(0, 0, 0, .35); }
+    .avatar-ring.femme { background: var(--hmc-female); }
     .avatar-ring.nonbinaire { background: var(--hmc-yellow); }
     .avatar-ring.autre { background: var(--hmc-gray); }
     .avatar-ring img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; border: 4px solid white; background: #1a1a24; opacity: .45; animation: pulse-load 1.5s infinite ease-in-out; transition: opacity .3s ease; }
@@ -106,7 +186,6 @@
     @media (max-width: 900px) {
       .family-app { grid-template-columns: 1fr; height: calc(100vh - 90px); min-height: 700px; }
       .family-panel { position: absolute; height: 100%; width: min(86vw, 300px); }
-      .panel-toggle { display: block; }
       .family-panel:not(.collapsed) + .panel-toggle { left: min(86vw, 300px); }
       .popup-grid { grid-template-columns: 1fr; }
     }
@@ -124,18 +203,7 @@
 
       <div class="panel-section-title">Filtres</div>
       <label class="check-row"><input id="showLove" type="checkbox" checked onchange="renderTree()">Relations amoureuses</label>
-      <label class="check-row"><input id="showDivorce" type="checkbox" onchange="renderTree()">Divorces / ex-relations</label>
       <label class="check-row"><input id="showFamily" type="checkbox" checked onchange="renderTree()">Liens familiaux</label>
-
-      <div class="panel-section-title">Génération</div>
-      <div class="generation-grid" id="generationFilter">
-        <button class="family-btn active" onclick="setGeneration('all', this)">Toutes</button>
-        <button class="family-btn" onclick="setGeneration(1, this)">1</button>
-        <button class="family-btn" onclick="setGeneration(2, this)">2</button>
-        <button class="family-btn" onclick="setGeneration(3, this)">3</button>
-        <button class="family-btn" onclick="setGeneration(4, this)">4</button>
-        <button class="family-btn" onclick="setGeneration(5, this)">5</button>
-      </div>
 
       <button class="family-btn full" onclick="clearSelection()">Désélectionner</button>
       <button class="family-btn full" onclick="resetView()">⟳ Réinitialiser</button>
@@ -149,9 +217,8 @@
         <div class="panel-section-title" style="margin-top:0">Légende</div>
         <div class="legend-row"><span class="line-sample"></span>Lien familial</div>
         <div class="legend-row"><span class="line-sample love"></span>Relation amoureuse</div>
-        <div class="legend-row"><span class="line-sample divorce"></span>Divorce / ex</div>
-        <div class="legend-row"><span class="ring-sample" style="border-color:var(--hmc-blue)"></span>Homme</div>
-        <div class="legend-row"><span class="ring-sample" style="border-color:var(--hmc-orange)"></span>Femme</div>
+        <div class="legend-row"><span class="ring-sample" style="border-color:var(--hmc-male)"></span>Homme</div>
+        <div class="legend-row"><span class="ring-sample" style="border-color:var(--hmc-female)"></span>Femme</div>
         <div class="legend-row"><span class="ring-sample" style="border-color:var(--hmc-yellow)"></span>Non-binaire</div>
         <div class="legend-row"><span class="ring-sample" style="border-color:var(--hmc-gray)"></span>Autre</div>
       </div>
@@ -207,7 +274,6 @@
   let families = [];
   let relations = [];
   let byId = {};
-  let generationFilter = 'all';
   let selectedId = null;
   let zoom = 1, panX = 0, panY = 0, isDragging = false;
   let dragStart = {x:0,y:0}, panStart = {x:0,y:0};
@@ -227,9 +293,17 @@
     panStart={x:panX,y:panY};
     stage.setPointerCapture(e.pointerId);
   });
-  stage.addEventListener('pointermove', e => { if(!isDragging) return; panX = panStart.x + (e.clientX-dragStart.x); panY = panStart.y + (e.clientY-dragStart.y); applyTransform(); });
+
+  stage.addEventListener('pointermove', e => {
+    if(!isDragging) return;
+    panX = panStart.x + (e.clientX-dragStart.x);
+    panY = panStart.y + (e.clientY-dragStart.y);
+    applyTransform();
+  });
+
   stage.addEventListener('pointerup', () => { isDragging = false; stage.classList.remove('dragging'); });
   stage.addEventListener('pointercancel', () => { isDragging = false; stage.classList.remove('dragging'); });
+
   stage.addEventListener('wheel', e => {
     e.preventDefault();
     const oldZoom = zoom;
@@ -243,34 +317,190 @@
     applyTransform();
   }, { passive:false });
 
+  function computeLevels() {
+    const levels = {};
+    const changedLimit = Math.max(20, people.length * 4);
+
+    people.forEach(p => levels[p.id] = 0);
+
+    for (let pass = 0; pass < changedLimit; pass++) {
+      let changed = false;
+
+      families.forEach(f => {
+        const parentLevels = f.parents
+          .map(id => levels[id])
+          .filter(v => Number.isFinite(v));
+
+        const wantedChildLevel = parentLevels.length
+          ? Math.max(...parentLevels) + 1
+          : 0;
+
+        f.children.forEach(childId => {
+          if ((levels[childId] ?? 0) < wantedChildLevel) {
+            levels[childId] = wantedChildLevel;
+            changed = true;
+          }
+        });
+      });
+
+      relations
+        .filter(r => r.type === 'love')
+        .forEach(r => {
+          if (levels[r.a] === undefined || levels[r.b] === undefined) return;
+          const sameLevel = Math.max(levels[r.a], levels[r.b]);
+          if (levels[r.a] !== sameLevel) { levels[r.a] = sameLevel; changed = true; }
+          if (levels[r.b] !== sameLevel) { levels[r.b] = sameLevel; changed = true; }
+        });
+
+      if (!changed) break;
+    }
+
+    people.forEach(p => p.level = levels[p.id] ?? 0);
+    return levels;
+  }
+
   function computeAutoLayout() {
-    const genYGap = 175;
-    const xGap = 145;
+    computeLevels();
+
+    const yGap = 215;
+    const coupleGap = 145;
+    const blockGap = 115;
+    const itemGap = 58;
+    const singleWidth = 155;
     const marginX = 180;
-    const marginY = 80;
-    const grouped = new Map();
+    const marginY = 105;
+    const baseWidth = Math.max(1250, people.length * 105);
+
+    const groups = new Map();
     people.forEach(p => {
-      if (!grouped.has(p.gen)) grouped.set(p.gen, []);
-      grouped.get(p.gen).push(p);
+      const level = p.level || 0;
+      if (!groups.has(level)) groups.set(level, []);
+      groups.get(level).push(p);
     });
 
-    [...grouped.entries()].sort((a,b)=>a[0]-b[0]).forEach(([gen, members]) => {
-      members.sort((a,b) => {
-        const ao = Number.isFinite(a.order) ? a.order : 9999;
-        const bo = Number.isFinite(b.order) ? b.order : 9999;
-        return ao - bo || a.name.localeCompare(b.name);
+    const lovePairs = relations.filter(r => r.type === 'love');
+    const levels = [...groups.keys()].sort((a,b)=>a-b);
+
+    levels.forEach(level => {
+      const members = groups.get(level);
+      const memberIds = new Set(members.map(p => p.id));
+      const paired = new Set();
+      const items = [];
+
+      lovePairs.forEach(pair => {
+        if (
+          memberIds.has(pair.a) &&
+          memberIds.has(pair.b) &&
+          !paired.has(pair.a) &&
+          !paired.has(pair.b)
+        ) {
+          const a = byId[pair.a];
+          const b = byId[pair.b];
+          const anchored = getAnchoredMemberForCouple(a, b);
+
+          items.push({
+            type: 'couple',
+            people: [a, b],
+            width: coupleGap,
+            visualWidth: coupleGap + 125,
+            anchor: getItemAnchor([a, b], level),
+            anchoredId: anchored ? anchored.id : null,
+            familyKey: getFamilyKeyForItem([a, b])
+          });
+
+          paired.add(pair.a);
+          paired.add(pair.b);
+        }
       });
 
-      const totalWidth = (members.length - 1) * xGap;
-      const startX = marginX + Math.max(0, (1600 - totalWidth) / 2);
-      members.forEach((p, i) => {
-        p.x = Number.isFinite(p.x) ? p.x : startX + i * xGap;
-        p.y = Number.isFinite(p.y) ? p.y : marginY + (gen - 1) * genYGap;
+      members.forEach(p => {
+        if (!paired.has(p.id)) {
+          items.push({
+            type: 'single',
+            people: [p],
+            width: singleWidth,
+            visualWidth: singleWidth,
+            anchor: getItemAnchor([p], level),
+            anchoredId: p.id,
+            familyKey: getFamilyKeyForItem([p])
+          });
+        }
+      });
+
+      items.sort((a,b) => a.anchor - b.anchor || a.people[0].name.localeCompare(b.people[0].name));
+
+      if (level === levels[0]) {
+        const totalWidth = items.reduce((sum,item)=>sum+item.visualWidth,0) + Math.max(0, items.length-1) * blockGap;
+        let cursor = marginX + Math.max(0, (baseWidth - totalWidth) / 2);
+
+        items.forEach(item => {
+          placeItem(item, cursor, marginY + level * yGap, coupleGap);
+          cursor += item.visualWidth + blockGap;
+        });
+        return;
+      }
+
+      const familyGroups = [];
+      const familyMap = new Map();
+
+      items.forEach(item => {
+        const key = item.familyKey || `solo:${item.people.map(p=>p.id).join('-')}`;
+        if (!familyMap.has(key)) {
+          familyMap.set(key, {
+            key,
+            items: [],
+            anchor: item.familyKey ? getFamilyAnchorByKey(item.familyKey) : item.anchor
+          });
+          familyGroups.push(familyMap.get(key));
+        }
+        familyMap.get(key).items.push(item);
+      });
+
+      familyGroups.sort((a,b) => a.anchor - b.anchor);
+
+      let previousRight = marginX - blockGap;
+
+      familyGroups.forEach(group => {
+        group.items.sort((a,b) => a.anchor - b.anchor || a.people[0].name.localeCompare(b.people[0].name));
+
+        const lefts = [];
+        let cursor = 0;
+
+        // Placement interne robuste : chaque bloc a sa vraie largeur visuelle.
+        // Ça empêche un couple amoureux de se superposer avec un enfant/frère/sœur.
+        group.items.forEach((item, index) => {
+          if (index === 0) {
+            lefts[index] = 0;
+            cursor = item.visualWidth + itemGap;
+          } else {
+            lefts[index] = cursor;
+            cursor += item.visualWidth + itemGap;
+          }
+        });
+
+        const rawLeft = Math.min(...lefts);
+        const rawRight = Math.max(...group.items.map((item, index) => lefts[index] + item.visualWidth));
+        const rawWidth = rawRight - rawLeft;
+
+        // Centre le groupe complet sous le parent/référent.
+        let groupLeft = group.anchor - rawWidth / 2;
+        if (groupLeft < previousRight + blockGap) {
+          groupLeft = previousRight + blockGap;
+        }
+
+        group.items.forEach((item, index) => {
+          placeItem(item, groupLeft + lefts[index], marginY + level * yGap, coupleGap);
+        });
+
+        previousRight = groupLeft + rawWidth;
       });
     });
 
-    const maxX = Math.max(...people.map(p => p.x), 1600) + 260;
-    const maxY = Math.max(...people.map(p => p.y), 900) + 180;
+    normalizeTreeX();
+
+    const maxX = Math.max(...people.map(p => p.x), 1250) + 280;
+    const maxY = Math.max(...people.map(p => p.y), 900) + 220;
+
     tree.style.width = maxX + 'px';
     tree.style.height = maxY + 'px';
     svg.setAttribute('width', maxX);
@@ -279,48 +509,258 @@
     svg.style.height = maxY + 'px';
   }
 
-  function parentPoint(ids){ const nodes=ids.map(id=>byId[id]).filter(Boolean); return {x:nodes.reduce((s,p)=>s+p.x,0)/nodes.length, y:Math.max(...nodes.map(p=>p.y))+47}; }
-  function childTop(id){ const p=byId[id]; return {x:p.x,y:p.y-48}; }
-  function isPersonVisible(id){ const p = byId[id]; return p && (generationFilter === 'all' || p.gen === generationFilter); }
+  function normalizeTreeX() {
+    const minX = Math.min(...people.map(p => p.x), 0);
+    if (minX < 120) {
+      const shift = 120 - minX;
+      people.forEach(p => p.x += shift);
+    }
+  }
+
+  function getFamilyKeyForItem(members) {
+    const child = members.find(member => families.some(f => f.children.includes(member.id)));
+    if (!child) return null;
+    const familyIndex = families.findIndex(f => f.children.includes(child.id));
+    return familyIndex >= 0 ? `family:${familyIndex}` : null;
+  }
+
+  function getFamilyAnchorByKey(key) {
+    const index = Number(String(key).replace('family:', ''));
+    const family = families[index];
+    if (!family) return 400;
+
+    const parents = family.parents.map(id => byId[id]).filter(p => p && Number.isFinite(p.x));
+    if (!parents.length) return 400;
+
+    return parents.reduce((sum,p)=>sum+p.x,0) / parents.length;
+  }
+
+  function hasParents(member) {
+    return families.some(f => f.children.includes(member.id));
+  }
+
+  function getAnchoredMemberForCouple(a, b) {
+    const aHasParents = hasParents(a);
+    const bHasParents = hasParents(b);
+
+    if (aHasParents && !bHasParents) return a;
+    if (bHasParents && !aHasParents) return b;
+
+    return null;
+  }
+
+  function getRepresentativeOffset(item, coupleGap) {
+    if (item.type === 'single') return item.width / 2;
+
+    if (item.type === 'couple' && item.anchoredId) {
+      const anchoredIndex = item.people.findIndex(p => p.id === item.anchoredId);
+      return anchoredIndex === 0 ? 0 : coupleGap;
+    }
+
+    return item.width / 2;
+  }
+
+  function placeItem(item, left, y, coupleGap) {
+    if (item.type === 'couple') {
+      item.people[0].x = left;
+      item.people[1].x = left + coupleGap;
+      item.people[0].y = item.people[1].y = y;
+      return;
+    }
+
+    item.people[0].x = left + item.width / 2;
+    item.people[0].y = y;
+  }
+
+  function getItemAnchor(members, level) {
+    const parentAnchors = members.map(member => {
+      const family = families.find(f => f.children.includes(member.id));
+      if (!family) return null;
+
+      const parentNodes = family.parents.map(id => byId[id]).filter(Boolean);
+      const placedParents = parentNodes.filter(p => Number.isFinite(p.x));
+
+      if (!placedParents.length) return null;
+
+      return placedParents.reduce((sum,p)=>sum+p.x,0) / placedParents.length;
+    }).filter(v => Number.isFinite(v));
+
+    if (parentAnchors.length) {
+      return parentAnchors.reduce((sum,v)=>sum+v,0) / parentAnchors.length;
+    }
+
+    const explicit = members.map(p => p.order).filter(v => Number.isFinite(v));
+    if (explicit.length) {
+      return 250 + (explicit.reduce((s,v)=>s+v,0) / explicit.length) * 155;
+    }
+
+    return 250 + level * 180 + members[0].name.charCodeAt(0);
+  }
+
+  function getSortValue(...members) {
+    const explicit = members.map(p => p.order).filter(v => Number.isFinite(v));
+    if (explicit.length) return explicit.reduce((s,v)=>s+v,0) / explicit.length;
+
+    const parentScores = members.map(member => {
+      const parentFamily = families.find(f => f.children.includes(member.id));
+      if (!parentFamily) return (member.level || 0) * 1000;
+      const parentXs = parentFamily.parents.map(id => byId[id]?.x).filter(v => Number.isFinite(v));
+      return parentXs.length ? parentXs.reduce((s,v)=>s+v,0) / parentXs.length : (member.level || 0) * 1000;
+    });
+    return parentScores.reduce((s,v)=>s+v,0) / parentScores.length;
+  }
+
+  function parentPoint(ids){
+    const nodes = ids.map(id => byId[id]).filter(Boolean);
+    const centerX = nodes.reduce((s,p)=>s+p.x,0) / nodes.length;
+
+    if (nodes.length >= 2) {
+      const sameLevel = nodes.every(p => p.level === nodes[0].level);
+      if (sameLevel) return { x:centerX, y:nodes[0].y };
+    }
+
+    return { x:centerX, y:Math.max(...nodes.map(p=>p.y)) + 51 };
+  }
+
+  function childTop(id){ const p=byId[id]; return {x:p.x,y:p.y-51}; }
+  function isPersonVisible(id){ return !!byId[id]; }
+
   function familyPath(f){
-    const visibleChildren = f.children.filter(isPersonVisible);
+    const visibleChildren = f.children
+      .filter(isPersonVisible)
+      .map(childTop)
+      .sort((a,b)=>a.x-b.x);
+
     const visibleParents = f.parents.filter(isPersonVisible);
     if(!visibleChildren.length || !visibleParents.length) return '';
-    const start=parentPoint(visibleParents), children=visibleChildren.map(childTop), jy=start.y+54;
-    const minX=Math.min(...children.map(c=>c.x),start.x), maxX=Math.max(...children.map(c=>c.x),start.x);
-    let d=`M${start.x},${start.y} V${jy}`;
-    if(children.length>1)d+=` M${minX},${jy} H${maxX}`;
-    children.forEach(c=>d+=` M${c.x},${jy} V${c.y}`);
+
+    const start = parentPoint(visibleParents);
+    const childrenX = visibleChildren.map(c => c.x);
+    const childrenCenterX = childrenX.reduce((sum,x)=>sum+x,0) / childrenX.length;
+
+    const firstChildY = Math.min(...visibleChildren.map(c => c.y));
+
+    // Un seul enfant : ligne aussi droite que possible.
+    // Si l'enfant est décalé à cause d'un partenaire, on fait un petit coude propre,
+    // mais seulement entre les générations, pas à travers les avatars.
+    if (visibleChildren.length === 1) {
+      const child = visibleChildren[0];
+      const midY = start.y + Math.max(62, (child.y - start.y) * 0.45);
+
+      if (Math.abs(start.x - child.x) < 2) {
+        return `M${start.x},${start.y} V${child.y}`;
+      }
+
+      return `M${start.x},${start.y} V${midY} H${child.x} V${child.y}`;
+    }
+
+    // Plusieurs enfants : tronc vertical centré, barre horizontale, puis descentes.
+    const junctionY = start.y + Math.max(62, (firstChildY - start.y) * 0.45);
+    const minX = Math.min(...childrenX);
+    const maxX = Math.max(...childrenX);
+
+    let d = `M${start.x},${start.y} V${junctionY}`;
+
+    if (Math.abs(start.x - childrenCenterX) > 2) {
+      d += ` H${childrenCenterX}`;
+    }
+
+    d += ` M${minX},${junctionY} H${maxX}`;
+    visibleChildren.forEach(c => d += ` M${c.x},${junctionY} V${c.y}`);
+
     return d;
   }
-  function loveLine(a,b){ const p1=byId[a],p2=byId[b],left=p1.x<p2.x?p1:p2,right=p1.x<p2.x?p2:p1; const x1=left.x+47,x2=right.x-47,y=(left.y+right.y)/2; return {x1,x2,y,midX:(x1+x2)/2,midY:y}; }
-  function smartCurve(a,b,offset=0){ const p1=byId[a],p2=byId[b],distance=Math.abs(p1.x-p2.x),lift=Math.min(180,Math.max(95,distance*.28)); const y1=p1.y-58-offset,y2=p2.y-58-offset; return `M${p1.x},${y1} C${p1.x},${y1-lift} ${p2.x},${y2-lift} ${p2.x},${y2}`; }
-  function midpoint(a,b){ const p1=byId[a],p2=byId[b]; return {x:(p1.x+p2.x)/2,y:(p1.y+p2.y)/2-85}; }
+
+  function loveLine(a,b){
+    const p1 = byId[a];
+    const p2 = byId[b];
+    const left = p1.x < p2.x ? p1 : p2;
+    const right = p1.x < p2.x ? p2 : p1;
+    const x1 = left.x + 56;
+    const x2 = right.x - 56;
+    const y = (left.y + right.y) / 2;
+    return {x1,x2,y,midX:(x1+x2)/2,midY:y};
+  }
+
+  function smartCurve(a,b,offset=0){
+    const p1=byId[a], p2=byId[b];
+    const left = p1.x < p2.x ? p1 : p2;
+    const right = p1.x < p2.x ? p2 : p1;
+
+    // Divorce/ex : route propre, séparée des avatars et des liens amoureux.
+    // Même génération = arc horizontal au-dessus des profils.
+    if (p1.gen === p2.gen) {
+      const y = Math.min(p1.y, p2.y) - 76 - offset;
+      const x1 = left.x + 56;
+      const x2 = right.x - 56;
+      const lift = Math.min(90, Math.max(38, Math.abs(x2-x1) * 0.12));
+      return `M${x1},${y} C${x1},${y-lift} ${x2},${y-lift} ${x2},${y}`;
+    }
+
+    // Générations différentes = courbe latérale pour éviter de traverser l’arbre.
+    const direction = p1.x < p2.x ? 1 : -1;
+    const x1 = p1.x + direction * 54;
+    const x2 = p2.x - direction * 54;
+    const midY = (p1.y + p2.y) / 2;
+    const side = Math.max(p1.x, p2.x) + 120;
+    return `M${x1},${p1.y} C${side},${p1.y} ${side},${p2.y} ${x2},${p2.y}`;
+  }
+
+  function midpoint(a,b){
+    const p1=byId[a], p2=byId[b];
+    const left = p1.x < p2.x ? p1 : p2;
+    const right = p1.x < p2.x ? p2 : p1;
+
+    if (p1.gen === p2.gen) {
+      return { x:(left.x+right.x)/2, y:Math.min(p1.y,p2.y)-96 };
+    }
+
+    return { x:(p1.x+p2.x)/2, y:(p1.y+p2.y)/2 };
+  }
 
   function renderTree(){
-    tree.querySelectorAll('.person,.generation-label').forEach(n=>n.remove());
+    tree.querySelectorAll('.person,.generation-label,.generation-guide').forEach(n=>n.remove());
     svg.innerHTML='';
     const showFamily=document.getElementById('showFamily').checked;
     const showLove=document.getElementById('showLove').checked;
-    const showDivorce=document.getElementById('showDivorce').checked;
     const visiblePeople = people.filter(p => isPersonVisible(p.id));
 
-    [...new Set(visiblePeople.map(p => p.gen))].forEach(gen => {
-      const members = visiblePeople.filter(p => p.gen === gen);
-      const y = Math.min(...members.map(p => p.y)) - 45;
-      const label=document.createElement('div');
-      label.className='generation-label';
-      label.style.top=`${y}px`;
-      label.textContent=`GÉNÉRATION ${gen}`;
-      tree.appendChild(label);
+    if(showFamily) families.forEach(f=>{
+      const d = familyPath(f);
+      if(!d) return;
+      const path=document.createElementNS('http://www.w3.org/2000/svg','path');
+      path.setAttribute('d',d);
+      path.setAttribute('class','family-line relation family-relation');
+      path.dataset.ids=[...f.parents,...f.children].join(',');
+      svg.appendChild(path);
     });
-
-    if(showFamily) families.forEach(f=>{ const d = familyPath(f); if(!d) return; const path=document.createElementNS('http://www.w3.org/2000/svg','path'); path.setAttribute('d',d); path.setAttribute('class','family-line relation family-relation'); path.dataset.ids=[...f.parents,...f.children].join(','); svg.appendChild(path); });
 
     relations.forEach((r,index)=>{
       if(!isPersonVisible(r.a) || !isPersonVisible(r.b)) return;
-      if(r.type==='love'&&showLove){ const l=loveLine(r.a,r.b); const line=document.createElementNS('http://www.w3.org/2000/svg','line'); line.setAttribute('x1',l.x1); line.setAttribute('x2',l.x2); line.setAttribute('y1',l.y); line.setAttribute('y2',l.y); line.setAttribute('class','love-line relation'); line.dataset.ids=`${r.a},${r.b}`; svg.appendChild(line); const text=document.createElementNS('http://www.w3.org/2000/svg','text'); text.setAttribute('x',l.midX-8); text.setAttribute('y',l.midY+6); text.setAttribute('class','love-heart relation'); text.dataset.ids=`${r.a},${r.b}`; text.textContent='♥'; svg.appendChild(text); }
-      if(r.type==='divorce'&&showDivorce){ const path=document.createElementNS('http://www.w3.org/2000/svg','path'); path.setAttribute('d',smartCurve(r.a,r.b,12+index*2)); path.setAttribute('class','divorce-line relation'); path.dataset.ids=`${r.a},${r.b}`; svg.appendChild(path); const m=midpoint(r.a,r.b); const circle=document.createElementNS('http://www.w3.org/2000/svg','circle'); circle.setAttribute('cx',m.x); circle.setAttribute('cy',m.y); circle.setAttribute('r',11); circle.setAttribute('class','divorce-cross relation'); circle.dataset.ids=`${r.a},${r.b}`; svg.appendChild(circle); const cross=document.createElementNS('http://www.w3.org/2000/svg','text'); cross.setAttribute('x',m.x); cross.setAttribute('y',m.y+1); cross.setAttribute('class','divorce-cross-text relation'); cross.dataset.ids=`${r.a},${r.b}`; cross.textContent='×'; svg.appendChild(cross); }
+
+      if(r.type==='love'&&showLove){
+        const l=loveLine(r.a,r.b);
+        if(l.x2 > l.x1){
+          const line=document.createElementNS('http://www.w3.org/2000/svg','line');
+          line.setAttribute('x1',l.x1);
+          line.setAttribute('x2',l.x2);
+          line.setAttribute('y1',l.y);
+          line.setAttribute('y2',l.y);
+          line.setAttribute('class','love-line relation');
+          line.dataset.ids=`${r.a},${r.b}`;
+          svg.appendChild(line);
+
+          const text=document.createElementNS('http://www.w3.org/2000/svg','text');
+          text.setAttribute('x',l.midX-8);
+          text.setAttribute('y',l.midY+6);
+          text.setAttribute('class','love-heart relation');
+          text.dataset.ids=`${r.a},${r.b}`;
+          text.textContent='♥';
+          svg.appendChild(text);
+        }
+      }
+
+
     });
 
     visiblePeople.forEach(p=>{
@@ -339,13 +779,25 @@
     });
 
     document.getElementById('statPeople').textContent=people.length;
-    document.getElementById('statRelations').textContent=relations.length;
+    document.getElementById('statRelations').textContent=relations.filter(r => r.type !== 'divorce').length;
     if(selectedId && isPersonVisible(selectedId)) selectPerson(selectedId,false);
   }
 
   function relationIdsFromElement(el){ return new Set((el.dataset.ids||'').split(',').filter(Boolean)); }
-  function setGeneration(value,btn){ generationFilter=value; selectedId = null; document.getElementById('familySearch').value=''; document.querySelectorAll('#generationFilter .family-btn').forEach(b=>b.classList.remove('active')); btn.classList.add('active'); renderTree(); }
-  function selectPerson(id,open=true){ selectedId=id; document.querySelectorAll('.person').forEach(el=>{ el.classList.toggle('selected', el.dataset.id===id); el.classList.remove('search-match'); }); document.querySelectorAll('.relation').forEach(el=>{ const related=relationIdsFromElement(el).has(id); el.classList.toggle('selected-link', related); }); if(open) openModal(byId[id]); }
+
+  function selectPerson(id,open=true){
+    selectedId=id;
+    document.querySelectorAll('.person').forEach(el=>{
+      el.classList.toggle('selected', el.dataset.id===id);
+      el.classList.remove('search-match');
+    });
+    document.querySelectorAll('.relation').forEach(el=>{
+      const related=relationIdsFromElement(el).has(id);
+      el.classList.toggle('selected-link', related);
+    });
+    if(open) openModal(byId[id]);
+  }
+
   function searchPeople(){
     selectedId=null;
     const q=document.getElementById('familySearch').value.trim().toLowerCase();
@@ -359,27 +811,90 @@
     const first = people.find(p => isPersonVisible(p.id) && (p.name.toLowerCase().includes(q) || (p.role||'').toLowerCase().includes(q)));
     if(q && first) centerOn(first.id);
   }
-  function clearSelection(closePopup=true){ selectedId=null; document.querySelectorAll('.person').forEach(el=>el.classList.remove('selected','search-match')); document.querySelectorAll('.relation').forEach(el=>el.classList.remove('selected-link')); if(closePopup) document.getElementById('personModal').style.display='none'; }
+
+  function clearSelection(closePopup=true){
+    selectedId=null;
+    document.querySelectorAll('.person').forEach(el=>el.classList.remove('selected','search-match'));
+    document.querySelectorAll('.relation').forEach(el=>el.classList.remove('selected-link'));
+    if(closePopup) document.getElementById('personModal').style.display='none';
+  }
 
   function openModal(p){
     document.getElementById('modalImg').src=p.resolvedImg || p.img || NEUTRAL_IMG;
     document.getElementById('modalName').textContent=p.name;
-    document.getElementById('modalMeta').textContent=`${p.role || 'Membre'} · Génération ${p.gen}${p.dates ? ' · ' + p.dates : ''}`;
+    document.getElementById('modalMeta').textContent=`${p.role || 'Membre'} · Niveau ${Number.isFinite(p.level) ? p.level + 1 : 1}${p.dates ? ' · ' + p.dates : ''}`;
     document.getElementById('modalInfo').textContent=p.bio || `Profil de test pour ${p.name}.`;
-    const tags=relations.filter(r=>r.a===p.id||r.b===p.id).map(r=>{ const other=byId[r.a===p.id?r.b:r.a]; return `<span class="pill">${r.label || r.type} : ${other?.name || 'Inconnu'}</span>`; });
-    const familyTags=families.filter(f=>f.parents.includes(p.id)||f.children.includes(p.id)).map(f=>f.parents.includes(p.id)?`<span class="pill">Transmission vers ${f.children.length} membre(s)</span>`:`<span class="pill">Lié à ${f.parents.map(id=>byId[id]?.name).join(' & ')}</span>`);
+    const tags=relations.filter(r=>r.a===p.id||r.b===p.id).map(r=>{
+      const other=byId[r.a===p.id?r.b:r.a];
+      return `<span class="pill">${r.label || r.type} : ${other?.name || 'Inconnu'}</span>`;
+    });
+    const familyTags=families.filter(f=>f.parents.includes(p.id)||f.children.includes(p.id)).map(f=>
+      f.parents.includes(p.id)
+      ? `<span class="pill">Transmission vers ${f.children.length} membre(s)</span>`
+      : `<span class="pill">Enfant de ${f.parents.map(id=>byId[id]?.name).join(' & ')}</span>`
+    );
     document.getElementById('modalTags').innerHTML=[...tags,...familyTags].join('')||'<span class="pill">Aucune relation renseignée</span>';
     const socials = p.socials || {};
     document.getElementById('modalSocials').innerHTML = Object.entries(socials).map(([name,url]) => `<a class="social-link" href="${url}" target="_blank" rel="noopener noreferrer">${name}</a>`).join('') || '<span class="pill">Aucun réseau renseigné</span>';
     document.getElementById('personModal').style.display='flex';
   }
 
+
+  function getTreeBounds() {
+    const visiblePeople = people.filter(p => Number.isFinite(p.x) && Number.isFinite(p.y));
+    if (!visiblePeople.length) return { minX:0, minY:0, maxX:1200, maxY:800, width:1200, height:800 };
+
+    const paddingX = 150;
+    const paddingY = 150;
+
+    const minX = Math.min(...visiblePeople.map(p => p.x)) - paddingX;
+    const maxX = Math.max(...visiblePeople.map(p => p.x)) + paddingX;
+    const minY = Math.min(...visiblePeople.map(p => p.y)) - paddingY;
+    const maxY = Math.max(...visiblePeople.map(p => p.y)) + paddingY;
+
+    return {
+      minX,
+      minY,
+      maxX,
+      maxY,
+      width: maxX - minX,
+      height: maxY - minY
+    };
+  }
+
+  function fitTreeToView() {
+    const bounds = getTreeBounds();
+
+    const scaleX = stage.clientWidth / bounds.width;
+    const scaleY = stage.clientHeight / bounds.height;
+
+    zoom = Math.max(0.35, Math.min(1.15, Math.min(scaleX, scaleY)));
+
+    panX = (stage.clientWidth - bounds.width * zoom) / 2 - bounds.minX * zoom;
+    panY = (stage.clientHeight - bounds.height * zoom) / 2 - bounds.minY * zoom;
+
+    applyTransform();
+  }
+
   function closeModal(e){ if(!e||e.target.id==='personModal') document.getElementById('personModal').style.display='none'; }
   function zoomBy(multiplier){ zoom=Math.max(.35,Math.min(2.2,zoom*multiplier)); applyTransform(); }
-  function centerTree(){ const w=parseFloat(tree.style.width)||2000; panX=Math.max(20,(stage.clientWidth-w*zoom)/2); panY=20; applyTransform(); }
-  function centerOn(id){ const p = byId[id]; if(!p) return; panX = stage.clientWidth/2 - p.x * zoom; panY = stage.clientHeight/2 - p.y * zoom; applyTransform(); }
+  function centerTree(){ fitTreeToView(); }
+  function centerOn(id){
+    const p = byId[id];
+    if(!p) return;
+    zoom = Math.max(1.25, Math.min(1.55, zoom));
+    panX = stage.clientWidth/2 - p.x * zoom;
+    panY = stage.clientHeight/2 - p.y * zoom;
+    applyTransform();
+  }
   function centerOnSelected(){ if(selectedId) centerOn(selectedId); }
-  function resetView(){ zoom=1; generationFilter='all'; selectedId=null; document.getElementById('familySearch').value=''; document.querySelectorAll('#generationFilter .family-btn').forEach((b,i)=>b.classList.toggle('active',i===0)); renderTree(); centerTree(); }
+
+  function resetView(){
+    zoom=1;    selectedId=null;
+    document.getElementById('familySearch').value='';    renderTree();
+    fitTreeToView();
+  }
+
   function togglePanel(){ const panel=document.getElementById('familyPanel'), button=document.getElementById('panelToggle'); panel.classList.toggle('collapsed'); button.textContent=panel.classList.contains('collapsed')?'›':'‹'; }
   function toggleFullscreen(){ const app = document.getElementById('familyApp'); if(!document.fullscreenElement) app.requestFullscreen?.(); else document.exitFullscreen?.(); }
 
@@ -409,7 +924,7 @@
       computeAutoLayout();
       await resolveDiscordAvatars();
       renderTree();
-      setTimeout(centerTree, 100);
+      setTimeout(fitTreeToView, 150);
     } catch(error) {
       console.error('Erreur chargement family-data.json :', error);
       tree.innerHTML = '<p style="color:white;padding:40px">Impossible de charger <strong>family-data.json</strong>. Vérifie que le fichier est bien à la racine du site.</p><svg class="relations" id="relationsSvg"></svg>';
