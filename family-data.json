@@ -244,6 +244,19 @@
       "socials":
       {
       }
+    },
+    {
+      "id":"p20",
+      "name":"Valentino Hamilton",
+      "gender":"homme",
+      "discordId": "851018271301304330",
+      "dates":"",
+      "role":"",
+      "bio": "bah papi chelou qu'on aime bien",
+      "socials":
+      {
+        "Twitch": "https://www.twitch.tv/morguigy"
+      }
     }
    ],
    "families":
@@ -266,7 +279,7 @@
     },
     {
       "parents":["p15"],
-      "children":["p9", "p16", "p17"]
+      "children":["p9", "p16", "p17", "p20"]
     }
 
   ],

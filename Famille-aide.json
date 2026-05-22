@@ -31,5 +31,13 @@
     "nombre_enfant": null,
     "couple_fictif": false,
     "genre_préference": "female"
+  },
+  {
+    "name": "Valentino Hamilton",
+    "id": "p20",
+    "genre": "male",
+    "enfant": false,
+    "nombre_enfant": null,
+    "couple_fictif": false
   }
 ]
