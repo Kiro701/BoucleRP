@@ -124,12 +124,13 @@
     },
     {
       "id":"p10",
-      "name":"Agent Nesquik",
+      "name":"Chaos Hamilton",
       "gender":"homme",
+      "img": "https://kiro701.github.io/BoucleRP/Image/PP/Chaos.jpg",
       "discordId": "1200313720195264613",
       "dates":"",
       "role":"",
-      "bio": "",
+      "bio": "fils aîné de Geno ayant participé à la construction de BoucleRP",
       "socials":
       {
       }
