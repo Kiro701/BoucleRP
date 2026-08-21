@@ -1,19 +1,5 @@
 {
-  "people":[
-    {
-      "id":"p1",
-      "name":"Mr Vox Hamilton",
-      "gender":"homme",
-      "discordId":"599130976806764545",
-      "dates":"",
-      "role":"Fondateur",
-      "bio":"Membre fondateur de la famille de cœur.",
-      "socials":{
-        "Tiktok":"https://www.tiktok.com/@vaasbey",
-        "Discord": "https://discord.com/users/599130976806764545"
-      }
-    },
-    {
+  "people":[{
       "id":"p2",
       "name":"Kokoro Hamilton",
       "gender":"homme",
@@ -28,6 +14,20 @@
         "Toyhouse" : "https://toyhou.se/yanderekokoro666"
       }
     },
+    {
+      "id":"p1",
+      "name":"Mr Vox Hamilton",
+      "gender":"homme",
+      "discordId":"599130976806764545",
+      "dates":"",
+      "role":"Fondateur",
+      "bio":"Membre fondateur de la famille de cœur.",
+      "socials":{
+        "Tiktok":"https://www.tiktok.com/@vaasbey",
+        "Discord": "https://discord.com/users/599130976806764545"
+      }
+    },
+    
     {
       "id":"p3",
       "name":"Kiro Hamilton",
@@ -81,20 +81,6 @@
       }
     },
     {
-      "id":"p7",
-      "name":"Minki Hamilton",
-      "gender":"femme",
-      "dates":"",
-      "img": "https://kiro701.github.io/BoucleRP/Image/PP/Minki.jpg",
-      "role":"",
-      "bio": "je suis gentille un peu chiante mais je suis là pour les personnes qui ont besoin de moi",
-      "socials":
-      {
-        "Discord": "https://discord.com/users/1211403503713394762",
-        "Tiktok": "https://www.tiktok.com/@hazbindoublage_minki"
-      }
-    },
-    {
       "id":"p8",
       "name":"Aria Kamuri",
       "gender":"femme",
@@ -108,7 +94,8 @@
         "Instagram": "https://www.instagram.com/aria_kamuri/",
         "Tiktok 1": "https://www.tiktok.com/@aria.kamuri",
         "Tiktok 2": "https://www.tiktok.com/@just._me562",
-        "YouTube": "https://www.youtube.com/@Aria_Kamuri4"
+        "YouTube": "https://www.youtube.com/@Aria_Kamuri4",
+        "Playstation": "https://psnprofiles.com/Agent_Nesquiik"
       }
     },
     {
@@ -116,6 +103,7 @@
       "name":"Aka Hamilton",
       "gender":"femme",
       "dates":"",
+      "discordId": "719519699716538389",
       "role":"",
       "bio": "",
       "socials":
@@ -156,30 +144,6 @@
       "name":"Gaya Hamilton",
       "gender":"femme",
       "discordId": "1471476067456782356",
-      "dates":"",
-      "role":"",
-      "bio": "",
-      "socials":
-      {
-      }
-    },
-    {
-      "id":"p13",
-      "name":"Hugo Hamilton",
-      "gender":"homme",
-      "discordId": "995281733232627752",
-      "dates":"",
-      "role":"",
-      "bio": "",
-      "socials":
-      {
-      }
-    },
-    {
-      "id":"p14",
-      "name":"Artique Hamilton",
-      "gender":"femme",
-      "discordId": "1092869363041828954",
       "dates":"",
       "role":"",
       "bio": "",
@@ -262,13 +226,27 @@
       {
         "Twitch": "https://www.twitch.tv/morguigy"
       }
+    },
+    {
+      "id":"p21",
+      "name":"Dimitri Hamilton",
+      "gender":"homme",
+      "discordId": "560935951803875368",
+      "dates":"",
+      "role":"",
+      "bio": "Hello ! Moi c'est Dimitri 21 ans, je suis du signe astrologique lion, donc attention je peut mordre ! 👀 Nooon, plus sérieusement, je suis originaire du sud ouest au alentour de bordeaux et actuellement domicilié dans le secteur de Poitiers !  Je suis actuellement en reconversion vers une formation en BTS SIO en informatique ! Mais sinon en emploi stable depuis 2 bonne années ! Sinon voili voilou, je suis doté d'un caractère gentil et adorable, avec une patience accrue ! Mais dote d'un défauts assez majeur, c'est que je m'inquiète facilement et rapidement pour les gens et que je suis doté d'une empathie énorme !",
+      "socials":
+      {
+        "Tiktok" : "https://www.tiktok.com/@spaghettzz",
+        "Instagram" : "https://www.instagram.com/spaghettzzz"
+      }
     }
    ],
    "families":
    [
     {
       "parents":["p6", "p9"],
-      "children":["p1","p7", "p8"]
+      "children":["p1", "p8"]
     },
     {
       "parents":["p1","p2"],
@@ -279,13 +257,14 @@
       "children":["p5","p10"]
     },
     {
-      "parents":["p7"],
-      "children":["p13", "p14"]
-    },
-    {
       "parents":["p15"],
       "children":["p9", "p16", "p17", "p20"]
+    },
+    {
+      "parents": ["p21"],
+      "children": ["p2"]
     }
+
 
   ],
   "relations":
