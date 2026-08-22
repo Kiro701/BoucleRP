@@ -30,7 +30,7 @@
     
     {
       "id":"p3",
-      "name":"Kiro Hamilton",
+      "name":"Yuna Hamilton",
       "gender":"femme",
       "discordId":"902870493550485504",
       "dates":"",
@@ -240,6 +240,17 @@
         "Tiktok" : "https://www.tiktok.com/@spaghettzz",
         "Instagram" : "https://www.instagram.com/spaghettzzz"
       }
+    },
+    {
+      "id":"p22",
+      "name":"Ethy Ashes",
+      "gender":"homme",
+      "discordId": "1525466858319384687",
+      "dates":"",
+      "role":"Marie de Yuna Hamilton",
+      "bio": "Ethyloteste ou le seigneur des cendres est un seigneur démon venant des contrée lointaine de l’anneau de la Colère, sont comportements et digne de sa terrible réputation, froid, calculateur et calme il sait se montrer d’une immense gentillesse et générosité envers c’est proche les plus fidèle, amoureux des sucreries et grands lecteurs, le seigneur des cendres porte un grand intérêt au apprentissage à c’est heures perdues",
+      "socials":
+      []
     }
    ],
    "families":
@@ -250,7 +261,7 @@
     },
     {
       "parents":["p1","p2"],
-      "children":["p3", "p11", "p12", "p18", "p19"]
+      "children":["p3", "p11", "p12", "p18", "p19", "p4"]
     },
     {
       "parents":["p1"],
@@ -278,8 +289,8 @@
     {
       "type": "love",
       "a": "p3",
-      "b": "p4",
-      "label": "Relation amoureuse arangée"
+      "b": "p22",
+      "label": "Relation amoureuse"
     },
     {
       "type": "love",
